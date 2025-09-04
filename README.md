@@ -1,1 +1,1 @@
-# Projeto Miso & More (Trabalho SENAC – UC1)
+# Projeto Miso & More
