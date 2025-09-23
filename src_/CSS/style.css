@@ -1,41 +1,50 @@
-<<<<<<< HEAD
+
 .root {
-  --primary-color: #F23041; /* Vermelho vibrante */
-  --secondary-color: #D9D9D9; /* Branco suave */
-  --accent-color: #F8F8F8; /* Azul claro */
-  --background-color: #F2F2F2; /* Cinza claro */
-  --text-color: #262626; /* Cinza escuro para texto */
+  --primary-color: #F23041; 
+  --secondary-color: #D9D9D9; 
+  --accent-color: #F8F8F8; 
+  --background-color: #F2F2F2; 
+  --text-color: #F8F8F8; 
 }
 
-** {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   background-color: #f5f5f5;
-  color: #333;
+  color: #212121;
 }
+
+.montserrat-regular {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 60px;
-  background: #111;
+  padding: 0.1px 50px;
+  background: #212121;
   color: #fff;
 }
 
 .logo {
-  font-size: 0.05rem;
+  font-size: -0.10rem;
   font-weight: bold;
 }
 
 .logo img {
-  height: 60px;
+  height: 100px;
+  padding: 10px;
 }
 
 nav ul {
@@ -55,3 +64,51 @@ nav a:hover,
 nav a.active {
   color: #e63946; /* Vermelho destaque */
 }
+
+.icons {
+  display: flex;
+  gap: 15px;
+}
+
+.hero {
+  display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 150px;
+      background: url('../img_/banner.jpg') no-repeat center center/cover;
+}
+
+.hero-text{
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--primary-color);
+  max-width: 600px;
+  margin-left: 50px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: left;
+}
+
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+button, .order-now {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      align-items: left;
+      box-shadow: #212121;
+    }
