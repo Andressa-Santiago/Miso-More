@@ -76,19 +76,19 @@ nav a.active {
       align-items: center;
       padding: 150px;
       background: url('../img_/banner.jpg') no-repeat center center/cover;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
 .hero-text{
   padding: 20px;
   border-radius: 10px;
-  color: var(--primary-color);
   max-width: 600px;
   margin-left: 50px;
 }
 
 .hero-text h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 3.1rem;
+  margin-bottom: 35px;
   color: #fff;
   text-align: left;
 }
@@ -98,17 +98,33 @@ nav a.active {
   font-size: 1.2rem;
   margin-bottom: 30px;
   color: #fff;
+  font-weight: bold-medium;
+}
+
+button{
+    background-color: #d62828;
+    border: none;
+    padding: 12px 25px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    align-items: left;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 button, .order-now {
-      background-color: #e63946;
-      color: white;
+      color: #fff;
       border: none;
       padding: 12px 25px;
       font-size: 14px;
       border-radius: 5px;
-      cursor: pointer;
       text-decoration: none;
       align-items: left;
-      box-shadow: #212121;
-    }
+      font-family: 'Josefin Sans', sans-serif;
+    
+}
+
+button:hover, .order-now:hover {
+      background-color: #F2F2F2;
+      transition: 0.3s;
+}
