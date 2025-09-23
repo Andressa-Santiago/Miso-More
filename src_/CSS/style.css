@@ -1,3 +1,10 @@
+.root {
+  --primary-color: #e63946; /* Vermelho vibrante */
+  --secondary-color: #f1faee; /* Branco suave */
+  --accent-color: #a8dadc; /* Azul claro */
+  --background-color: #f5f5f5; /* Cinza claro */
+  --text-color: #333; /* Cinza escuro para texto */
+}
 
 ** {
   margin: 0;
