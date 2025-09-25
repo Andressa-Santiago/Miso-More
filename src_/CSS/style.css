@@ -161,6 +161,11 @@ button:hover, .order-now:hover {
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.card:hover{
+  transform: scale(1.05);
 }
 
 
