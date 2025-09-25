@@ -142,7 +142,8 @@ button:hover, .order-now:hover {
     font-size: 2.5rem;
     color: #070707;
     margin-bottom: 40px;
-    font-weight: 300;
+    font-weight: 400px;
+    margin-top: 40px;
 }
 
 .cards{
