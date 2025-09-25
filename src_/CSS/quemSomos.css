@@ -19,14 +19,14 @@ body {
 }
 
 /* Header Styles */
-.header {
+.mainTitle {
     background-image: url(../img_/imgFundo.png);
     border-radius: 15px;
     padding: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 30px;    
 }
 
-.header h1 {
+.mainTitle h1 {
     color: white;
     font-family: josefin sans;
     font-size: 2.5rem;
