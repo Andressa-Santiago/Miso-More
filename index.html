@@ -5,8 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Miso & More</title>
+
+  <!-- Logo -->
   <link rel="shortcut icon" href="./doc_/Logo - Miso & More.pdf" type="image/x-icon">
+
+  <!-- link css -->
   <link rel="stylesheet" href="./src_/CSS/style.css">
+
+  <!-- links -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,6 +23,7 @@
 </head>
 
 <body>
+  <!-- menu -->
   <header>
     <div class="logo">
       <img src="./src_/img_/logoMiso.png" alt="Miso & More Logo">
@@ -36,7 +43,10 @@
       <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
     </div>
   </header>
+  <!-- fim menu -->
+
   <main>
+    <!-- CTA -->
     <section class="hero">
       <div class="hero-text">
         <h1>Sabores do Japão na sua mesa em poucos cliques</h1>
@@ -44,51 +54,78 @@
           rápido e seguro direto na sua casa!</p>
         <button class="order-now">Faça seu pedido</button>
       </div>
-  </main>
+    </section>
+    <!-- CTA fim -->
 
-  <div class="container-cardapio">
+    <!-- Cardapio -->
+    <section id="Cardapio">
+      <!-- cards -->
+      <div class="container-cardapio">
         <h1 class="titulo">Cardápio</h1>
-        
+
         <div class="cards">
-            <div class="card">
-                <div class="card-image">
-                    <img src="./src_/img_/img01.jpg" alt="À la carte">
-                </div>
-                <div class="card-content">
-                    <h3 class="card1-title">À la carte</h3>
-                </div>
+          <div class="card">
+            <div class="card-image">
+              <img src="./src_/img_/img01.jpg" alt="À la carte">
             </div>
-            
-            <div class="card">
-                <div class="card-image">
-                    <img src="./src_/img_/img02.jpg" alt="Rodízio">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Rodízio</h3>
-                </div>
+            <div class="card-content">
+              <h3 class="card1-title">À la carte</h3>
             </div>
-            
-            <div class="card">
-                <div class="card-image">
-                    <img src="./src_/img_/img03.jpg" alt="Menu executivo">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Menu executivo</h3>
-                </div>
+          </div>
+
+          <div class="card">
+            <div class="card-image">
+              <img src="./src_/img_/img02.jpg" alt="Rodízio">
             </div>
-            
-            <div class="card">
-                <div class="card-image">
-                    <img src="./src_/img_/img04.jpg" alt="Bebidas">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-Titulo">Bebidas</h3>
-                </div>
+            <div class="card-content">
+              <h3 class="card-title">Rodízio</h3>
             </div>
+          </div>
+
+          <div class="card">
+            <div class="card-image">
+              <img src="./src_/img_/img03.jpg" alt="Menu executivo">
+            </div>
+            <div class="card-content">
+              <h3 class="card-title">Menu executivo</h3>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-image">
+              <img src="./src_/img_/img04.jpg" alt="Bebidas">
+            </div>
+            <div class="card-content">
+              <h3 class="card-Titulo">Bebidas</h3>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
+    <!-- fim Cardapio -->
 
+    <!-- Quem somos -->
+    <section id="sobreNos" style="margin-top: 90px;">
+      <div class="parent">
+        <div class="texto">
+          <h2>Tradição Japonesa com sabor autêntico</h2>
 
+          <p>O Miso & More nasceu do amor pela cultura e gastronomia japonesa. Fundado há mais de 15 anos pela família
+            Tanaka, nosso restaurante combina técnicas tradicionais milenares com a comodidade do delivery moderno.</p>
+
+            <button class="order-now">Veja mais</button>
+        </div>
+        <div class="images">
+          <img id="sushiImg" src="./src_/img_/img05.jpg" alt="">
+          <img id="fishImg" src="./src_/img_/img06.jpg" alt="">
+          <img id="japaImg" src="./src_/img_/img07.jpg" alt="">
+        </div>
+      </div>
+    </section>
+    <!-- fim QUem somos -->
+
+  </main>
+  <!--  -->
 </body>
 
 </html>

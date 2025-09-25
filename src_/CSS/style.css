@@ -1,4 +1,4 @@
-
+/* cores */
 .root {
   --primary-color: #F23041; 
   --secondary-color: #D9D9D9; 
@@ -6,6 +6,7 @@
   --background-color: #F2F2F2; 
   --text-color: #F8F8F8; 
 }
+
 
 * {
   margin: 0;
@@ -26,8 +27,7 @@ body {
   font-style: normal;
 }
 
-
-
+/* menu */
 header {
   display: flex;
   justify-content: space-between;
@@ -69,7 +69,9 @@ nav a.active {
   display: flex;
   gap: 15px;
 }
+/* fim menu */
 
+/* CTA */
 .hero {
   display: flex;
       justify-content: space-between;
@@ -128,9 +130,9 @@ button:hover, .order-now:hover {
       background-color: #d84545;
       transition: 0.3s;
 }
+/* Fim CTA */
 
-
-
+/* cardapio */
 .container-cardapio {
     max-width: 900px;
     margin: 0 auto;
@@ -188,4 +190,87 @@ button:hover, .order-now:hover {
     font-weight: 500;
     margin: 0;
 }
+/* fim cardapio */
 
+/*  */
+.parent{
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+  gap: 20px;
+}
+
+#sobreNos{
+  background-color: #E6E6E6;
+  height: 700px;
+  padding: 50px;
+}
+
+.texto{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  max-width: 600px;
+  gap: 20px;
+}
+
+
+.texto h2 {
+  font-size: 50px;
+  margin-bottom: 16px;
+  margin-top: 30px;
+}
+
+.texto p {
+  margin-bottom: 24px;
+  text-align: left;
+  font-size: 25px;
+}
+
+.texto button{
+  max-width: 155px;
+}
+
+.images{
+  position: relative;
+  width: 900px;
+}
+
+.images img{
+  border-radius: 20px;
+}
+
+#sushiImg{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 250px;
+  z-index: 2;
+  transition: all ease 0.3s;
+}
+#sushiImg:hover{
+  transform: scale(1.05);
+}
+#fishImg{
+  position: absolute;
+  top: 30px;
+  left: 350px;
+  height: 380px;
+  width: 430px;
+
+  z-index: 1;
+  transition: all ease 0.3s;
+}
+#fishImg:hover{
+ transform: scale(1.05);
+}
+#japaImg{
+  position: absolute;
+  top: 360px;
+  left: 150px;
+  height: 250px;
+  transition: all ease 0.3s;
+}
+#japaImg:hover{
+ transform: scale(1.05);
+}
