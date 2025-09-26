@@ -1,30 +1,40 @@
-/* CSS */
+/* FOOTER */
 .footer {
-  background: #212121;
-  color: #FFFFFF;
-  padding: 40px 20px 20px;
+  background: #1c1c1c;
+  color: #f0f0f0;
   font-family: 'Josefin Sans', sans-serif;
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 1700px;
-  margin: 20px;
-  
+    display: flex;
+    justify-content: space-between;
+    max-width: 1520px;
+    margin: auto;
+    padding: 40px 20px;
+    gap: 100px;
+    
+}
+/* Logo footer */
+.footer-logo img {
+    max-width: 150px;
+    margin-bottom: 15px; 
+    display: block; 
+    margin-left: 0%;
+    margin-bottom: 15px; 
+
 }
 
+/*colunas */
 .footer-col {
-  flex: 1 1 250px;
-  margin: 15px;
+  flex: 1px;
+  margin: 1px;
+  min-width: 220px;
+  padding: 20px;
 }
-
 
 .footer h2 {
-  font-size: 1px;
-  margin-bottom: 5px;
-  padding: 0;
+  font-size: 22px;
+  margin-bottom: 15px;
   font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -32,15 +42,25 @@
     margin-bottom: 10px;
     font-size: 18px;
     font-family: 'Josefin Sans', sans-serif;
+    gap: 20px;
+}
+
+.footer p {
+  margin: 15px 0;
+  line-height: 1.5;
+  font-style: bold medium;
 }
 
 .footer ul {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    gap: 10px;
+    
 }
 
 .footer ul li {
-  margin: 6px 0;
+  margin: 15px 0;
 }
 
 .footer ul li a {
@@ -53,20 +73,30 @@
   color: #ff4c4c;
 }
 
-.social-icons i {
-    font-size: 30px;
-    margin-right: 10px;
-    color: #f0f0f0;
-    padding-top: 7%;
+
+/* Redes sociais */
+.social-icons {
+  margin-top: 10px;
+    
 }
 
+.social-icons a {
+  color: #f0f0f0;
+  margin-right: 12px;
+  font-size: 30px;
+  transition: 0.3s;
+}
 
+.social-icons a:hover {
+  color: #ff4c4c;
+}
+
+/* linha separadora */
 .footer-bottom {
   border-top: 1px solid #444;
   text-align: center;
-  padding-top: 15px;
-  margin-top: 20px;
+  padding: 15px 20px;
   font-size: 14px;
   color: #aaa;
 }
-
+/* fim do footer*/
