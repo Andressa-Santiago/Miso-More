@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Josefin Sans', poppins;
   background-color: #f5f5f5;
   color: #212121;
 }
@@ -283,3 +283,20 @@ button:hover, .order-now:hover {
  transform: scale(1.05);
 }
 /* fim Sobre Nos */
+
+/* contato */
+.container-contato{
+  max-width: 600px;
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+}
+
+#contato{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* fim contato */
+
+
