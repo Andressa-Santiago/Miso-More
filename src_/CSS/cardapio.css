@@ -1,3 +1,45 @@
+.hero-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 150px;
+  background: url('../img_/banner.jpg') no-repeat center center/cover;
+}
+
+.hero-cardapio {
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin-left: 50px;
+  text-align: center;
+}
+
+.hero-cardapio h1 {
+  font-size: 3.1rem;
+  margin-bottom: 35px;
+  color: #fff;
+  text-align: center;
+}
+
+
+.hero-cardapio p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #fff;
+  font-weight: bold-medium;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* FOOTER */
 .footer {
   background: #1c1c1c;
