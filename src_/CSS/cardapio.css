@@ -196,6 +196,10 @@ section.title-rodizio {
   margin-bottom: 50px;
 }
 
+.section-rodizio > .btn-vermelho:first-of-type {
+  display: none;
+}
+
 /* Esconde quando filtrado */
 .hidden {
   display: none;
