@@ -8,9 +8,6 @@
 
   <!-- link css-->
   <link rel="stylesheet" href="../CSS/cardapio.css">
-  <link rel="stylesheet" href="../CSS/style.css">
-
-
 
   <!-- links -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -21,6 +18,7 @@
 </head>
 
 <body>
+
   <!-- menu -->
   <header>
     <div class="logo">
@@ -44,17 +42,124 @@
 
   <main>
     <hero-section class="hero">
-      <div class="hero-content">
+      <div class="hero-banner">
         <h1>Nosso Cardápio</h1>
         <p>Explore os sabores autênticos da culinária japonesa com nosso cardápio diversificado.</p>
       </div>
     </hero-section>
-    <h1><br>
-      <br>
-      <br>
-    </h1>
-  </main>
 
+  <!-- SEÇÃO MENU -->
+    <section class="menu">
+      <div class="menu-nav">
+        <button data-category="all" class="active">Todos</button>
+        <button data-category="alacarte">A la carte</button>
+        <button data-category="rodizio">Rodízio</button>
+        <button data-category="executivo">Menu Executivo</button>
+        <button data-category="bebidas">Bebidas</button>
+      </div>
+    </section>
+
+
+  <!-- SEÇÃO PRATOS -->
+    <section class="section">
+    <h2 class="section-title">A la carte:</h2>
+
+  <!-- A la carte -->
+      <!-- SEÇÃO PRATOS -->
+    <section class="section-alacarte">
+      <div class="card alacarte">
+        <div class="card-text">
+        <strong>Combinado Salmão</strong> – 20 peças (sushi, sashimi, uramaki e hot roll).
+        </div>
+        <img src="../img_/salmao.jpg" alt="Salmão">
+        </div>
+
+        <div class="card alacarte">
+          <div class="card-text">
+          <strong>Teppan de Salmão</strong> – Grelhado com legumes e molho tarê.
+          </div>
+          <img src="../img_/salmaogrelhado.jpg" alt="Teppan de Salmão">
+        </div>
+
+          <div class="card alacarte">
+          <div class="card-text">
+          <strong>Yakisoba</strong> – Massa oriental com frango, carne ou camarão.
+          </div>
+          <img src="../img_/yakissoba.jpg" alt="Yakisoba">
+          </div>
+        </div>
+    
+
+    <!-- Rodízio -->
+    <section class="section-rodizio">
+      <h2 class="section-title">Rodízio:</h2>
+      <div class="card rodizio">
+        <div class="card-text">
+        <strong>Sushi e Sashimi Variados</strong> – Peixes frescos (salmão, atum, peixe branco e tilápia).
+      </div>
+      <img src="../img_/sushivariados.jpg" alt="Sushi Variado">
+    </div>
+
+    <div class="card rodizio">
+      <div class="card-text">
+        <strong>Temaki à vontade</strong> – Salmão, atum, camarão empanado e Califórnia.
+      </div>
+      <img src="../img_/temaki2.jpg" alt="Temaki">
+    </div>
+
+    <div class="card rodizio">
+      <div class="card-text">
+        <strong>Pratos Quentes</strong> Yakissoba, shimeji na manteiga e harumaki.
+      </div>
+      <img src="../img_/temaki2.jpg" alt="Temaki">
+    </div>
+    
+    
+    <!-- Menu Executivo -->
+    <div class="card executivo">
+      <div class="card-text">
+        <strong>Executivo Salmão</strong> – Sushi, sashimi e hot roll (10 peças).
+      </div>
+      <img src="../img_/pratoquente.jpg" alt="Executivo Salmão">
+    </div>
+
+    <div class="card executivo">
+      <div class="card-text">
+        <strong>Executivo Frango Teriyaki</strong> – Com legumes salteados e gohan.
+      </div>
+      <img src="../img_/pratoquente.jpg" alt="Executivo Frango Teriyaki">
+    </div>
+
+    <div class="card executivo">
+      <div class="card-text">
+        <strong>Executivo Yakissoba</strong> – Versão individual com frango ou carne bovina.
+      </div>
+      <img src="../img_/pratoquente.jpg" alt="Executivo Yakissoba">
+    </div>
+
+    
+
+
+    
+
+    
+
+    
+
+    <!-- Bebidas -->
+    <div class="card bebidas">
+      <div class="card-text">
+        <strong>Chá Verde Importado</strong> – Servido quente ou gelado.
+      </div>
+      <img src="../img_/bebidas.jpg" alt="Chá Verde">
+    </div>
+    <a href="#" class="btn-vermelho rodizio">Veja mais</a>
+
+
+
+  </section>
+
+  </main>
   <!--footer-->
   <footer class="footer">
     <div class="footer-container">
@@ -111,7 +216,6 @@
     </div>
   </footer>
 
-
+  <script src="../JS/cardapio.js"></script>
 </body>
-
 </html>

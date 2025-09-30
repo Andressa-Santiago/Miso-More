@@ -1,44 +1,205 @@
-.hero-banner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 150px;
-  background: url('../img_/banner.jpg') no-repeat center center/cover;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.hero-cardapio {
+body {
+  font-family: 'Josefin Sans', poppins;
+  background-color: #f5f5f5;
+  color: #212121;
+}
+
+.montserrat-regular {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+/* fim body */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.1px 50px;
+  background: #212121;
+  color: #fff;
+}
+
+.logo {
+  font-size: -0.10rem;
+  font-weight: bold;
+}
+
+.logo img {
+  height: 100px;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #e63946; /* Vermelho destaque */
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+}
+
+/* fim header */
+
+/*banner*/
+.hero {
+  display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 110px;
+      background: url('../img_/banner.jpg') no-repeat center center/cover;
+}
+
+.hero-banner {
   padding: 20px;
   border-radius: 10px;
   max-width: 600px;
   margin-left: 50px;
-  text-align: center;
+  text-align: left;
 }
 
-.hero-cardapio h1 {
+.hero-banner h1 {
   font-size: 3.1rem;
   margin-bottom: 35px;
   color: #fff;
-  text-align: center;
+  text-align: left;
 }
 
 
-.hero-cardapio p {
+.hero-banner p {
   font-size: 1.2rem;
   margin-bottom: 30px;
   color: #fff;
   font-weight: bold-medium;
+  text-align: left;
+}
+/* fim banner */
+
+/* ====== MENU ====== */
+.menu {
   text-align: center;
+  padding: 50px 20px;
+  background: #f5f5f5;
 }
 
+.menu-nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 1px 0;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
 
+.menu-nav button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #e0e0e0;
+  font-weight: 500;
+  transition: 0.3s;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+}
 
+.menu-nav button.active {
+  background: #e63946;
+  color: white;
+}
 
+.menu-nav button:hover {
+  background: #cfcfcf;
+}
 
+/* ====== MENU CARDS ====== */
+.section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
 
+.section h2 {
+  margin-bottom: 20px;
+  color: #454545;
+}
 
+section.title {
+  font-size: 10px;
+  text-align: left;
+  margin-bottom: 20px;
+  color: #454545;
+}
 
+section.title-rodizio {
+  font-size: 30px;
+  text-align: left;
+  margin-top: 20px;
+  color: #454545;
 
+}
 
+.card {
+  background: #D9D9D9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  width: 850px;
+}
+
+.card-text {
+  padding: 20px;
+  flex: 1;
+  font-size: 18px;
+}
+
+.card img {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.btn-vermelho {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 10px 20px;
+  background: #e63946;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+/* Esconde quando filtrado */
+.hidden {
+  display: none;
+}
 
 /* FOOTER */
 .footer {
