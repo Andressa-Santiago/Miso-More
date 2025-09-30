@@ -85,6 +85,18 @@
 }
 /* fim texto sobre nós */
 
+/* cards visão, missão e valores */
+.accordion-button{
+  background-image: url(../img_/imgFundo.png);
+  
+}
+
+.accordion-button::after {
+  filter: invert(1);
+}
+
+/* fim cards visão, missão e valores */
+
 
 /* FOOTER rodapé */
 .footer {
