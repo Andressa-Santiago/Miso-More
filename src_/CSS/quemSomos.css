@@ -70,7 +70,8 @@
 }
  
 .texto-content h2 {
-      font-size: 2.3rem;
+    font-family: 'Josefin Sans';
+    font-size: 2.3rem;
     margin-bottom: 20px;
     color: #ffffff;
     font-weight: 500;
@@ -88,11 +89,19 @@
 /* cards visão, missão e valores */
 .accordion-button{
   background-image: url(../img_/imgFundo.png);
-  
+  display: flex;
+  align-items: center;
+}
+
+p {
+  font-family: josefin sans;
+  flex: 1 1 auto;
+  text-align: center;
+  margin: 0;
 }
 
 .accordion-button::after {
-  filter: invert(1);
+  display: none;
 }
 
 /* fim cards visão, missão e valores */
