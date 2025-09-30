@@ -16,7 +16,6 @@
     padding: 25px 30px;
     text-align: center;
     margin-bottom: 0; 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .titulo-h1 {
@@ -32,7 +31,6 @@
     background-image: url(../img_/imgFundo.png);
     border-radius: 12px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .container-quemSomos {
