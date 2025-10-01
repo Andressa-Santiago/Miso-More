@@ -35,6 +35,7 @@
 
 .container-quemSomos {
     display: flex;
+    
     align-items: flex-start;
     gap: 30px;
     color: white;
