@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".card");
   const moreBtn = document.querySelector(".btn-vermelho");
   const sectionTitle = document.querySelector(".section-title");
+  const subtitles = document.querySelectorAll(".section-subtitle"); // todos os subtítulos
 
   const titles = {
     all: "Todos os pratos:",
@@ -13,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   function showCategory(category) {
-    // atualiza o título (se existir)
+    // atualiza o título principal
     if (sectionTitle) sectionTitle.textContent = titles[category] || "";
 
     // mostra/oculta cards
@@ -25,14 +26,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // botão "Veja mais" (se existir) — só aparece quando pertence à categoria ou em "all"
+    // botão "Veja mais" sempre visível
     if (moreBtn) {
-      if (category === "all" || moreBtn.classList.contains(category)) {
-        moreBtn.classList.remove("hidden");
-      } else {
-        moreBtn.classList.add("hidden");
-      }
+      moreBtn.classList.remove("hidden");
     }
+
+    // mostra subtítulos só quando a categoria for "all"
+    subtitles.forEach(sub => {
+      if (category === "all") {
+        sub.classList.remove("hidden");
+      } else {
+        sub.classList.add("hidden");
+      }
+    });
   }
 
   // clique nos botões

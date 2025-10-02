@@ -145,20 +145,21 @@ nav a.active {
   color: #454545;
 }
 
-section.title {
-  font-size: 10px;
-  text-align: left;
+.section h1 {
   margin-bottom: 20px;
   color: #454545;
-}
-
-section.title-rodizio {
-  font-size: 30px;
+  font-size: 25px;
   text-align: left;
-  margin-top: 20px;
-  color: #454545;
-
 }
+
+.section-subtitle {
+  margin-bottom: 90px;
+  color: #454545;
+  font-size: 22px;
+  text-align: left;
+  margin-top: 70px;
+}
+
 
 .card {
   background: #D9D9D9;
@@ -182,6 +183,12 @@ section.title-rodizio {
   width: 180px;
   height: 120px;
   object-fit: cover;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+  transition: 0.3s;
 }
 
 .btn-vermelho {
