@@ -137,7 +137,6 @@
 
 
 /* Formulário de contato */
-/* Formulário de contato */
 form {
   background: #fff;
   border-radius: 8px;
@@ -175,21 +174,7 @@ form textarea {
 form input::placeholder,
 form textarea::placeholder {
   color: #aaa;
-  font-style: italic;
-}
 
-/* Efeito ao passar o mouse */
-form input:hover,
-form textarea:hover {
-  border-color: #bbb;
-}
-
-/* Efeito ao focar */
-form input:focus,
-form textarea:focus {
-  border-color: #F23041;
-  box-shadow: 0 0 6px rgba(242, 48, 65, 0.3);
-  outline: none;
 }
 
 /* Botão */
