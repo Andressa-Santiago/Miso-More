@@ -25,6 +25,7 @@ body {
 
 
 /* menu */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -69,9 +70,17 @@ nav a.active {
 }
 /* fim menu */
 
+main {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 20px;
+}
+
+
 section {
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1500px;
 }
 
 .ingredientes {
@@ -92,7 +101,16 @@ section {
   font-family: 'Josefin Sans', sans-serif;
   text-align: center;
   align-items: center;
-} 
+}
+
+.ingredientes h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+  font-family: 'Josefin Sans', sans-serif;
+  text-align: center;
+  align-items: center;
+}
 
 .ingredientes p {
   font-size: 1.1rem;
@@ -110,6 +128,15 @@ section {
   border-radius: 12px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+video {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  width: 50%;
 }
 
 figure {
@@ -224,6 +251,27 @@ h1, h2, h3 {
   }
   th, td {
     padding: 6px 6px;
+  }
+  .ingredientes img,
+  video {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+  section {
+    padding: 10px;
+    margin: 0;
+  }
+  .ingredientes {
+    margin: 10px 0;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+    padding: 10px;
   }
 }
 
