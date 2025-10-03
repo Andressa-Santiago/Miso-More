@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // clique nos botões
+  // clique nos botões de categoria
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
       // toggla active visual
@@ -53,6 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
       showCategory(category);
     });
   });
+
+  // redireciona quando clicar no botão "Veja mais"
+  if (moreBtn) {
+    moreBtn.addEventListener("click", () => {
+      window.location.href = "tab.html";
+      // ⬆️ Troque "pagina-detalhes.html" pelo nome/URL da página de destino
+    });
+  }
 
   // inicializa com o botão que estiver com .active no HTML ou com o primeiro
   const activeBtn = document.querySelector(".menu-nav button.active") || buttons[0];
