@@ -175,6 +175,31 @@
             </div>
         </section>
         <!-- fim contato -->
+
+        <!-- Formulário de contato acessível -->
+        <form class="mt-5" action="#" method="post" autocomplete="on">
+            <h2>Nos dê o seu feedback</h2>
+          <fieldset>
+            <legend class="sr-only">Formulário de contato</legend>
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome:</label>
+              <input type="text" id="nome" name="nome" class="form-control" required autocomplete="name">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">E-mail:</label>
+              <input type="email" id="email" name="email" class="form-control" required autocomplete="email">
+            </div>
+            <div class="mb-3">
+              <label for="telefone" class="form-label">Telefone:</label>
+              <input type="tel" id="telefone" name="telefone" class="form-control" required autocomplete="tel" pattern="^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$" placeholder="(11) 99999-9999">
+            </div>
+            <div class="mb-3">
+              <label for="mensagem" class="form-label">Mensagem:</label>
+              <textarea id="mensagem" name="mensagem" class="form-control" rows="4" required autocomplete="off"></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger">Enviar</button>
+          </fieldset>
+        </form>
     </main>
     <!-- fim main -->
 

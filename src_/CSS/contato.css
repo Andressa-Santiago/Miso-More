@@ -134,3 +134,93 @@
   color: #aaa;
 }
 /* fim do footer*/
+
+
+/* Formulário de contato */
+/* Formulário de contato */
+form {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  max-width: 500px;
+  margin: 24px auto 0 auto;
+  padding: 18px 18px;
+  font-family: 'Josefin Sans', Arial, sans-serif;
+  transition: 0.3s ease;
+}
+
+form h2 {
+  margin-bottom: 24px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #212121;
+  text-align: center;
+}
+
+form label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+  color: #333;
+}
+
+form input,
+form textarea {
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Efeito ao passar o mouse */
+form input:hover,
+form textarea:hover {
+  border-color: #bbb;
+}
+
+/* Efeito ao focar */
+form input:focus,
+form textarea:focus {
+  border-color: #F23041;
+  box-shadow: 0 0 6px rgba(242, 48, 65, 0.3);
+  outline: none;
+}
+
+/* Botão */
+form button[type="submit"] {
+  background: #F23041;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+}
+
+form button[type="submit"]:hover {
+  background: #d11c36;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(209, 28, 54, 0.4);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  form {
+    padding: 10px 6px;
+    max-width: 98vw;
+  }
+  form button[type="submit"] {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+}
