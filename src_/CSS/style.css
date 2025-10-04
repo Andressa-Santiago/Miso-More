@@ -69,7 +69,10 @@ nav a.active {
 
 .icons {
   display: flex;
-  gap: 15px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 /* fim menu */
 
@@ -400,5 +403,36 @@ button:hover, .order-now:hover {
   font-size: 14px;
   color: #aaa;
 }
-/* fim do footer*/
+
+@media (max-width: 1400px) {
+  #images-container{
+    display: none !important; 
+  }
+}
+@media (max-width: 768px) {
+
+  .hero-text, .hero{
+    width: 100%;
+    margin: 0;
+    padding: 25px;
+  }
+ 
+  .hero-text h1 {
+  font-size: 2.1rem;
+  color: #fff;
+  text-align: center;
+}
+ 
+  .images-container {
+    position: relative;
+    height: 300px;
+    margin-top: 30px;
+  }
+
+  #Cardapio{
+    padding: 25px;
+  }
+
+
+}
 

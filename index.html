@@ -34,23 +34,33 @@
 <body>
   <!-- menu -->
   <header>
-    <div class="logo" id="topo">
-      <img src="./src_/img_/logoMiso.png" alt="Miso & More Logo" loading="lazy" decoding="async">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="../../index.html" aria-current="page">Home</a></li>
-        <li><a href="./src_/HTML/cardapio.html">Cardápio</a></li>
-        <li><a href="./src_/HTML/quemSomos.html">Quem somos</a></li>
-        <li><a href="./src_/HTML/contato.html">Contato</a></li>
-      </ul>
+    <nav class="navbar navbar-expand-lg w-100">
+      <div class="container-fluid">
+        <div class="logo" id="topo">
+          <img src="./src_/img_/logoMiso.png" alt="Miso & More Logo" loading="lazy" decoding="async">
+        </div>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+         <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center text-center p-1"  id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="../../index.html"  class="nav-link text-white" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="./src_/HTML/cardapio.html" class="nav-link text-white">Cardápio</a></li>
+            <li class="nav-item"><a href="./src_/HTML/quemSomos.html" class="nav-link text-white">Quem somos</a></li>
+            <li class="nav-item"><a href="./src_/HTML/contato.html" class="nav-link text-white">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="icons d-none d-md-none d-lg-block">
+          <i class="fa-solid fa-magnifying-glass mx-1" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-user mx-1" style="color: #ffffff;"></i>
+          <i class="fa-regular fa-heart mx-1" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-cart-shopping mx-1" style="color: #ffffff;"></i>
+        </div>
+      </div>
     </nav>
-    <div class="icons">
-      <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
-      <i class="fa-solid fa-user" style="color: #ffffff;"></i>
-      <i class="fa-regular fa-heart" style="color: #ffffff;"></i>
-      <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
-    </div>
   </header>
   <!-- fim menu -->
 
@@ -123,6 +133,7 @@
     <!-- fim Cardapio -->
 
     <!-- Quem somos -->
+    <!-- Quem Somos -->
     <section id="sobreNos" style="margin-top: 70px;">
       <div class="parent">
         <div class="texto">
@@ -133,7 +144,7 @@
 
           <button class="order-now">Veja mais</button>
         </div>
-        <div class="images">
+        <div id="images-container" class="images d-none d-md-block">
           <img id="sushiImg" src="./src_/img_/img05.jpg" alt="">
           <img id="fishImg" src="./src_/img_/img06.jpg" alt="">
           <img id="japaImg" src="./src_/img_/img07.jpg" alt="">
@@ -160,59 +171,56 @@
   </main>
   <!-- fim main -->
 
-  <!--footer-->
-  <footer class="footer">
-    <div class="footer-container">
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-5">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Coluna 1 - Logo e Descrição -->
+        <div class="col-lg-3 col-md-6">
+          <img src="./src_/img_/logoMiso.png" alt="Miso & More Logo" class="mb-3" style="max-width: 150px;">
+          <p class="small">Há mais de 15 anos levando os autênticos sabores da culinária japonesa diretamente à sua mesa. Tradição, qualidade e sabor em cada prato.</p>
+          <p class="fw-bold mt-3">Nossas redes sociais:</p>
+          <div class="d-flex gap-2">
+            <a href="#" class="text-light fs-4"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="text-light fs-4"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="text-light fs-4"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
 
-      <!-- Colunas -->
-      <div class="footer-col">
-        <div class="footer-logo"><img src="../src_/img_/logoMiso.png" alt="Miso & More Logo" loading="lazy"
-            decoding="async"></div>
-        <p>
-          Há mais de 15 anos levando os autênticos sabores da culinária japonesa
-          diretamente à sua mesa. Tradição, qualidade e sabor em cada prato.
-        </p><br>
+        <!-- Coluna 2 - Links Rápidos -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="mb-3">Links Rápidos:</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#topo" class="text-light text-decoration-none">Home</a></li>
+            <li class="mb-2"><a href="./src_/HTML/cardapio.html" class="text-light text-decoration-none">Cardápio</a></li>
+            <li class="mb-2"><a href="./src_/HTML/quemSomos.html" class="text-light text-decoration-none">Sobre nós</a></li>
+            <li class="mb-2"><a href="./src_/HTML/contato.html" class="text-light text-decoration-none">Contato</a></li>
+          </ul>
+        </div>
 
-        <p><strong>Nossas redes sociais:</strong></p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+        <!-- Coluna 3 - Contato -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="mb-3">Contato</h5>
+          <p class="small"><i class="fa-solid fa-location-dot me-2"></i>Rua dos Sakuras, 123<br>Liberdade, São Paulo - SP<br>CEP: 01234-567</p>
+          <p class="small"><i class="fa-solid fa-phone me-2"></i>(11) 9999-9999</p>
+          <p class="small"><i class="fa-solid fa-envelope me-2"></i>contato@misoandmore.com.br</p>
+        </div>
+
+        <!-- Coluna 4 - Horário -->
+        <div class="col-lg-3 col-md-6">
+          <h5 class="mb-3"><i class="fa-solid fa-clock me-2"></i>Horário de Funcionamento</h5>
+          <p class="small mb-1">Seg - Qui: 11:00 - 23:00</p>
+          <p class="small mb-1">Sex - Sáb: 11:00 - 00:00</p>
+          <p class="small mb-1">Domingo: 12:00 - 22:00</p>
         </div>
       </div>
 
-
-      <div class="footer-col">
-        <h3>Links Rápidos:</h3>
-        <ul>
-          <li><a href="#topo">Home</a></li>
-          <li><a href="./src_/HTML/cardapio.html">Cardápio</a></li>
-          <li><a href="./src_/HTML/quemSomos.html">Sobre nós</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
+      <!-- Footer Bottom -->
+      <div class="row mt-4 pt-4 border-top border-secondary">
+        <div class="col text-center">
+          <p class="small mb-0 text-white">© 2024 Miso & More. Todos os direitos reservados.<br>Desenvolvido com ❤️ para amantes da culinária japonesa</p>
+        </div>
       </div>
-
-      <div class="footer-col">
-        <h3>Contato</h3>
-        <p><i class="fa-solid fa-location-dot" style="color: #ffffff;"></i> Rua dos Sakuras, 123<br>Liberdade, São Paulo
-          -
-          SP<br>CEP: 01234-567</p>
-        <p><i class="fa-solid fa-phone" style="color: #ffffff;"></i> (11) 9999-9999</p>
-        <p><i class="fa-solid fa-envelope" style="color: #ffffff;"></i> contato@misoandmore.com.br</p>
-      </div>
-
-      <div class="footer-col">
-        <h3><i class="fa-solid fa-clock" style="color: #ffffff;"></i> Horário de Funcionamento</h3>
-        <p>Seg - Qui: 11:00 - 23:00</p>
-        <p>Sex - Sáb: 11:00 - 00:00</p>
-        <p>Domingo: 12:00 - 22:00</p>
-      </div>
-    </div>
-
-    <!-- linha de baixo -->
-    <div class="footer-bottom">
-      <p>© 2024 Miso & More. Todos os direitos reservados.<br>
-        Desenvolvido com ❤️ para amantes da culinária japonesa</p>
     </div>
   </footer>
   <!-- fim footer -->
@@ -222,7 +230,7 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
 
-  </body>
+</body>
 <!-- fim do body -->
 
 </html>

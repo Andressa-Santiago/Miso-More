@@ -170,7 +170,7 @@ nav a.active {
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
-  width: 850px;
+  width: 100%;
 }
 
 .card-text {
