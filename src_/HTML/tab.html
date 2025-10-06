@@ -23,24 +23,34 @@
 
 <body>
   <!-- menu -->
-  <header>
-    <div class="logo" id="topo">
-      <img src="../img_/logoMiso.png" alt="Miso & More Logo" loading="lazy" decoding="async">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/src_/HTML/cardapio.html">Cardápio</a></li>
-        <li><a href="/src_/HTML/quemSomos.html">Quem somos</a></li>
-        <li><a href="/src_/HTML/contato.html">Contato</a></li>
-      </ul>
+ <header>
+    <nav class="navbar navbar-expand-lg w-100">
+      <div class="container-fluid">
+        <div class="logo" id="topo">
+          <img src="../img_/logoMiso.png" alt="Miso & More Logo" loading="lazy" decoding="async">
+        </div>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+         <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center text-center p-1"  id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="../../index.html"  class="nav-link text-white" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="./src_/HTML/cardapio.html" class="nav-link text-white">Cardápio</a></li>
+            <li class="nav-item"><a href="./src_/HTML/quemSomos.html" class="nav-link text-white">Quem somos</a></li>
+            <li class="nav-item"><a href="./src_/HTML/contato.html" class="nav-link text-white">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="icons d-none d-md-none d-lg-block">
+          <i class="fa-solid fa-magnifying-glass mx-1" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-user mx-1" style="color: #ffffff;"></i>
+          <i class="fa-regular fa-heart mx-1" style="color: #ffffff;"></i>
+          <i class="fa-solid fa-cart-shopping mx-1" style="color: #ffffff;"></i>
+        </div>
+      </div>
     </nav>
-    <div class="icons">
-      <i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i>
-      <i class="fa-solid fa-user" style="color: #ffffff;"></i>
-      <i class="fa-regular fa-heart" style="color: #ffffff;"></i>
-      <i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>
-    </div>
   </header>
   <!-- fim menu -->
 
