@@ -50,7 +50,7 @@ nav a {
 }
 
 nav a[aria-current="page"] {
-  color: #e63946;
+  color: #e63946 !important;
   font-weight: 600;
 }
 
