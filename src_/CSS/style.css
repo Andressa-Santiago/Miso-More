@@ -60,6 +60,7 @@ nav a {
   color: #fff;
   font-weight: 500;
   transition: 0.3s;
+  font-size: 1.08rem;
 }
 
 nav a:hover,
