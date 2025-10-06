@@ -1,9 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  //variaveis
   const buttons = document.querySelectorAll(".menu-nav button");
   const cards = document.querySelectorAll(".card");
   const moreBtn = document.querySelector(".btn-vermelho");
   const sectionTitle = document.querySelector(".section-title");
   const subtitles = document.querySelectorAll(".section-subtitle"); // todos os subtítulos
+
+  const params = new URLSearchParams(window.location.search);
+  const urlCategory = params.get('category'); // pode ser null
 
   const titles = {
     all: "Todos os pratos:",
@@ -13,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     bebidas: "Bebidas:"
   };
 
+  //função que lista as categorias
   function showCategory(category) {
     // atualiza o título principal
     if (sectionTitle) sectionTitle.textContent = titles[category] || "";
@@ -66,5 +71,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const activeBtn = document.querySelector(".menu-nav button.active") || buttons[0];
   if (activeBtn) {
     showCategory(activeBtn.dataset.category || "all");
+  }
+
+  // inicializa: se houver category na URL, usar ela e marcar o botão correspondente
+  if (urlCategory) {
+    // marcar botão correspondente se existir
+    // vai fazer uma busca em todos os botões, procurando a dataset.catdgory que estiver na url
+    const matchingBtn = Array.from(buttons).find(b => b.dataset.category === urlCategory);
+    if (matchingBtn) {
+      buttons.forEach(b => b.classList.remove("active"));
+      matchingBtn.classList.add("active");
+    }
+    showCategory(urlCategory);
+  } else {
+    const activeBtn = document.querySelector(".menu-nav button.active") || buttons[0];
+    showCategory(activeBtn ? (activeBtn.dataset.category || "all") : "all");
   }
 });
