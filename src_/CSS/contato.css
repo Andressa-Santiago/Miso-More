@@ -1,4 +1,12 @@
 /* contato */
+
+/* topo  */
+.form-inline{
+  background: #212121; 
+  box-shadow: none !important;
+}
+/* fim topo */
+
 /* banner */
 .contato{
     background: url('../img_/imgFundo.png') no-repeat center center/cover;

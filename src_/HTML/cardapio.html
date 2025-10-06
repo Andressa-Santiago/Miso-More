@@ -1,226 +1,233 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+  <!DOCTYPE html>
+  <html lang="pt-BR">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cardápio</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio</title>
 
-  <!-- BOOTSTRAP CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-        crossorigin="anonymous">
+    <!-- BOOTSTRAP CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-  <!-- link css -->
-  <link rel="stylesheet" href="../CSS/cardapio.css">
+    <!-- link css -->
+    <link rel="stylesheet" href="../CSS/cardapio.css">
 
-  <link rel="shortcut icon" href="." type="image/x-icon">
+    <link rel="shortcut icon" href="." type="image/x-icon">
 
-  <!-- FONT AWESOME -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-  <!-- GOOGLE FONTS -->
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Montserrat:wght@400;600;700&display=swap"
-        rel="stylesheet">
-</head>
+    <!-- GOOGLE FONTS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet">
+  </head>
 
-<body>
+  <body>
 
-  <!-- menu -->
-   <header>
-    <nav class="navbar navbar-expand-lg w-100">
-      <div class="container-fluid">
-        <div class="logo" id="topo">
-          <img src="../img_/logoMiso.png" alt="Miso & More Logo" loading="lazy" decoding="async">
+    <!-- menu -->
+    <header>
+      <nav class="navbar navbar-expand-lg w-100">
+        <div class="container-fluid">
+          <div class="logo" id="topo">
+            <img src="../img_/logoMiso.png" alt="Miso & More Logo" loading="lazy" decoding="async">
+          </div>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-center text-center p-1" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a href="../../index.html" class="nav-link text-white">Home</a></li>
+              <li class="nav-item"><a href="../HTML/cardapio.html" class="nav-link text-white"
+                  aria-current="page">Cardápio</a></li>
+              <li class="nav-item"><a href="../HTML/quemSomos.html" class="nav-link text-white">Quem somos</a></li>
+              <li class="nav-item"><a href="../HTML/contato.html" class="nav-link text-white">Contato</a></li>
+            </ul>
+          </div>
+
+          <!-- barra de pesquisa -->
+          <div class="icons d-none d-md-none d-lg-block" style="position: relative;">
+            <form class="form-inline my-2 my-lg-0">
+              <div style="position: relative;">
+                <input class="form-control" type="search" placeholder="Pesquisar" aria-label="Pesquisar"
+                  style="padding-right: 32px; width: 220px;">
+                <span
+                  style="position: absolute; top: 50%; right: 8px; transform: translateY(-50%); pointer-events: none;">
+                  <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px;"></i>
+                </span>
+              </div>
+            </form>
+          </div>
+          <!-- fim barra de pesquisa -->
+      </nav>
+    </header>
+
+    <main>
+      <hero-section class="hero">
+        <div class="hero-banner">
+          <h1>Nosso Cardápio</h1>
+          <p>Explore os sabores autênticos da culinária japonesa com nosso cardápio diversificado.</p>
         </div>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-         <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
-        </button>
+      </hero-section>
 
-        <div class="collapse navbar-collapse justify-content-center text-center p-1"  id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a href="../../index.html"  class="nav-link text-white" >Home</a></li>
-            <li class="nav-item"><a href="../HTML/cardapio.html" class="nav-link text-white" aria-current="page">Cardápio</a></li>
-            <li class="nav-item"><a href="../HTML/quemSomos.html" class="nav-link text-white">Quem somos</a></li>
-            <li class="nav-item"><a href="../HTML/contato.html" class="nav-link text-white">Contato</a></li>
+      <!-- SEÇÃO MENU -->
+      <section class="menu">
+        <div class="menu-nav">
+          <button data-category="all" class="active">Todos</button>
+          <button data-category="alacarte">A la carte</button>
+          <button data-category="rodizio">Rodízio</button>
+          <button data-category="executivo">Menu Executivo</button>
+          <button data-category="bebidas">Bebidas</button>
+        </div>
+      </section>
+
+      <!-- SEÇÃO PRATOS -->
+      <section class="section">
+        <section class="section-alacarte">
+          <h1 class="section-title">Todos os pratos:</h1>
+
+          <div class="card alacarte">
+            <div class="card-text">
+              <strong>Salmão</strong> – 20 peças (sushi, sashimi, uramaki e hot roll).
+            </div>
+            <img src="../img_/salmao.jpg" alt="Salmão">
+          </div>
+
+          <div class="card alacarte">
+            <div class="card-text">
+              <strong>Teppan de Salmão</strong> – Grelhado com legumes e molho tarê.
+            </div>
+            <img src="../img_/salmaogrelhado.jpg" alt="Teppan de Salmão">
+          </div>
+
+          <div class="card alacarte">
+            <div class="card-text">
+              <strong>Yakisoba</strong> – Massa oriental com frango, carne ou camarão.
+            </div>
+            <img src="../img_/yakissoba.jpg" alt="Yakisoba">
+          </div>
+
+        </section>
+
+        <!-- Rodízio -->
+        <section class="section-rodizio">
+          <h2 class="section-subtitle">Rodízio:</h2>
+
+          <div class="card rodizio">
+            <div class="card-text">
+              <strong>Sushi e Sashimi Variados</strong> – Peixes frescos (salmão, atum, peixe branco e tilápia).
+            </div>
+            <img src="../img_/sushivariados.jpg" alt="Sushi Variado">
+          </div>
+
+          <div class="card rodizio">
+            <div class="card-text">
+              <strong>Temaki à vontade</strong> – Salmão, atum, camarão empanado e Califórnia.
+            </div>
+            <img src="../img_/temaki2.jpg" alt="Temaki">
+          </div>
+
+          <div class="card rodizio">
+            <div class="card-text">
+              <strong>Pratos Quentes</strong> - Yakissoba, shimeji na manteiga e harumaki.
+            </div>
+            <img src="../img_/pratoquente.jpg" alt="Pratos Quentes">
+          </div>
+        </section>
+
+        <!-- Menu Executivo -->
+        <h2 class="section-subtitle">Menu Executivo:</h2>
+
+        <div class="card executivo">
+          <div class="card-text">
+            <strong>Executivo Salmão</strong> – Sushi, sashimi e hot roll (10 peças).
+          </div>
+          <img src="../img_/salmao.jpg" alt="Executivo Salmão">
+        </div>
+
+        <div class="card executivo">
+          <div class="card-text">
+            <strong>Executivo Frango Teriyaki</strong> – Com legumes salteados e gohan.
+          </div>
+          <img src="../img_/frango.jpg" alt="Executivo Frango Teriyaki">
+        </div>
+
+        <div class="card executivo">
+          <div class="card-text">
+            <strong>Executivo Yakissoba</strong> – Versão individual com frango ou carne bovina.
+          </div>
+          <img src="../img_/pratoquente.jpg" alt="Executivo Yakissoba">
+        </div>
+
+        <!-- Bebidas -->
+        <h2 class="section-subtitle">Bebidas:</h2>
+
+        <div class="card bebidas">
+          <div class="card-text">
+            <strong>Chá Verde Importado</strong> – Servido quente ou gelado.
+          </div>
+          <img src="../img_/bebidas.jpg" alt="Chá Verde">
+        </div>
+
+        <a href="#" class="btn-vermelho rodizio">Veja mais</a>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Coluna 1 -->
+        <div class="footer-col">
+          <div class="footer-logo"><img src="../img_/logoMiso.png" alt="Miso & More Logo"></div>
+          <p>Há mais de 15 anos levando os autênticos sabores da culinária japonesa diretamente à sua mesa.</p><br>
+          <p><strong>Nossas redes sociais:</strong></p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h3>Links Rápidos:</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cardapio.html">Cardápio</a></li>
+            <li><a href="quemSomos.html">Sobre nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
           </ul>
         </div>
 
-        <div class="icons d-none d-md-none d-lg-block">
-          <i class="fa-solid fa-magnifying-glass mx-1" style="color: #ffffff;"></i>
-          <i class="fa-solid fa-user mx-1" style="color: #ffffff;"></i>
-          <i class="fa-regular fa-heart mx-1" style="color: #ffffff;"></i>
-          <i class="fa-solid fa-cart-shopping mx-1" style="color: #ffffff;"></i>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <hero-section class="hero">
-      <div class="hero-banner">
-        <h1>Nosso Cardápio</h1>
-        <p>Explore os sabores autênticos da culinária japonesa com nosso cardápio diversificado.</p>
-      </div>
-    </hero-section>
-
-    <!-- SEÇÃO MENU -->
-    <section class="menu">
-      <div class="menu-nav">
-        <button data-category="all" class="active">Todos</button>
-        <button data-category="alacarte">A la carte</button>
-        <button data-category="rodizio">Rodízio</button>
-        <button data-category="executivo">Menu Executivo</button>
-        <button data-category="bebidas">Bebidas</button>
-      </div>
-    </section>
-
-    <!-- SEÇÃO PRATOS -->
-    <section class="section">
-      <section class="section-alacarte">
-        <h1 class="section-title">Todos os pratos:</h1>
-
-        <div class="card alacarte">
-          <div class="card-text">
-            <strong>Salmão</strong> – 20 peças (sushi, sashimi, uramaki e hot roll).
-          </div>
-          <img src="../img_/salmao.jpg" alt="Salmão">
+        <div class="footer-col">
+          <h3>Contato</h3>
+          <p><i class="fa-solid fa-location-dot"></i> Rua dos Sakuras, 123<br>Liberdade, São Paulo - SP</p>
+          <p><i class="fa-solid fa-phone"></i> (11) 9999-9999</p>
+          <p><i class="fa-solid fa-envelope"></i> contato@misoandmore.com.br</p>
         </div>
 
-        <div class="card alacarte">
-          <div class="card-text">
-            <strong>Teppan de Salmão</strong> – Grelhado com legumes e molho tarê.
-          </div>
-          <img src="../img_/salmaogrelhado.jpg" alt="Teppan de Salmão">
-        </div>
-
-        <div class="card alacarte">
-          <div class="card-text">
-            <strong>Yakisoba</strong> – Massa oriental com frango, carne ou camarão.
-          </div>
-          <img src="../img_/yakissoba.jpg" alt="Yakisoba">
-        </div>
-
-      </section>
-
-      <!-- Rodízio -->
-      <section class="section-rodizio">
-        <h2 class="section-subtitle">Rodízio:</h2>
-
-        <div class="card rodizio">
-          <div class="card-text">
-            <strong>Sushi e Sashimi Variados</strong> – Peixes frescos (salmão, atum, peixe branco e tilápia).
-          </div>
-          <img src="../img_/sushivariados.jpg" alt="Sushi Variado">
-        </div>
-
-        <div class="card rodizio">
-          <div class="card-text">
-            <strong>Temaki à vontade</strong> – Salmão, atum, camarão empanado e Califórnia.
-          </div>
-          <img src="../img_/temaki2.jpg" alt="Temaki">
-        </div>
-
-        <div class="card rodizio">
-          <div class="card-text">
-            <strong>Pratos Quentes</strong> - Yakissoba, shimeji na manteiga e harumaki.
-          </div>
-          <img src="../img_/pratoquente.jpg" alt="Pratos Quentes">
-        </div>
-      </section>
-
-      <!-- Menu Executivo -->
-      <h2 class="section-subtitle">Menu Executivo:</h2>
-
-      <div class="card executivo">
-        <div class="card-text">
-          <strong>Executivo Salmão</strong> – Sushi, sashimi e hot roll (10 peças).
-        </div>
-        <img src="../img_/salmao.jpg" alt="Executivo Salmão">
-      </div>
-
-      <div class="card executivo">
-        <div class="card-text">
-          <strong>Executivo Frango Teriyaki</strong> – Com legumes salteados e gohan.
-        </div>
-        <img src="../img_/frango.jpg" alt="Executivo Frango Teriyaki">
-      </div>
-
-      <div class="card executivo">
-        <div class="card-text">
-          <strong>Executivo Yakissoba</strong> – Versão individual com frango ou carne bovina.
-        </div>
-        <img src="../img_/pratoquente.jpg" alt="Executivo Yakissoba">
-      </div>
-
-      <!-- Bebidas -->
-      <h2 class="section-subtitle">Bebidas:</h2>
-
-      <div class="card bebidas">
-        <div class="card-text">
-          <strong>Chá Verde Importado</strong> – Servido quente ou gelado.
-        </div>
-        <img src="../img_/bebidas.jpg" alt="Chá Verde">
-      </div>
-
-      <a href="#" class="btn-vermelho rodizio">Veja mais</a>
-    </section>
-  </main>
-
-  <!-- footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <!-- Coluna 1 -->
-      <div class="footer-col">
-        <div class="footer-logo"><img src="../img_/logoMiso.png" alt="Miso & More Logo"></div>
-        <p>Há mais de 15 anos levando os autênticos sabores da culinária japonesa diretamente à sua mesa.</p><br>
-        <p><strong>Nossas redes sociais:</strong></p>
-        <div class="social-icons">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
+        <div class="footer-col">
+          <h3><i class="fa-solid fa-clock"></i> Horário de Funcionamento</h3>
+          <p>Seg - Qui: 11:00 - 23:00</p>
+          <p>Sex - Sáb: 11:00 - 00:00</p>
+          <p>Domingo: 12:00 - 22:00</p>
         </div>
       </div>
 
-      <div class="footer-col">
-        <h3>Links Rápidos:</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="cardapio.html">Cardápio</a></li>
-          <li><a href="quemSomos.html">Sobre nós</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
+      <div class="footer-bottom">
+        <p>© 2024 Miso & More. Todos os direitos reservados.<br>Desenvolvido com ❤️ para amantes da culinária japonesa</p>
       </div>
+    </footer>
 
-      <div class="footer-col">
-        <h3>Contato</h3>
-        <p><i class="fa-solid fa-location-dot"></i> Rua dos Sakuras, 123<br>Liberdade, São Paulo - SP</p>
-        <p><i class="fa-solid fa-phone"></i> (11) 9999-9999</p>
-        <p><i class="fa-solid fa-envelope"></i> contato@misoandmore.com.br</p>
-      </div>
+    <!-- BOOTSTRAP JS (deve vir no fim do body) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"></script>
 
-      <div class="footer-col">
-        <h3><i class="fa-solid fa-clock"></i> Horário de Funcionamento</h3>
-        <p>Seg - Qui: 11:00 - 23:00</p>
-        <p>Sex - Sáb: 11:00 - 00:00</p>
-        <p>Domingo: 12:00 - 22:00</p>
-      </div>
-    </div>
+    <script src="../JS/cardapio.js"></script>
 
-    <div class="footer-bottom">
-      <p>© 2024 Miso & More. Todos os direitos reservados.<br>Desenvolvido com ❤️ para amantes da culinária japonesa</p>
-    </div>
-  </footer>
+  </body>
 
-  <!-- BOOTSTRAP JS (deve vir no fim do body) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-          crossorigin="anonymous"></script>
-
-  <script src="../JS/cardapio.js"></script>
-  
-</body>
-</html>
+  </html>
