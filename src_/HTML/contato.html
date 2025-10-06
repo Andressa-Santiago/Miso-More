@@ -64,9 +64,11 @@
         <section class="contato p-3">
             <div class="banner-content">
                 <h1>Entre em contato</h1>
-                <p>Estamos sempre prontos para atendê-lo! Entre em contato para fazer pedidos, tirar dúvidas, solicitar
+                <p class="my-2">Estamos sempre prontos para atendê-lo! Entre em contato para fazer pedidos, tirar dúvidas, solicitar
                     informações sobre nossos pratos ou dar sugestões. Sua opinião é muito importante para nós.</p>
+                <button class="order-now"  data-bs-toggle="modal" data-bs-target="#contactModal">Clique Aqui</button>
             </div>
+            
         </section>
         <!-- fim banner -->
 
@@ -190,35 +192,6 @@
             </div>
         </section>
         <!-- fim contato -->
-
-        <section class="p-3">
-            <!-- Formulário de contato acessível -->
-        <form class="mt-5" action="#" method="post" autocomplete="on">
-            <h2>Nos dê o seu feedback</h2>
-            <fieldset>
-                <legend class="sr-only">Formulário de contato</legend>
-                <div class="mb-3">
-                    <label for="nome" class="form-label">Nome:</label>
-                    <input type="text" id="nome" name="nome" class="form-control" required autocomplete="name">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">E-mail:</label>
-                    <input type="email" id="email" name="email" class="form-control" required autocomplete="email">
-                </div>
-                <div class="mb-3">
-                    <label for="telefone" class="form-label">Telefone:</label>
-                    <input type="tel" id="telefone" name="telefone" class="form-control" required autocomplete="tel"
-                        pattern="^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$" placeholder="(11) 99999-9999">
-                </div>
-                <div class="mb-3">
-                    <label for="mensagem" class="form-label">Mensagem:</label>
-                    <textarea id="mensagem" name="mensagem" class="form-control" rows="4" required
-                        autocomplete="off"></textarea>
-                </div>
-                <button type="submit" class="btn btn-danger">Enviar</button>
-            </fieldset>
-        </form>
-        </section>
     </main>
     <!-- fim main -->
 
@@ -275,6 +248,48 @@
     </div>
   </footer>
   <!-- fim footer -->
+
+  <!-- Modal -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="contactModalLabel"></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="mt-1" action="#" method="post" autocomplete="on">
+            <h2>Nos dê o seu feedback</h2>
+            <fieldset>
+                <legend class="sr-only">Formulário de contato</legend>
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome:</label>
+                    <input type="text" id="nome" name="nome" class="form-control" required autocomplete="name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail:</label>
+                    <input type="email" id="email" name="email" class="form-control" required autocomplete="email">
+                </div>
+                <div class="mb-3">
+                    <label for="telefone" class="form-label">Telefone:</label>
+                    <input type="tel" id="telefone" name="telefone" class="form-control" required autocomplete="tel"
+                        pattern="^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$" placeholder="(11) 99999-9999">
+                </div>
+                <div class="mb-3">
+                    <label for="mensagem" class="form-label">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" class="form-control" rows="4" required
+                        autocomplete="off"></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger">Enviar</button>
+            </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
 
     <!-- script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
