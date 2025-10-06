@@ -442,6 +442,18 @@ button:hover, .order-now:hover {
     padding: 25px;
   }
 
+  .texto h2 {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  margin-top: 30px;
+}
+
+.texto p {
+  margin-bottom: 1.2rem;
+  text-align: left;
+  font-size: 20px;
+}
+
 
 }
 
