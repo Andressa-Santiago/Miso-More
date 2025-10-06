@@ -61,11 +61,19 @@ nav a {
   font-weight: 500;
   transition: 0.3s;
   font-size: 1.08rem;
+   transition: color 0.3s;
+}
+
+nav a[aria-current="page"] {
+  color: #e63946 !important;
+  font-weight: 600;
 }
 
 nav a:hover,
 nav a.active {
-  color: #e63946; /* Vermelho destaque */
+  color: #e63946 !important; /* Vermelho destaque */
+  transition: color 0.2s;
+
 }
 
 .icons {
