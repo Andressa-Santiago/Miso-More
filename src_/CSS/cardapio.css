@@ -54,8 +54,10 @@ nav a[aria-current="page"] {
   font-weight: 600;
 }
 
-nav a:hover {
-  color: #e63946;
+nav a:hover,
+nav a.active {
+  color: #e63946 !important; /* Vermelho destaque */
+  transition: color 0.2s;
 }
 
 /* Ícones do topo */
