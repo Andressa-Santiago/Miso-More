@@ -7,10 +7,10 @@
   <title>Miso & More</title>
 
   <!-- Logo -->
-  <link rel="shortcut icon" href="./src_/img_/hashi.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../src_/img_/hashi.png" type="image/x-icon">
 
   <!-- link css -->
-  <link rel="stylesheet" href="./src_/CSS/style.css">
+  <link rel="stylesheet" href="../CSS/style.css">
 
   <!-- link font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -30,5 +30,44 @@
 
 </head>
 <body>
-    
+  <!-- menu -->
+  <header>
+    <nav class="navbar navbar-expand-lg w-100">
+      <div class="container-fluid">
+        <div class="logo" id="topo">
+          <img src="./src_/img_/logoMiso.png" alt="Miso & More Logo" loading="lazy" decoding="async">
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center text-center p-1" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="./index.html" class="nav-link text-white" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="./src_/HTML/cardapio.html" class="nav-link text-white">Cardápio</a></li>
+            <li class="nav-item"><a href="./src_/HTML/quemSomos.html" class="nav-link text-white">Quem somos</a></li>
+            <li class="nav-item"><a href="./src_/HTML/contato.html" class="nav-link text-white">Contato</a></li>
+            <li class="nav-item"><a href="./src_/HTML/galeria.html" class="nav-link text-white">Galeria</a></li>
+          </ul>
+        </div>
+
+        <!-- barra de pesquisa -->
+        <div class="icons d-none d-md-none d-lg-block" style="position: relative;">
+          <form class="form-inline my-2 my-lg-0">
+            <div style="position: relative;">
+              <input class="form-control" type="search" placeholder="Pesquisar" aria-label="Pesquisar"
+                style="padding-right: 32px; width: 220px;">
+              <span
+                style="position: absolute; top: 50%; right: 8px; transform: translateY(-50%); pointer-events: none;">
+                <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px;"></i>
+              </span>
+            </div>
+          </form>
+        </div>
+        <!-- fim barra de pesquisa -->
+      </div>
+    </nav>
+  </header>
+  <!-- fim menu -->
 </body>
