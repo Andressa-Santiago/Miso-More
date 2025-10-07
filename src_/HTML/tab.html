@@ -37,20 +37,27 @@
         <div class="collapse navbar-collapse justify-content-center text-center p-1"  id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item"><a href="../../index.html"  class="nav-link text-white" >Home</a></li>
-            <li class="nav-item"><a href="./src_/HTML/cardapio.html" class="nav-link text-white" aria-current="page">Cardápio</a></li>
-            <li class="nav-item"><a href="./src_/HTML/quemSomos.html" class="nav-link text-white">Quem somos</a></li>
-            <li class="nav-item"><a href="./src_/HTML/contato.html" class="nav-link text-white">Contato</a></li>
-            <li class="nav-item"><a href="./src_/HTML/galeria.html" class="nav-link text-white">Galeria</a></li>
+            <li class="nav-item"><a href="cardapio.html" class="nav-link text-white" aria-current="page">Cardápio</a></li>
+            <li class="nav-item"><a href="quemSomos.html" class="nav-link text-white">Quem somos</a></li>
+            <li class="nav-item"><a href="contato.html" class="nav-link text-white">Contato</a></li>
+            <li class="nav-item"><a href="galeria.html" class="nav-link text-white">Galeria</a></li>
           </ul>
         </div>
 
-        <div class="icons d-none d-md-none d-lg-block">
-          <i class="fa-solid fa-magnifying-glass mx-1" style="color: #ffffff;"></i>
-          <i class="fa-solid fa-user mx-1" style="color: #ffffff;"></i>
-          <i class="fa-regular fa-heart mx-1" style="color: #ffffff;"></i>
-          <i class="fa-solid fa-cart-shopping mx-1" style="color: #ffffff;"></i>
+        <!-- barra de pesquisa -->
+        <div class="icons d-none d-md-none d-lg-block" style="position: relative;">
+          <form class="form-inline my-2 my-lg-0">
+            <div style="position: relative;">
+              <input class="form-control" type="search" placeholder="Pesquisar" aria-label="Pesquisar"
+                style="padding-right: 32px; width: 220px;">
+              <span
+                style="position: absolute; top: 50%; right: 8px; transform: translateY(-50%); pointer-events: none;">
+                <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px;"></i>
+              </span>
+            </div>
+          </form>
         </div>
-      </div>
+        <!-- fim barra de pesquisa -->
     </nav>
   </header>
   <!-- fim menu -->
@@ -192,10 +199,7 @@
         </table>
       </div>
     </section>
-    </section>
-
-
-        
+    </section>     
     </div>
    </main>
 
