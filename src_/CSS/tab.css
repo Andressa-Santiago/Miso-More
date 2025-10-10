@@ -84,87 +84,101 @@ section {
   max-width: 1500px;
 }
 
-.ingredientes {
-  margin: 40px;
+/*card*/
+/* Container dos cards */
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.39);
-  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Card individual */
+.card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+  width: 350px;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+/* Efeito hover */
+.card:hover {
+  box-shadow: 0 8px 32px rgba(230,57,70,0.18);
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Título */
+.card h2 {
+  font-size: 1.4rem;
   text-align: center;
-  grid-template-columns: 1024px, 768px, 1023px, 768px;
+  margin-bottom: 12px;
 }
 
-.ingredientes h1 {
-  font-size: 2.0rem;
-  font-weight: bold;
-  margin-bottom: 16px;
-  font-family: 'Josefin Sans', sans-serif;
-  text-align: center;
-  align-items: center;
-}
-
-.ingredientes h2 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 16px;
-  font-family: 'Josefin Sans', sans-serif;
-  text-align: center;
-  align-items: center;
-}
-
-.ingredientes p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 10px;
-  color: #333;
-  margin-top: 30px;
-}
-
-.ingredientes img {
+/* Mídia (imagem ou vídeo) */
+.card-body img,
+.card-body video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
   display: block;
   margin: 0 auto 16px auto;
-  max-width: 30%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-video {
-  display: block;
-  margin: 20px auto;
-  max-width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-  width: 50%;
-}
-
-figure {
-  margin: 0;
-}
-
-figcaption {
+/* Texto do card */
+.card-body p {
   font-size: 1rem;
-  color: #555;
-  margin-top: 8px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 12px;
 }
 
-
-
-.ingredientes img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-}
-
-.ingredientes span {
-  font-size: 1.3rem;
+/* Preço */
+.card-body .price {
+  font-size: 1.1rem;
   font-weight: bold;
   color: var(--primary-color);
-  margin: 15px 0;
-  text-align: center;
+  margin-bottom: 12px;
 }
 
+/* Botão */
+.card-body .btn-card {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.card-body .btn-card:hover {
+  background: #b71c1c;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+
+/*table*/
 .table-responsive table {
   width: 100%;
   border-collapse: collapse;
@@ -269,10 +283,16 @@ h1, h2, h3 {
   }
 }
 
+main.container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
 @media (max-width: 900px) {
-  main {
-    grid-template-columns: 1fr;
-    padding: 10px;
+  .card-header, .card-body {
+    text-align: center;
+  }
+  .row {
+    gap: 24px 0;
   }
 }
 

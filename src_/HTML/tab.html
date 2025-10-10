@@ -63,145 +63,79 @@
   <!-- fim menu -->
 
 
-  <main class="container">
-    <section class="ingredientes">
-      <h1>Combinado de Salmão</h1>
-      <figure>
-      <video src="../videos_/salmao.mp4" alt="Combinado de Salmão" controls loop width="100%" poster="../img_/salmao.jpg"></video>
-      Combinado de Salmão combinado com 12 peças variadas de sushi e sashimi de salmão fresco, acompanhado de molho tarê e
-        gergelim. Perfeito para os amantes de salmão que buscam uma experiência completa e saborosa.
-      <strong>Preço:</strong> <span>R$ 59,90</span></p>
-    
-    <!-- Tabela de ingredientes do Combinado de Salmão -->
-    <section class="table-section">
-      <h2>Ingredientes do Combinado de Salmão</h2>
-      <div class="table-responsive" style="overflow-x:auto;">
-        <table class="table table-bordered align-middle" style="min-width:340px;">
-          <caption class="sr-only">Tabela de ingredientes do prato Combinado de Salmão</caption>
-          <thead class="table-dark">
-            <tr>
-              <th scope="col">Ingrediente</th>
-              <th scope="col">Descrição</th>
-              <th scope="col">Origem</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Salmão</td>
-              <td>Peixe fresco cortado em sashimi e sushi</td>
-              <td>Chile/Noruega</td>
-            </tr>
-            <tr>
-              <td>Arroz para sushi</td>
-              <td>Arroz japonês temperado com vinagre</td>
-              <td>Brasil/Japão</td>
-            </tr>
-            <tr>
-              <td>Nori</td>
-              <td>Alga marinha usada para enrolar uramaki e sushi</td>
-              <td>Japão</td>
-            </tr>
-            <tr>
-              <td>Gergelim</td>
-              <td>Sementes usadas no uramaki</td>
-              <td>Brasil</td>
-            </tr>
-            <tr>
-              <td>Molho Tarê</td>
-              <td>Molho agridoce à base de shoyu</td>
-              <td>Brasil</td>
-            </tr>
-            <tr>
-              <td>Cream Cheese</td>
-              <td>Recheio do hot roll</td>
-              <td>Brasil</td>
-            </tr>
-            <tr>
-              <td>Cebolinha</td>
-              <td>Finalização dos sushis</td>
-              <td>Brasil</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="3">* Todos os ingredientes são selecionados para garantir frescor e qualidade.</td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-    </section>
-    </section>
+ <main class="container text-center">
+    <h1 class="mb-5">Cardápio Miso & More</h1>
 
-        <section class="ingredientes">
-      <h1>Teppan de salmão</h1>
-      <video src="../videos_/salmaogrelhado.mp4" controls loop width="100%" ">
-  Seu navegador não suporta vídeo.
-</video>
-      Combinado de Salmão combinado com 12 peças variadas de sushi e sashimi de salmão fresco, acompanhado de molho tarê e
-        gergelim. Perfeito para os amantes de salmão que buscam uma experiência completa e saborosa.
-      <strong>Preço:</strong> <span>R$ 59,90</span></p>
-    
-    <!-- Tabela de ingredientes do Combinado de Salmão -->
+    <div class="row justify-content-center g-4">
+      <!-- Prato 1 -->
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-header">
+            <h3>Combinado de Salmão</h3>
+          </div>
+          <div class="card-body">
+            <video src="../videos_/salmao.mp4" controls loop poster="../img_/salmao.jpg" class="w-100 rounded mb-3"></video>
+            <p>Combinado com 12 peças variadas de sushi e sashimi de salmão fresco, acompanhado de molho tarê e gergelim.</p>
+            <p class="price">R$ 59,90</p>
+            <button class="btn btn-card w-100">Pedir agora</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prato 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 border-danger">
+          <div class="card-header">
+            <h3>Teppan de Salmão</h3>
+          </div>
+          <div class="card-body">
+            <img src="../img_/salmaogrelhado.jpg"
+            <p>Salmão grelhado com legumes e molho tarê. Uma refeição equilibrada e rica em sabor.</p>
+            <p class="price">R$ 64,90</p>
+            <button class="btn btn-card w-100">Pedir agora</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prato 3 -->
+      <div class="col-md-4">
+        <div class="card h-100">
+          <div class="card-header">
+            <h3>Yakissoba Tradicional</h3>
+          </div>
+          <div class="card-body">
+            <video src="../videos_/yakissoba.mp4" controls loop poster="../img_/yakissoba.jpg" class="w-100 rounded mb-3"></video>
+            <p>Macarrão oriental salteado com legumes frescos e molho shoyu especial da casa.</p>
+            <p class="price">R$ 42,90</p>
+            <button class="btn btn-card w-100">Pedir agora</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabela comparativa -->
     <section class="table-section">
-      <h2>Ingredientes do Teppan de Salmão</h2>
-      <div class="table-responsive" style="overflow-x:auto;">
-        <table class="table table-bordered align-middle" style="min-width:340px;">
-          <caption class="sr-only">Tabela de ingredientes do prato Teppan de Salmão</caption>
-          <thead class="table-dark">
+      <h2 class="mt-5 mb-3">Comparativo de Pratos</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle text-center">
+          <thead>
             <tr>
-              <th scope="col">Ingrediente</th>
-              <th scope="col">Descrição</th>
-              <th scope="col">Origem</th>
+              <th>Recurso</th>
+              <th>Combinado de Salmão</th>
+              <th>Teppan de Salmão</th>
+              <th>Yakissoba</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Salmão</td>
-              <td>Peixe fresco cortado em sashimi e sushi e grelhado na chapa</td>
-              <td>Chile/Noruega</td>
-            </tr>
-            <tr>
-              <td>Arroz para sushi</td>
-              <td>Arroz japonês temperado com vinagre</td>
-              <td>Brasil/Japão</td>
-            </tr>
-            <tr>
-              <td>Nori</td>
-              <td>Alga marinha usada para enrolar uramaki e sushi</td>
-              <td>Japão</td>
-            </tr>
-            <tr>
-              <td>Gergelim</td>
-              <td>Sementes usadas no uramaki</td>
-              <td>Brasil</td>
-            </tr>
-            <tr>
-              <td>Molho Tarê</td>
-              <td>Molho agridoce à base de shoyu</td>
-              <td>Brasil</td>
-            </tr>
-            <tr>
-              <td>Cream Cheese</td>
-              <td>Recheio do hot roll</td>
-              <td>Brasil</td>
-            </tr>
-            <tr>
-              <td>Cebolinha</td>
-              <td>Finalização dos sushis</td>
-              <td>Brasil</td>
-            </tr>
+            <tr><td>Tipo</td><td>Sushi e sashimi</td><td>Grelhado</td><td>Macarrão oriental</td></tr>
+            <tr><td>Molho</td><td>Tarê</td><td>Tarê</td><td>Shoyu especial</td></tr>
+            <tr><td>Porção</td><td>12 peças</td><td>350g</td><td>500g</td></tr>
+            <tr><td>Acompanha</td><td>Molho tarê e gengibre</td><td>Legumes salteados</td><td>Vegetais frescos</td></tr>
           </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="3">* Todos os ingredientes são selecionados para garantir frescor e qualidade.</td>
-            </tr>
-          </tfoot>
         </table>
       </div>
     </section>
-    </section>     
-    </div>
-   </main>
+  </main> 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
