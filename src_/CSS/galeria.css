@@ -2,7 +2,9 @@
 body {
 background-color: #f5f5f5;
 }
+/*  */
 
+/* Galeria */
 .gallery-container {
 max-width: 1200px;
 margin: 0 auto;
@@ -37,7 +39,19 @@ transition: transform 0.3s ease;
     height: 100%;
     object-fit: cover;
 }
-/*  */
+
+.gallery-description {
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.gallery-item:hover .gallery-description {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* fim Galeria */
 
 /* FOOTER */
 .footer {
