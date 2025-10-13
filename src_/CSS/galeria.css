@@ -1,37 +1,203 @@
-        body {
-            background-color: #f5f5f5;
-        }
+/*  */
+body {
+background-color: #f5f5f5;
+}
+/*  */
 
-        .gallery-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+/* Galeria */
+.gallery-container {
+max-width: 1200px;
+margin: 0 auto;
+}
 
-        .gallery-title {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-            color: #333;
-        }
+.gallery-title {
+text-align: center;
+font-weight: 400;
+margin-bottom: 30px;
+margin-top: 30px;
+color: #212121;
+font-family: 'Josefin Sans', sans-serif;
+}
 
-        .gallery-item {
-            background-color: #d3d3d3;
-            border-radius: 8px;
-            aspect-ratio: 1 / 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
+.gallery-item {
+background-color: #d3d3d3;
+border-radius: 8px;
+aspect-ratio: 1 / 1;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: hidden;
+transition: transform 0.3s ease;
+}
 
-        .gallery-item:hover {
-            transform: scale(1.03);
-        }
+.gallery-item:hover {
+    transform: scale(1.03);
+}
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-description {
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.gallery-item:hover .gallery-description {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* fim Galeria */
+
+/* FOOTER */
+.footer {
+    background: #1c1c1c;
+    color: #f0f0f0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1520px;
+    margin: auto;
+    padding: 40px 20px;
+    gap: 100px;
+
+}
+
+/* Logo footer */
+.footer-logo img {
+    max-width: 150px;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: 0%;
+    margin-bottom: 15px;
+
+}
+
+/*colunas */
+.footer-col {
+    flex: 1px;
+    margin: 1px;
+    min-width: 220px;
+    padding: 20px;
+}
+
+.footer h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.footer h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: 'Josefin Sans', sans-serif;
+    gap: 20px;
+}
+
+.footer p {
+    margin: 15px 0;
+    line-height: 1.5;
+    font-style: bold medium;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+    gap: 10px;
+
+}
+
+.footer ul li {
+    margin: 15px 0;
+}
+
+.footer ul li a {
+    color: #f0f0f0;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer ul li a:hover {
+    color: #ff4c4c;
+}
+
+
+/* Redes sociais */
+.social-icons {
+    margin-top: 10px;
+
+}
+
+.social-icons a {
+    color: #f0f0f0;
+    margin-right: 12px;
+    font-size: 30px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ff4c4c;
+}
+
+/* linha separadora */
+.footer-bottom {
+    border-top: 1px solid #444;
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+@media (max-width: 1400px) {
+    #images-container {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero-text,
+    .hero {
+        width: 100%;
+        margin: 0;
+        padding: 25px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.1rem;
+        color: #fff;
+        text-align: center;
+    }
+
+    .images-container {
+        position: relative;
+        height: 300px;
+        margin-top: 30px;
+    }
+
+    #Cardapio {
+        padding: 25px;
+    }
+
+    .texto h2 {
+        font-size: 2.5rem;
+        margin-bottom: 16px;
+        margin-top: 30px;
+    }
+
+    .texto p {
+        margin-bottom: 1.2rem;
+        text-align: left;
+        font-size: 20px;
+    }
+
+
+}
