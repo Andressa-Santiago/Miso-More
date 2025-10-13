@@ -156,6 +156,10 @@ transition: transform 0.3s ease;
     color: #aaa;
 }
 
+#verMais{
+    display: none;
+}
+
 @media (max-width: 1400px) {
     #images-container {
         display: none !important;
@@ -199,5 +203,12 @@ transition: transform 0.3s ease;
         font-size: 20px;
     }
 
+    .hide{
+        display: none;
+    }
 
+    
+#verMais{
+    display: block;
+}
 }
