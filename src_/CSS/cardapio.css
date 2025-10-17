@@ -5,14 +5,10 @@
   box-sizing: border-box;
 }
 
-
-
 body {
   background-color: #f5f5f5;
   color: #212121;
 }
-
-
 
 /* ================== HEADER ================== */
 header {
@@ -56,160 +52,104 @@ nav a[aria-current="page"] {
 
 nav a:hover,
 nav a.active {
-  color: #e63946 !important; /* Vermelho destaque */
+  color: #e63946 !important;
+  /* Vermelho destaque */
   transition: color 0.2s;
 }
 
-/* Ícones do topo */
-.icons {
-  display: flex;
-  gap: 20px;
-  font-size: 1rem;
-  display: flex;
+/* ================================================= */
+/* 1. LAYOUT PRINCIPAL (DO MAIN) E SIDEBAR DE FILTROS */
+/* ================================================= */
+
+/* Container Principal (A tag <main>) */
+.main-menu-container {
+  padding: 30px 50px; 
+  display: flex;       
+  gap: 30px;           
+  max-width: 100%;     
 }
 
-  .navbar-expand-lg.w-100.bg-dark .container-fluid {
-    background-color: #212121 !important;
-  }
-
-/* ================== HERO ================== */
-.hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 110px;
-  background: url("../img_/banner.jpg") no-repeat center center / cover;
-}
-
-.hero-banner {
+/* O elemento de filtros (A tag <aside>) */
+.filter-sidebar {
+  flex-basis: 300px; /* Largura fixa para a barra de filtros */
+  flex-shrink: 0;
   padding: 20px;
-  border-radius: 10px;
-  max-width: 600px;
-  margin-left: 50px;
-  text-align: left;
+  background-color: #ffffff; /* Fundo branco para destacar */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  height: fit-content; /* Faz o background branco terminar onde o conteúdo acaba */
 }
 
-.hero-banner h1 {
-  font-size: 3.1rem;
-  margin-bottom: 35px;
-  color: #fff;
-  font-family: 'Josefin Sans', sans-serif;
+/* Garante que a área de resultados ocupe o espaço restante */
+.results-area {
+    flex-grow: 1;
 }
 
-.hero-banner p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: #fff;
-  font-weight: 500;
-  font-family: 'Josefin Sans', sans-serif;
+/* Títulos dos Filtros */
+.filter-sidebar legend,
+.filter-sidebar h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #212121;
+  margin-bottom: 15px;
+  margin-top: 25px;
 }
 
-/* ================== MENU BOTÕES ================== */
-.menu {
-  text-align: center;
-  padding: 50px 20px;
-  background: #f5f5f5;
+/* Layout dos inputs de Preço (Min/Máx) */
+.price-inputs {
+    display: flex;
+    gap: 10px;
 }
 
-.menu-nav {
+/* Botões Limpar/Aplicar no final do formulário */
+.filter-actions {
+  margin-top: 30px;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 15px;
+  gap: 10px;
+  width: 100%; 
+}
+/* Força o botão "Aplicar" a ir para a direita */
+.filter-actions .btn-primary {
+    margin-left: auto;
 }
 
-.menu-nav button {
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #e0e0e0;
-  font-weight: 500;
-  transition: 0.3s;
-  font-family: "Josefin Sans", sans-serif;
-  font-size: 18px;
+
+/* Altura da imagem do card */
+.card .card-img-top {
+    height: 200px;        /* Altura fixa para todas as imagens */
+    object-fit: cover;    /* Garante que a imagem preencha a área sem distorcer */
 }
 
-.menu-nav button.active {
-  background: #e63946;
-  color: #fff;
+/* Estilo do corpo do card */
+.card-body h6 {
+    font-weight: 600;
 }
 
-.menu-nav button:hover {
-  background: #cfcfcf;
+/* Estilo do Rodapé do Card (onde ficam preço e badges) */
+.card-body .mt-auto {
+    padding-top: 10px;
 }
 
-/* ================== SEÇÕES ================== */
-.section {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+/* Altura mínima AGRESSIVA para a área de resultados principal */
+.results-area {
+    flex-grow: 1;
+    /* Certifique-se que o pai usa flexbox para controlar o estiramento */
+    display: flex;
+    flex-direction: column;
+    
+    /* Esta linha é crucial para manter a altura total */
+    min-height: calc(100vh - 200px) !important; 
 }
 
-.section h1,
-.section h2 {
-  margin-bottom: 20px;
-  color: #454545;
-  font-family: 'Josefin Sans', sans-serif;
+/* Altura mínima para o container de Cards */
+/* Altura mínima para o container de Cards */
+#cards {
+    min-height: 14px !important; 
 }
 
-.section h1 {
-  font-size: 25px;
-  text-align: left;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-.section-subtitle {
-  margin: 70px 0 90px;
-  color: #454545;
-  font-size: 22px;
-  text-align: left;
-}
-
-/* ================== CARDS ================== */
-.card {
-  display: flex;
-  flex-direction: row; /* imagem à direita */
-  align-items: center;
-  background: #e0e0e0;
-  border-radius: 15px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  margin-bottom: 20px;
-  overflow: hidden;
-  transition: box-shadow 0.2s;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  font-family: "Josefin Sans", sans-serif;
-}
-
-.card-text {
-  padding: 20px;
-  flex: 1;
-  font-size: 18px;
-}
-
-.card img {
-  width: 180px;
-  height: 120px;
-}
-
-.card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
-}
-
-/* Botão padrão */
-.btn-vermelho {
-  display: inline-block;
-  margin: 20px 0 50px;
-  padding: 10px 20px;
-  background: #e63946;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
+/* Altura mínima para o container de Tabela */
+#tableWrap {
+    min-height: 140px !important; 
 }
 
 /* Oculta elementos quando filtrado */
@@ -315,31 +255,24 @@ nav a.active {
     margin: 0 auto;
   }
 
-  .card {
-    flex-direction: row; /* Mantém imagem à direita */
-    text-align: left;
-  }
-  .card img {
-    width: 140px;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
-  header {
-    padding: 10px 20px;
-  }
-
-  .footer-container {
+  /* AJUSTE RESPONSIVO PARA O LAYOUT FILTROS/RESULTADOS */
+  .main-menu-container {
+    padding: 20px;
+    /* Reduz o padding em telas menores */
     flex-direction: column;
-    align-items: left;
-    text-align: left;
+    /* Filtro e Resultados ficam em COLUNAS (um em cima do outro) */
   }
 
-  .icons {
-    display: none; /* Oculta ícones no mobile */
+  .filter-sidebar {
+    /* No mobile, o filtro deve ocupar a largura total */
+    flex-basis: auto;
+    width: 100%;
+    margin-bottom: 20px;
+    /* Espaço entre o filtro e os resultados */
   }
-}
+  /* FIM DO AJUSTE RESPONSIVO FILTROS/RESULTADOS */
+
+
 
 @media (max-width: 900px) {
   header {
@@ -360,6 +293,9 @@ nav a.active {
   .icons {
     margin-top: 8px;
   }
+
 }
 
+
+}
 

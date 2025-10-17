@@ -70,15 +70,11 @@
     </nav>
   </header>
 
-  <main class="container my-4">
-    <div class="row g-3">
+<main class="main-menu-container">
 
-      <!-- FILTERS (left) -->
-      <aside class="col-12 col-lg-3">
-        <!-- button to open offcanvas on mobile -->
+      <aside class="filter-sidebar">
         <button class="btn btn-outline-primary d-lg-none w-100 mb-2" data-bs-toggle="offcanvas" data-bs-target="#filtrosOff">Filtros</button>
 
-        <!-- offcanvas for mobile + static sidebar on lg+ -->
         <div class="offcanvas-lg offcanvas-start" id="filtrosOff" tabindex="-1">
           <div class="offcanvas-header">
             <h5 class="offcanvas-title">Filtros do Cardápio</h5>
@@ -89,17 +85,16 @@
             <form id="formFiltros" class="d-flex flex-column">
 
               <div class="mb-3">
-                <label class="form-label">Buscar prato</label>
-                <input id="q" class="form-control" placeholder="ex.: salmão, hot roll">
+                <h2>Filtros</h2>
               </div>
 
               <fieldset class="mb-3">
                 <legend class="fs-6">Categorias</legend>
-                <div class="form-check"><input class="form-check-input cat" type="checkbox" value="A la carte" id="c-all-cat" checked><label class="form-check-label" for="c-all-cat">A la carte</label></div>
-                <div class="form-check"><input class="form-check-input cat" type="checkbox" value="Rodízio" id="c-rod" checked><label class="form-check-label" for="c-rod">Rodízio</label></div>
-                <div class="form-check"><input class="form-check-input cat" type="checkbox" value="Executivo" id="c-exe" checked><label class="form-check-label" for="c-exe">Menu Executivo</label></div>
-                <div class="form-check"><input class="form-check-input cat" type="checkbox" value="Bebidas" id="c-beb" checked><label class="form-check-label" for="c-beb">Bebidas</label></div>
-                <div class="form-check"><input class="form-check-input cat" type="checkbox" value="Sobremesa" id="c-sob" checked><label class="form-check-label" for="c-sob">Sobremesa</label></div>
+                <div class="form-check"><input class="form-check-input gen" type="checkbox" value="A la carte" id="c-all-cat" checked><label class="form-check-label" for="c-all-cat">A la carte</label></div>
+                <div class="form-check"><input class="form-check-input gen" type="checkbox" value="Rodízio" id="c-rod" checked><label class="form-check-label" for="c-rod">Rodízio</label></div>
+                <div class="form-check"><input class="form-check-input gen" type="checkbox" value="Executivo" id="c-exe" checked><label class="form-check-label" for="c-exe">Menu Executivo</label></div>
+                <div class="form-check"><input class="form-check-input gen" type="checkbox" value="Bebidas" id="c-beb" checked><label class="form-check-label" for="c-beb">Bebidas</label></div>
+                <div class="form-check"><input class="form-check-input gen" type="checkbox" value="Sobremesa" id="c-sob" checked><label class="form-check-label" for="c-sob">Sobremesa</label></div>
               </fieldset>
 
               <fieldset class="mb-3">
@@ -111,7 +106,7 @@
 
               <fieldset class="mb-3">
                 <legend class="fs-6">Preço (R$)</legend>
-                <div class="row g-2">
+                <div class="row g-2 price-inputs"> 
                   <div class="col"><input id="min" type="number" class="form-control" placeholder="Mín. ex.: 10"></div>
                   <div class="col"><input id="max" type="number" class="form-control" placeholder="Máx. ex.: 150"></div>
                 </div>
@@ -123,11 +118,11 @@
                   <option value="relevance">Relevância</option>
                   <option value="price-asc">Preço: menor → maior</option>
                   <option value="price-desc">Preço: maior → menor</option>
-                  <option value="name-asc">Nome: A → Z</option>
+                  <option value="title-asc">Nome: A → Z</option>
                 </select>
               </div>
 
-              <div class="d-flex gap-2 mt-2">
+              <div class="d-flex gap-2 mt-2 filter-actions">
                 <button id="reset" class="btn btn-secondary" type="button">Limpar</button>
                 <button class="btn btn-primary ms-auto" type="submit">Aplicar</button>
               </div>
@@ -137,8 +132,7 @@
         </div>
       </aside>
 
-      <!-- LIST (right) -->
-      <section class="col-12 col-lg-9">
+      <section class="results-area">
 
         <div class="d-flex justify-content-between align-items-center mb-2">
           <span class="small text-muted">Resultados: <strong id="contagem">0</strong></span>
@@ -152,10 +146,8 @@
           </div>
         </div>
 
-        <!-- cards grid -->
-        <div id="cards" class="row g-3"></div>
+        <div id="cards" class="row g-4"></div>
 
-        <!-- table view -->
         <div id="tableWrap" class="table-responsive d-none mt-3">
           <table class="table table-borderless align-middle">
             <thead>
@@ -166,8 +158,8 @@
         </div>
 
       </section>
-    </div>
-  </main>
+    </main>
+
   <!-- footer -->
   <footer class="footer">
     <div class="footer-container">

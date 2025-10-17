@@ -1,7 +1,5 @@
-// cardapio.js - versão robusta
-(function () {
-  // Dados de exemplo (substitua pelas suas imagens/campos)
-  const dishes = [
+
+const dishes = [
     { id:1, name:"Salmão (20 peças)", description:"Sushi, sashimi, uramaki e hot roll.", category:"A la carte", price:120, img:"../img_/salmao.jpg", services:["Presencial","Delivery"] },
     { id:2, name:"Teppan de Salmão", description:"Grelhado com legumes e molho tarê.", category:"A la carte", price:58, img:"../img_/salmaogrelhado.jpg", services:["Presencial"] },
     { id:3, name:"Yakisoba", description:"Massa oriental com frango, carne ou camarão.", category:"A la carte", price:39, img:"../img_/yakissoba.jpg", services:["Presencial","Delivery","Vegano"] },
@@ -12,168 +10,103 @@
     { id:8, name:"Tempurá de Legumes", description:"Sobremesa leve.", category:"Sobremesa", price:18, img:"../img_/sobremesa.jpg", services:["Presencial"] }
   ];
 
-  // DOM refs (verifica existência)
-  const cardsWrap = document.getElementById('cards');
-  const tbody = document.getElementById('tbody');
-  const contagem = document.getElementById('contagem');
-  const form = document.getElementById('formFiltros');
-  if (!cardsWrap || !tbody || !contagem || !form) {
-    console.warn('cardapio.js: elementos obrigatórios não encontrados no DOM. Verifique ids (cards, tbody, contagem, formFiltros).');
-    return;
+  const $ = s=>document.querySelector(s);
+  const $$ = s=>[...document.querySelectorAll(s)];
+  const el = {
+    q: $('#q'), min: $('#min'), max: $('#max'), sort: $('#sort'), 
+    gens: $$('.gen'), svcs: $$('.svc'), reset: $('#reset'), form: $('#formFiltros'),
+    cont: $('#contagem'), cards: $('#cards'), tbody: $('#tbody'),
+    vCards: $('#v-cards'), vTable: $('#v-table'), tableWrap: $('#tableWrap')
+  };
+  
+  let st = { q:'', min:null, max:null, gens:new Set(['A la carte','Rodizio','Executivo','Bebidas', 'Sobremesa']), svcs:new Set(), sort:'relevance', view:'cards' };
+
+
+  const incluiTodos = (arr, set)=>[...set].every(v=>arr.includes(v));
+
+  function lerFiltros(){
+    st.q   = el.q.value.trim().toLowerCase();
+    st.min = el.min.value? +el.min.value : null;
+    st.max = el.max.value? +el.max.value : null;
+    st.gens = new Set(el.gens.filter(c=>c.checked).map(c=>c.value));
+    st.svcs = new Set(el.svcs.filter(c=>c.checked).map(c=>c.value));
+    st.sort = el.sort.value;
   }
 
-  const qEl = document.getElementById('q');
-  const cats = Array.from(document.querySelectorAll('.cat'));
-  const svcs = Array.from(document.querySelectorAll('.svc'));
-  const minEl = document.getElementById('min');
-  const maxEl = document.getElementById('max');
-  const sortEl = document.getElementById('sort');
-  const resetBtn = document.getElementById('reset');
-
-  const vCards = document.getElementById('v-cards');
-  const vTable = document.getElementById('v-table');
-  const tableWrap = document.getElementById('tableWrap');
-
-  // Helpers
-  function escapeHtml(text){
-    if(!text && text !== 0) return '';
-    return String(text).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  function filtrar(){
+    lerFiltros();
+      let out =   dishes.filter(l=>{
+      if(st.q && !(l.name.toLowerCase().includes(st.q) || l.description.toLowerCase().includes(st.q) || l.category.toLowerCase().includes(st.q))) return false;
+      if(!st.gens.has(l.category)) return false;
+      if(st.svcs.size && !incluiTodos(l.services, st.svcs)) return false;
+      if(st.min!=null && l.price < st.min) return false;
+      if(st.max!=null && l.price > st.max) return false;
+      return true;
+  });
+  switch(st.sort){
+    case 'price-asc':  out.sort((a,b)=>a.price-b.price); break;
+    case 'price-desc': out.sort((a,b)=>b.price-a.price); break;
+    case 'title-asc': out.sort((a,b)=>a.name.localeCompare(b.name)); break;
   }
+  render(out);
+}
+//?
 
-  // Render cards
-  function renderCards(list){
-    cardsWrap.innerHTML = '';
-    if(!list.length){
-      cardsWrap.innerHTML = `<div class="col-12"><div class="alert alert-info bg-transparent border border-1 text-white">Nenhum prato encontrado.</div></div>`;
-      return;
-    }
-    list.forEach(d => {
-      const col = document.createElement('div');
-      col.className = 'col-12 col-sm-6 col-xl-4 card-wrap';
-      col.innerHTML = `
+function render(lista){
+  // Cards
+   el.cards.innerHTML = lista.map(l=>`
+      <div class="col-12 col-sm-6 col-lg-4">
         <div class="card h-100">
-          <img src="${d.img}" onerror="this.src='../img_/placeholder.jpg'" class="dish-img" alt="${escapeHtml(d.name)}">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-start">
-              <div class="me-2">
-                <div class="title">${escapeHtml(d.name)}</div>
-                <div class="text-muted small">${escapeHtml(d.description)}</div>
-              </div>
-              <div class="text-end">
-                <div class="badge-price">R$ ${d.price.toFixed(2).replace('.',',')}</div>
-              </div>
+          <img class="card-img-top" src="${l.img}" alt="${l.name}">
+            <div class="card-body d-flex flex-column">
+              <h6 class="mb-1">${l.name}</h6>
+              <small class="text-muted">${l.category} — R$ ${l.price}</small>
+          
+              <p class="card-text">${l.description}</p>  
+              <div class="mt-auto d-flex justify-content-between align-items-center pt-2">
+                <span class="badge text-bg-light">R$ ${l.price}</span>
+                <div class="d-flex gap-1">${l.services.map(s=>`<span class="badge text-bg-secondary">${s}</span>`).join('')}</div>
             </div>
-            <div class="tag-row">
-              <span class="service-badge">${escapeHtml(d.category)}</span>
-              ${d.services.map(s => `<span class="service-badge">${escapeHtml(s)}</span>`).join('')}
-            </div>
-          </div>
-        </div>`;
-      cardsWrap.appendChild(col);
-    });
-  }
+        </div>
+      </div>
+   </div>
+ `).join('');
 
-  // Render table
-  function renderTable(list){
-    tbody.innerHTML = '';
-    if(!list.length){
-      tbody.innerHTML = `<tr><td colspan="4" class="text-muted">Nenhum prato encontrado.</td></tr>`;
-      return;
-    }
-    list.forEach(d => {
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
-        <td>
-          <div class="d-flex align-items-center gap-2">
-            <img src="${d.img}" onerror="this.src='../img_/placeholder.jpg'" width="64" height="48" style="object-fit:cover;border-radius:6px;">
-            <div>
-              <div class="fw-semibold">${escapeHtml(d.name)}</div>
-              <div class="text-muted small">${escapeHtml(d.description)}</div>
-            </div>
-          </div>
-        </td>
-        <td>${escapeHtml(d.category)}</td>
-        <td>${d.services.map(s => `<span class="service-badge">${escapeHtml(s)}</span>`).join(' ')}</td>
-        <td class="text-end">R$ ${d.price.toFixed(2).replace('.',',')}</td>
-      `;
-      tbody.appendChild(tr);
-    });
-  }
+   //tabela
+    el.tbody.innerHTML = lista.map(l=>`
+    <tr>
+      <td>${l.name}</td><td>${l.category}</td>
+      <td>${l.description}</td>
+      <td class="text-end">${l.price}</td>
+      <td>${l.services.map(s=>`<span class="badge text-bg-secondary me-1">${s}</span>`).join('')}</td>
+    </tr>
+   `).join('');
 
-  function updateCount(n){ contagem.textContent = n; }
+    el.cont.textContent = String(lista.length);
+}
 
-  // Filtering & sorting
-  function applyFilters(){
-    let q = (qEl && qEl.value) ? qEl.value.trim().toLowerCase() : '';
-    const catChecked = cats.filter(c => c.checked).map(c => c.value);
-    const svcChecked = svcs.filter(s => s.checked).map(s => s.value);
-    const min = parseFloat(minEl && minEl.value) || null;
-    const max = parseFloat(maxEl && maxEl.value) || null;
+// ... (Resto do código omitido por estar correto)
 
-    let list = [...dishesFallback()];
+function setView (v){
+  st.view = v;
+  el.tableWrap.classList.toggle('d-none', v==='cards');
+  el.cards.classList.toggle('d-none', v=== 'table');
+}
 
-    if(q){
-      list = list.filter(d => (d.name + ' ' + d.description + ' ' + d.category).toLowerCase().includes(q));
-    }
+el.vCards.addEventListener('change', ()=>setView('cards'));
+el.vTable.addEventListener('change', ()=>setView('table'));
+el.form.addEventListener('submit', e=>{ e.preventDefault(); filtrar(); const oc=bootstrap.Offcanvas.getInstance(document.getElementById('filtros')); if(oc) oc.hide(); });
+[el.q, el.min, el.max, el.sort, ...el.gens, ...el.svcs].forEach(c=>{ c.addEventListener('input', filtrar); c.addEventListener('change', filtrar); });
+el.reset.addEventListener('click', ()=>{
+  el.q.value=''; el.min.value=''; el.max.value=''; el.sort.value='relevance';
+  el.gens.forEach(c=>c.checked=true); el.svcs.forEach(c=>c.checked=false);
+  filtrar();
+});
 
-    if(catChecked.length){
-      list = list.filter(d => catChecked.includes(d.category));
-    }
+// Inicializa
+setView('cards'); filtrar();
 
-    if(svcChecked.length){
-      list = list.filter(d => svcChecked.every(svc => d.services.includes(svc)));
-    }
 
-    if(min !== null) list = list.filter(d => d.price >= min);
-    if(max !== null) list = list.filter(d => d.price <= max);
 
-    const sort = sortEl ? sortEl.value : 'relevance';
-    if(sort === 'price-asc'){ list.sort((a,b) => a.price - b.price); }
-    else if(sort === 'price-desc'){ list.sort((a,b) => b.price - a.price); }
-    else if(sort === 'name-asc'){ list.sort((a,b) => a.name.localeCompare(b.name, 'pt-BR')); }
 
-    renderCards(list);
-    renderTable(list);
-    updateCount(list.length);
-
-    if(vTable && vTable.checked){
-      tableWrap.classList.remove('d-none');
-      cardsWrap.classList.add('d-none');
-    } else {
-      tableWrap.classList.add('d-none');
-      cardsWrap.classList.remove('d-none');
-    }
-  }
-
-  // Fallback dish list if `dishes` not in this scope
-  function dishesFallback(){ return (typeof dishes !== 'undefined' ? dishes : window.__dishes || []); }
-
-  // Events
-  if(form){
-    form.addEventListener('submit', (e) => { e.preventDefault(); applyFilters(); });
-  }
-  if(resetBtn){
-    resetBtn.addEventListener('click', () => {
-      form.reset();
-      cats.forEach(c => c.checked = true);
-      svcs.forEach(s => s.checked = false);
-      if(minEl) minEl.value = '';
-      if(maxEl) maxEl.value = '';
-      if(sortEl) sortEl.value = 'relevance';
-      if(qEl) qEl.value = '';
-      applyFilters();
-    });
-  }
-
-  [qEl, minEl, maxEl, sortEl].forEach(el => { if(el) el.addEventListener('input', applyFilters); });
-  cats.forEach(c => c.addEventListener('change', applyFilters));
-  svcs.forEach(s => s.addEventListener('change', applyFilters));
-  if(vCards) vCards.addEventListener('change', applyFilters);
-  if(vTable) vTable.addEventListener('change', applyFilters);
-
-  // Render inicial
-  applyFilters();
-
-  // expose for debugging (opcional)
-  window.applyFilters = applyFilters;
-})();
+  
