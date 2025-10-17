@@ -56,8 +56,9 @@
         <div class="icons d-none d-md-none d-lg-block" style="position: relative;">
           <form class="form-inline my-2 my-lg-0">
             <div style="position: relative;">
-              <input class="form-control" type="search" placeholder="Pesquisar" aria-label="Pesquisar"
+              <label class="form-label" type="search" placeholder="Pesquisar" aria-label="Pesquisar"
                 style="padding-right: 32px; width: 220px;">
+                <input id="q" class="form-control" placeholder="ex.: salmão, hot roll">
               <span
                 style="position: absolute; top: 50%; right: 8px; transform: translateY(-50%); pointer-events: none;">
                 <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px;"></i>
@@ -69,117 +70,104 @@
     </nav>
   </header>
 
-  <main>
-    <hero-section class="hero">
-      <div class="hero-banner">
-        <h1>Nosso Cardápio</h1>
-        <p>Explore os sabores autênticos da culinária japonesa com nosso cardápio diversificado.</p>
-      </div>
-    </hero-section>
+  <main class="container my-4">
+    <div class="row g-3">
 
-    <!-- SEÇÃO MENU -->
-    <section class="menu">
-      <div class="menu-nav">
-        <button data-category="all" class="active">Todos</button>
-        <button data-category="alacarte">A la carte</button>
-        <button data-category="rodizio">Rodízio</button>
-        <button data-category="executivo">Menu Executivo</button>
-        <button data-category="bebidas">Bebidas</button>
-      </div>
-    </section>
+      <!-- FILTERS (left) -->
+      <aside class="col-12 col-lg-3">
+        <!-- button to open offcanvas on mobile -->
+        <button class="btn btn-outline-primary d-lg-none w-100 mb-2" data-bs-toggle="offcanvas" data-bs-target="#filtrosOff">Filtros</button>
 
-    <!-- SEÇÃO PRATOS -->
-    <section class="section">
-      <section class="section-alacarte">
-        <h1 class="section-title">Todos os pratos:</h1>
-
-        <div class="card alacarte">
-          <div class="card-text">
-            <strong>Salmão</strong> – 20 peças (sushi, sashimi, uramaki e hot roll).
+        <!-- offcanvas for mobile + static sidebar on lg+ -->
+        <div class="offcanvas-lg offcanvas-start" id="filtrosOff" tabindex="-1">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Filtros do Cardápio</h5>
+            <button class="btn-close" data-bs-dismiss="offcanvas"></button>
           </div>
-          <img src="../img_/salmao.jpg" alt="Salmão">
+
+          <div class="offcanvas-body">
+            <form id="formFiltros" class="d-flex flex-column">
+
+              <div class="mb-3">
+                <label class="form-label">Buscar prato</label>
+                <input id="q" class="form-control" placeholder="ex.: salmão, hot roll">
+              </div>
+
+              <fieldset class="mb-3">
+                <legend class="fs-6">Categorias</legend>
+                <div class="form-check"><input class="form-check-input cat" type="checkbox" value="A la carte" id="c-all-cat" checked><label class="form-check-label" for="c-all-cat">A la carte</label></div>
+                <div class="form-check"><input class="form-check-input cat" type="checkbox" value="Rodízio" id="c-rod" checked><label class="form-check-label" for="c-rod">Rodízio</label></div>
+                <div class="form-check"><input class="form-check-input cat" type="checkbox" value="Executivo" id="c-exe" checked><label class="form-check-label" for="c-exe">Menu Executivo</label></div>
+                <div class="form-check"><input class="form-check-input cat" type="checkbox" value="Bebidas" id="c-beb" checked><label class="form-check-label" for="c-beb">Bebidas</label></div>
+                <div class="form-check"><input class="form-check-input cat" type="checkbox" value="Sobremesa" id="c-sob" checked><label class="form-check-label" for="c-sob">Sobremesa</label></div>
+              </fieldset>
+
+              <fieldset class="mb-3">
+                <legend class="fs-6">Serviços (AND)</legend>
+                <div class="form-check"><input class="form-check-input svc" type="checkbox" value="Presencial" id="s1"><label class="form-check-label" for="s1">Presencial</label></div>
+                <div class="form-check"><input class="form-check-input svc" type="checkbox" value="Delivery" id="s2"><label class="form-check-label" for="s2">Delivery</label></div>
+                <div class="form-check"><input class="form-check-input svc" type="checkbox" value="Vegano" id="s4"><label class="form-check-label" for="s4">Vegano</label></div>
+              </fieldset>
+
+              <fieldset class="mb-3">
+                <legend class="fs-6">Preço (R$)</legend>
+                <div class="row g-2">
+                  <div class="col"><input id="min" type="number" class="form-control" placeholder="Mín. ex.: 10"></div>
+                  <div class="col"><input id="max" type="number" class="form-control" placeholder="Máx. ex.: 150"></div>
+                </div>
+              </fieldset>
+
+              <div class="mb-3">
+                <label class="form-label">Ordenar</label>
+                <select id="sort" class="form-select">
+                  <option value="relevance">Relevância</option>
+                  <option value="price-asc">Preço: menor → maior</option>
+                  <option value="price-desc">Preço: maior → menor</option>
+                  <option value="name-asc">Nome: A → Z</option>
+                </select>
+              </div>
+
+              <div class="d-flex gap-2 mt-2">
+                <button id="reset" class="btn btn-secondary" type="button">Limpar</button>
+                <button class="btn btn-primary ms-auto" type="submit">Aplicar</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </aside>
+
+      <!-- LIST (right) -->
+      <section class="col-12 col-lg-9">
+
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="small text-muted">Resultados: <strong id="contagem">0</strong></span>
+
+          <div class="btn-group btn-group-sm" role="group" aria-label="Alternar visualização">
+            <input type="radio" class="btn-check" name="view" id="v-cards" checked>
+            <label class="btn btn-outline-light" for="v-cards"><i class="fa-solid fa-border-all"></i> Cards</label>
+
+            <input type="radio" class="btn-check" name="view" id="v-table">
+            <label class="btn btn-outline-light" for="v-table"><i class="fa-solid fa-list"></i> Tabela</label>
+          </div>
         </div>
 
-        <div class="card alacarte">
-          <div class="card-text">
-            <strong>Teppan de Salmão</strong> – Grelhado com legumes e molho tarê.
-          </div>
-          <img src="../img_/salmaogrelhado.jpg" alt="Teppan de Salmão">
-        </div>
+        <!-- cards grid -->
+        <div id="cards" class="row g-3"></div>
 
-        <div class="card alacarte">
-          <div class="card-text">
-            <strong>Yakisoba</strong> – Massa oriental com frango, carne ou camarão.
-          </div>
-          <img src="../img_/yakissoba.jpg" alt="Yakisoba">
+        <!-- table view -->
+        <div id="tableWrap" class="table-responsive d-none mt-3">
+          <table class="table table-borderless align-middle">
+            <thead>
+              <tr class="text-muted"><th>Prato</th><th>Categoria</th><th>Serviços</th><th class="text-end">Preço</th></tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
         </div>
 
       </section>
-
-      <!-- Rodízio -->
-      <section class="section-rodizio">
-        <h2 class="section-subtitle">Rodízio:</h2>
-
-        <div class="card rodizio">
-          <div class="card-text">
-            <strong>Sushi e Sashimi Variados</strong> – Peixes frescos (salmão, atum, peixe branco e tilápia).
-          </div>
-          <img src="../img_/sushivariados.jpg" alt="Sushi Variado">
-        </div>
-
-        <div class="card rodizio">
-          <div class="card-text">
-            <strong>Temaki à vontade</strong> – Salmão, atum, camarão empanado e Califórnia.
-          </div>
-          <img src="../img_/temaki2.jpg" alt="Temaki">
-        </div>
-
-        <div class="card rodizio">
-          <div class="card-text">
-            <strong>Pratos Quentes</strong> - Yakissoba, shimeji na manteiga e harumaki.
-          </div>
-          <img src="../img_/pratoquente.jpg" alt="Pratos Quentes">
-        </div>
-      </section>
-
-      <!-- Menu Executivo -->
-      <h2 class="section-subtitle">Menu Executivo:</h2>
-
-      <div class="card executivo">
-        <div class="card-text">
-          <strong>Executivo Salmão</strong> – Sushi, sashimi e hot roll (10 peças).
-        </div>
-        <img src="../img_/salmao.jpg" alt="Executivo Salmão">
-      </div>
-
-      <div class="card executivo">
-        <div class="card-text">
-          <strong>Executivo Frango Teriyaki</strong> – Com legumes salteados e gohan.
-        </div>
-        <img src="../img_/frango.jpg" alt="Executivo Frango Teriyaki">
-      </div>
-
-      <div class="card executivo">
-        <div class="card-text">
-          <strong>Executivo Yakissoba</strong> – Versão individual com frango ou carne bovina.
-        </div>
-        <img src="../img_/pratoquente.jpg" alt="Executivo Yakissoba">
-      </div>
-
-      <!-- Bebidas -->
-      <h2 class="section-subtitle">Bebidas:</h2>
-
-      <div class="card bebidas">
-        <div class="card-text">
-          <strong>Chá Verde Importado</strong> – Servido quente ou gelado.
-        </div>
-        <img src="../img_/bebidas.jpg" alt="Chá Verde">
-      </div>
-
-      <a href="#" class="btn-vermelho rodizio">Veja mais</a>
-    </section>
+    </div>
   </main>
-
   <!-- footer -->
   <footer class="footer">
     <div class="footer-container">
@@ -226,12 +214,14 @@
     </div>
   </footer>
 
-  <!-- BOOTSTRAP JS (deve vir no fim do body) -->
+
+  <!-- Bootstrap JS (uma versão só) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
 
-  <script src="../JS/cardapio.js"></script>
+  <!-- Seu JS (use o caminho correto e adicione defer para garantir que o DOM esteja pronto) -->
+  <script defer src="../JS/cardapio.js"></script>
 
 </body>
 
