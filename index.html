@@ -62,12 +62,17 @@
                 style="padding-right: 32px; width: 220px;">
               <span
                 style="position: absolute; top: 50%; right: 8px; transform: translateY(-50%); pointer-events: none;">
+                <!-- icon pesquisa -->
                 <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px;"></i>
               </span>
             </div>
           </form>
         </div>
         <!-- fim barra de pesquisa -->
+
+        <!-- carrinho de compras -->
+        <i class="fa-solid fa-cart-shopping mx-4" style="color: #eb1d27;"></i>
+      
       </div>
     </nav>
   </header>
@@ -158,9 +163,9 @@
           <a href="./src_/HTML/quemSomos.html"><button class="order-now">Veja mais</button></a>
         </div>
         <div id="images-container" class="images d-none d-md-block">
-          <img id="sushiImg" src="./src_/img_/img05.jpg" alt="">
-          <img id="fishImg" src="./src_/img_/img06.jpg" alt="">
-          <img id="japaImg" src="./src_/img_/img07.jpg" alt="">
+          <img id="sushiImg" src="./src_/img_/img05.jpg" alt="Sushi fresco com toque de ervas.">
+          <img id="fishImg" src="./src_/img_/img06.jpg" alt="Variedade de sushis em bandeja de madeira.">
+          <img id="japaImg" src="./src_/img_/img07.jpg" alt="Caminho de torii no Santuário Fushimi Inari.">
         </div>
       </div>
     </section>
@@ -242,6 +247,21 @@
     </div>
   </footer>
   <!-- fim footer -->
+
+  <!-- vlibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <!-- fim vlibras -->
+  
+  <!-- script vlibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
   <!-- scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
