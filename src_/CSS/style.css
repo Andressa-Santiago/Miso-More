@@ -34,7 +34,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.1px 50px;
   background: #212121;
   color: #fff;
 }
