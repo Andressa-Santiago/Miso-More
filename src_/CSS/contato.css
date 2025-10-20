@@ -1,44 +1,50 @@
 /* contato */
 
 /* topo  */
-.form-inline{
-  background: #212121; 
+.form-inline {
+  background: #212121;
   box-shadow: none !important;
 }
+
 /* fim topo */
 
 /* banner */
-.contato{
-    background: url('../img_/imgFundo.png') no-repeat center center/cover;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 40px;
+.contato {
+  background: url('../img_/imgFundo.png') no-repeat center center/cover;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.banner-content{
-  max-width:  700px;
+.banner-content {
+  max-width: 700px;
 }
 
 .banner-content h1 {
-    font-size: 36px;
-    margin: 0;
+  font-size: 36px;
+  margin: 0;
 }
 
 .banner-content p {
-    text-align: left;
-    font-size: 18px;
-    margin: 10px 0 0;
+  text-align: left;
+  font-size: 18px;
+  margin: 10px 0 0;
 }
 
-.contact-icon{
+.contact-icon {
   background-color: #FFC6C9;
 }
 
 /* fim do contato */
+
+/* FAQ  */
+
+
+/* Fim do FAQ */
 
 
 /* FOOTER rodapé */
@@ -49,21 +55,22 @@
 }
 
 .footer-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1520px;
-    margin: auto;
-    padding: 40px 20px;
-    gap: 100px;
-    
+  display: flex;
+  justify-content: space-between;
+  max-width: 1520px;
+  margin: auto;
+  padding: 40px 20px;
+  gap: 100px;
+
 }
+
 /* Logo footer */
 .footer-logo img {
-    max-width: 150px;
-    margin-bottom: 15px; 
-    display: block; 
-    margin-left: 0%;
-    margin-bottom: 15px; 
+  max-width: 150px;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: 0%;
+  margin-bottom: 15px;
 
 }
 
@@ -82,10 +89,10 @@
 }
 
 .footer h3 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    font-family: 'Josefin Sans', sans-serif;
-    gap: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-family: 'Josefin Sans', sans-serif;
+  gap: 20px;
 }
 
 .footer p {
@@ -95,11 +102,11 @@
 }
 
 .footer ul {
-    list-style: none;
-    padding: 0;
-    margin: 25px 0;
-    gap: 10px;
-    
+  list-style: none;
+  padding: 0;
+  margin: 25px 0;
+  gap: 10px;
+
 }
 
 .footer ul li {
@@ -120,7 +127,7 @@
 /* Redes sociais */
 .social-icons {
   margin-top: 10px;
-    
+
 }
 
 .social-icons a {
@@ -142,6 +149,7 @@
   font-size: 14px;
   color: #aaa;
 }
+
 /* fim do footer*/
 
 
@@ -149,7 +157,7 @@
 form {
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   max-width: 500px;
   margin: 24px auto 0 auto;
   padding: 18px 18px;
@@ -213,6 +221,7 @@ form button[type="submit"]:hover {
     padding: 10px 6px;
     max-width: 98vw;
   }
+
   form button[type="submit"] {
     font-size: 1rem;
     padding: 10px 0;
