@@ -13,7 +13,142 @@ const dishes = [
 ];
 
 // ========================
-// 2. Seletores úteis
+// 2. SISTEMA DE CARRINHO
+// ========================
+let cart = [];
+
+// Carregar carrinho do localStorage
+function loadCart() {
+  if (localStorage.getItem('cart')) {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    updateCartBadge();
+  }
+}
+
+// Salvar carrinho no localStorage
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartBadge();
+}
+
+// Adicionar item ao carrinho
+function addToCart(productId) {
+  const product = dishes.find(d => d.id === productId);
+  if (!product) return;
+  
+  const existingItem = cart.find(item => item.id === productId);
+  
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.img,
+      quantity: 1
+    });
+  }
+  
+  saveCart();
+  showNotification('Item adicionado ao carrinho!');
+}
+
+// Atualizar badge do carrinho
+function updateCartBadge() {
+  const badge = document.getElementById('cartBadge');
+  if (!badge) return;
+  
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  
+  if (totalItems > 0) {
+    badge.textContent = totalItems;
+    badge.style.display = 'inline-block';
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+// Mostrar conteúdo do carrinho no modal
+function showCartModal() {
+  const cartBody = document.getElementById('cartBody');
+  if (!cartBody) return;
+  
+  if (cart.length === 0) {
+    cartBody.innerHTML = '<p class="text-center text-muted">Seu carrinho está vazio.</p>';
+    return;
+  }
+  
+  let html = '';
+  let total = 0;
+  
+  cart.forEach((item, index) => {
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
+    
+    html += `
+      <div class="d-flex align-items-center p-3 mb-3" style="background-color: #ffc0cb; border-radius: 15px;">
+        <img src="${item.image}" alt="${item.name}" class="rounded" style="width: 100px; height: 80px; object-fit: cover;">
+        <div class="ms-3 flex-grow-1">
+          <p class="mb-1 fw-bold">${item.name}</p>
+          <p class="mb-0 fw-bold" style="color: #333;">R$ ${item.price.toFixed(2)}</p>
+        </div>
+        <div class="d-flex align-items-center">
+          <button class="btn btn-sm btn-light px-2" onclick="updateQuantity(${index}, -1)">-</button>
+          <span class="mx-2 fw-bold quantity">${item.quantity}</span>
+          <button class="btn btn-sm btn-light px-2" onclick="updateQuantity(${index}, 1)">+</button>
+          <button class="btn btn-sm btn-danger ms-2" onclick="removeFromCart(${index})">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    `;
+  });
+  
+  html += `
+    <div class="mt-4 text-end">
+      <h5 class="fw-bold" style="color: #eb1d27;">Total: <span id="total">R$ ${total.toFixed(2)}</span></h5>
+    </div>
+  `;
+  
+  cartBody.innerHTML = html;
+}
+
+// Atualizar quantidade
+function updateQuantity(index, change) {
+  cart[index].quantity += change;
+  
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+  
+  saveCart();
+  showCartModal();
+}
+
+// Remover item do carrinho
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  saveCart();
+  showCartModal();
+}
+
+// Notificação de item adicionado
+function showNotification(message) {
+  const notification = document.createElement('div');
+  notification.className = 'alert alert-success position-fixed top-0 end-0 m-3';
+  notification.style.zIndex = '9999';
+  notification.innerHTML = `<i class="fa-solid fa-check-circle me-2"></i>${message}`;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.remove();
+  }, 2000);
+}
+
+// ========================
+// 3. Seletores úteis
 // ========================
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
@@ -46,7 +181,7 @@ let st = {
 };
 
 // ========================
-// 3. Funções de filtro
+// 4. Funções de filtro
 // ========================
 const incluiTodos = (arr,set)=>[...set].every(v=>arr.includes(v));
 
@@ -81,7 +216,7 @@ function filtrar(){
 }
 
 // ========================
-// 4. Renderização dos cards
+// 5. Renderização dos cards
 // ========================
 function render(lista){
   // Cards
@@ -99,8 +234,8 @@ function render(lista){
               ${l.services.map(s=>`<span class="badge text-bg-secondary">${s}</span>`).join('')}
             </div>
           </div>
-          <button class="btn btn-outline-primary btn-sm mt-3" onclick="addToCart(${l.id})">
-            <i class="bi bi-cart-plus"></i> Adicionar
+          <button class="btn btn-primary btn-sm mt-3 w-100" style="background-color: #eb1d27; border-color: #eb1d27;" onclick="addToCart(${l.id})">
+            <i class="fa-solid fa-cart-plus me-2"></i>Adicionar ao Carrinho
           </button>
         </div>
       </div>
@@ -122,7 +257,7 @@ function render(lista){
 }
 
 // ========================
-// 5. Controle da view
+// 6. Controle da view
 // ========================
 function setView(v){
   st.view = v;
@@ -137,7 +272,7 @@ el.vTable.addEventListener('change', ()=>setView('table'));
 el.form.addEventListener('submit', e=>{
   e.preventDefault();
   filtrar();
-  const oc = bootstrap.Offcanvas.getInstance(document.getElementById('filtros'));
+  const oc = bootstrap.Offcanvas.getInstance(document.getElementById('filtrosOff'));
   if(oc) oc.hide();
 });
 
@@ -154,7 +289,56 @@ el.reset.addEventListener('click', ()=>{
   filtrar();
 });
 
-// Inicializa
-setView('cards');
-filtrar();
+// ========================
+// 7. INICIALIZAÇÃO
+// ========================
+document.addEventListener('DOMContentLoaded', function() {
+  // Carregar carrinho salvo
+  loadCart();
+  
+  // Inicializar visualização e filtros
+  setView('cards');
+  filtrar();
+  
+  // Configurar modal do carrinho
+  const modalCarrinho = document.getElementById('modalCarrinho');
+  if (modalCarrinho) {
+    modalCarrinho.addEventListener('show.bs.modal', showCartModal);
+  }
+  
+  // Botão finalizar compra
+  const btnFinalizar = document.getElementById('btnFinalizarCompra');
+  if (btnFinalizar) {
+    btnFinalizar.addEventListener('click', function() {
+      if (cart.length === 0) {
+        alert('Seu carrinho está vazio!');
+        return;
+      }
+      
+      // Fechar modal do carrinho
+      const modalCarrinhoInstance = bootstrap.Modal.getInstance(modalCarrinho);
+      modalCarrinhoInstance.hide();
+      
+      // Aguardar fechamento e abrir modal de sucesso
+      setTimeout(function() {
+        const modalSucesso = new bootstrap.Modal(document.getElementById('modalSucesso'));
+        modalSucesso.show();
+        
+        // Limpar carrinho após fechar modal de sucesso
+        document.getElementById('modalSucesso').addEventListener('hidden.bs.modal', function() {
+          cart = [];
+          saveCart();
+        }, { once: true });
+      }, 300);
+    });
+  }
+});
 
+// Inicializa (fallback caso DOMContentLoaded já tenha passado)
+if (document.readyState === 'loading') {
+  // Aguarda DOMContentLoaded
+} else {
+  // DOM já carregado, inicializar diretamente
+  setView('cards');
+  filtrar();
+}
