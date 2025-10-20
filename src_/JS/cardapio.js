@@ -50,7 +50,7 @@ const dishes = [
   }
   render(out);
 }
-//?
+
 
 function render(lista){
   // Cards
@@ -73,19 +73,20 @@ function render(lista){
  `).join('');
 
    //tabela
-    el.tbody.innerHTML = lista.map(l=>`
-    <tr>
-      <td>${l.name}</td><td>${l.category}</td>
-      <td>${l.description}</td>
-      <td class="text-end">${l.price}</td>
-      <td>${l.services.map(s=>`<span class="badge text-bg-secondary me-1">${s}</span>`).join('')}</td>
-    </tr>
-   `).join('');
+  el.tbody.innerHTML = lista.map(l=>`
+  <tr>
+    <td data-label="Prato">${l.name}</td>
+    <td data-label="Categoria">${l.category}</td>
+    <td data-label="Serviços">${l.description}</td>
+    <td data-label="Preço" class="text-end">R$ ${l.price}</td>
+    <td data-label="Opções">${l.services.map(s=>`<span class="badge text-bg-secondary me-1">${s}</span>`).join('')}</td>
+  </tr>
+  `).join('');
 
     el.cont.textContent = String(lista.length);
 }
 
-// ... (Resto do código omitido por estar correto)
+
 
 function setView (v){
   st.view = v;

@@ -57,11 +57,10 @@ nav a.active {
   transition: color 0.2s;
 }
 
-/* ================================================= */
-/* 1. LAYOUT PRINCIPAL (DO MAIN) E SIDEBAR DE FILTROS */
-/* ================================================= */
 
-/* Container Principal (A tag <main>) */
+
+
+/*main*/
 .main-menu-container {
   padding: 30px 50px; 
   display: flex;       
@@ -69,23 +68,23 @@ nav a.active {
   max-width: 100%;     
 }
 
-/* O elemento de filtros (A tag <aside>) */
+/*filtro sidebar*/
 .filter-sidebar {
-  flex-basis: 300px; /* Largura fixa para a barra de filtros */
+  flex-basis: 300px; 
   flex-shrink: 0;
   padding: 20px;
-  background-color: #ffffff; /* Fundo branco para destacar */
+  background-color: #ffffff; 
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
-  height: fit-content; /* Faz o background branco terminar onde o conteúdo acaba */
+  height: fit-content;
 }
 
-/* Garante que a área de resultados ocupe o espaço restante */
+
 .results-area {
     flex-grow: 1;
 }
 
-/* Títulos dos Filtros */
+
 .filter-sidebar legend,
 .filter-sidebar h4 {
   font-size: 1.15rem;
@@ -95,62 +94,126 @@ nav a.active {
   margin-top: 25px;
 }
 
-/* Layout dos inputs de Preço (Min/Máx) */
+
 .price-inputs {
     display: flex;
     gap: 10px;
 }
 
-/* Botões Limpar/Aplicar no final do formulário */
+
 .filter-actions {
   margin-top: 30px;
   display: flex;
   gap: 10px;
   width: 100%; 
 }
-/* Força o botão "Aplicar" a ir para a direita */
+
 .filter-actions .btn-primary {
     margin-left: auto;
 }
 
 
-/* Altura da imagem do card */
+/* Cards */
 .card .card-img-top {
-    height: 200px;        /* Altura fixa para todas as imagens */
-    object-fit: cover;    /* Garante que a imagem preencha a área sem distorcer */
+    height: 200px;        
+    object-fit: cover;   
 }
 
-/* Estilo do corpo do card */
+
 .card-body h6 {
     font-weight: 600;
 }
 
-/* Estilo do Rodapé do Card (onde ficam preço e badges) */
+
 .card-body .mt-auto {
     padding-top: 10px;
 }
 
-/* Altura mínima AGRESSIVA para a área de resultados principal */
+
 .results-area {
     flex-grow: 1;
-    /* Certifique-se que o pai usa flexbox para controlar o estiramento */
+    
     display: flex;
     flex-direction: column;
     
-    /* Esta linha é crucial para manter a altura total */
+    
     min-height: calc(100vh - 200px) !important; 
 }
 
-/* Altura mínima para o container de Cards */
-/* Altura mínima para o container de Cards */
+
 #cards {
     min-height: 14px !important; 
 }
 
-/* Altura mínima para o container de Tabela */
+
+/* ====== ESTILO TABELA DE RESULTADOS ====== */
 #tableWrap {
-    min-height: 140px !important; 
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  overflow-x: auto;
+  margin-top: 10px;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 0.98rem;
+  color: #212121;
+}
+
+thead {
+  background-color: #e63946;
+  color: #fff;
+}
+
+thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background 0.2s;
+}
+
+tbody tr:hover {
+  background-color: #fff4f4;
+}
+
+tbody td {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+
+tbody td:first-child {
+  font-weight: 600;
+}
+
+tbody td.text-end {
+  text-align: right;
+}
+
+.badge.text-bg-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+}
+
+.badge.text-bg-light {
+  background-color: #f1f1f1;
+  color: #212121;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+}
+
 
 /* Oculta elementos quando filtrado */
 .hidden {
@@ -258,21 +321,19 @@ nav a.active {
   /* AJUSTE RESPONSIVO PARA O LAYOUT FILTROS/RESULTADOS */
   .main-menu-container {
     padding: 20px;
-    /* Reduz o padding em telas menores */
+
     flex-direction: column;
-    /* Filtro e Resultados ficam em COLUNAS (um em cima do outro) */
+
   }
 
   .filter-sidebar {
-    /* No mobile, o filtro deve ocupar a largura total */
+
     flex-basis: auto;
     width: 100%;
     margin-bottom: 20px;
-    /* Espaço entre o filtro e os resultados */
+
   }
-  /* FIM DO AJUSTE RESPONSIVO FILTROS/RESULTADOS */
-
-
+} /* ← fecha aqui corretamente */
 
 @media (max-width: 900px) {
   header {
@@ -293,9 +354,42 @@ nav a.active {
   .icons {
     margin-top: 8px;
   }
-
 }
 
+/* Responsivo */
+@media (max-width: 768px) {
+  #tableWrap {
+    padding: 10px;
+  }
 
+  table {
+    font-size: 0.9rem;
+  }
+
+  thead {
+    display: none; /* Oculta o cabeçalho no mobile */
+  }
+
+  tbody td {
+    display: block;
+    text-align: right;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: 600;
+    color: #e63946;
+  }
+
+  tbody tr {
+    margin-bottom: 10px;
+    display: block;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 8px;
+  }
 }
+
 
