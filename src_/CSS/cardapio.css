@@ -56,6 +56,61 @@ nav a.active {
   transition: color 0.2s;
 }
 
+/* ====== BANNER ====== */
+.banner-cardapio {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.banner-cardapio .banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(65%);
+  transition: transform 10s ease;
+}
+
+.banner-cardapio:hover .banner-img {
+  transform: scale(1.05);
+}
+
+.banner-texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.banner-texto h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.banner-texto p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .banner-cardapio {
+    height: 240px;
+  }
+  .banner-texto h1 {
+    font-size: 1.8rem;
+  }
+  .banner-texto p {
+    font-size: 1rem;
+  }
+}
 
 
 
@@ -80,7 +135,9 @@ nav a.active {
 
 
 .results-area {
-    flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
 
@@ -111,18 +168,33 @@ nav a.active {
     margin-left: auto;
 }
 
-
 /* Cards */
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    border: none; 
+    border-radius: 10px; 
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    
+}
+
 .card .card-img-top {
     height: 200px;        
     object-fit: cover;   
 }
 
-
 .card-body h6 {
     font-weight: 600;
 }
-
 
 .card-body .mt-auto {
     padding-top: 10px;
@@ -131,11 +203,8 @@ nav a.active {
 
 .results-area {
     flex-grow: 1;
-    
     display: flex;
     flex-direction: column;
-    
-    
     min-height: calc(100vh - 200px) !important; 
 }
 
