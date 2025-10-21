@@ -43,6 +43,33 @@
 
 /* FAQ  */
 
+#faq .accordion-button {
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+#faq .accordion-button:not(.collapsed) {
+  background-color: #ffffff;
+  color: #d62828;
+  box-shadow: none;
+}
+
+#faq .accordion-item {
+  border: none;
+}
+
+#faq .accordion-body {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+#faq h2 {
+  color: #2b2b2b;
+}
+
+
+
 
 /* Fim do FAQ */
 

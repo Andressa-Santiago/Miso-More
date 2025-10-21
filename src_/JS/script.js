@@ -22,3 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
     window.location.href = `./src_/HTML/cardapio.html?category=${encodeURIComponent(category)}`;
   });
 })
+
+  window.addEventListener('scroll', () => {
+    const hero = document.querySelector('.hero::before'); // não dá pra acessar pseudo-elemento direto
+  });
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    document.querySelector('.hero').style.backgroundPositionY = `${scrollY * 0.8}px`;
+  });

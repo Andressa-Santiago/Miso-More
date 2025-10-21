@@ -61,7 +61,6 @@ nav a.active {
   position: relative;
   width: 100%;
   height: 300px;
-  overflow: hidden;
   margin-bottom: 40px;
 }
 
@@ -70,12 +69,8 @@ nav a.active {
   height: 100%;
   object-fit: cover;
   filter: brightness(65%);
-  transition: transform 10s ease;
 }
 
-.banner-cardapio:hover .banner-img {
-  transform: scale(1.05);
-}
 
 .banner-texto {
   position: absolute;
@@ -100,17 +95,7 @@ nav a.active {
 }
 
 /* Responsivo */
-@media (max-width: 768px) {
-  .banner-cardapio {
-    height: 240px;
-  }
-  .banner-texto h1 {
-    font-size: 1.8rem;
-  }
-  .banner-texto p {
-    font-size: 1rem;
-  }
-}
+
 
 
 
@@ -457,6 +442,17 @@ tbody td.text-end {
     border: 1px solid #eee;
     border-radius: 8px;
     padding: 8px;
+  }
+}
+@media (max-width: 768px) {
+  .banner-cardapio {
+    height: 240px;
+  }
+  .banner-texto h1 {
+    font-size: 1.8rem;
+  }
+  .banner-texto p {
+    font-size: 1rem;
   }
 }
 
