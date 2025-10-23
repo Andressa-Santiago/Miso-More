@@ -238,7 +238,7 @@ function render(lista){
   el.cards.innerHTML = lista.map(l=>`
     <div class="col-12 col-sm-6 col-lg-4">
       <div class="card h-100">
-        <img class="card-img-top" src="${l.img}" alt="${l.name}">
+        <img class="card-img-top" src="${l.img}" alt="${l.name}" loading="lazy" decoding="async">
         <div class="card-body d-flex flex-column">
           <h6 class="mb-1">${l.name}</h6>
           <small class="text-muted">${l.category} — R$ ${l.price}</small>
