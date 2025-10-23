@@ -18,7 +18,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.137);
   z-index: -1;
 }
 
@@ -40,14 +40,14 @@ body::before {
 ============================ */
 .titulo {
   background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
+  border-radius: 10px;
   padding: 30px 40px;
   text-align: center;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .titulo-h1 {
-  color: #535353;
+  color: #2c2c2c;
   font-size: 2.8rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -62,8 +62,8 @@ body::before {
   transform: translateX(-50%);
   width: 60px;
   height: 3px;
-  
-  border-radius: 2px;
+  background-color: #e63946; /* Vermelho japonês */
+  border-radius: 9px;
 }
 
 /* ============================
@@ -71,7 +71,7 @@ body::before {
 ============================ */
 .card-principal {
   background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
+  border-radius: 10px;
   padding: 40px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -86,7 +86,7 @@ body::before {
   display: flex;
   align-items: flex-start;
   gap: 30px;
-  color: #535353;
+  color: #5E5E5E;
   flex-wrap: wrap;
 }
 
@@ -123,13 +123,13 @@ body::before {
 .texto-content h2 {
   font-size: 2.3rem;
   margin-bottom: 20px;
-  color: #535353;
+  color: #2c2c2c;
   font-weight: 500;
   position: relative;
 }
 
 .texto-content h2::after {
-  content: "🍣";
+ 
   position: absolute;
   right: -30px;
   top: 3px;
@@ -139,21 +139,21 @@ body::before {
 .texto-content p {
   font-size: 1.15rem;
   line-height: 1.8;
-  color: #535353;
+  color: #555;
   text-align: justify;
   margin-bottom: 15px;
   transition: color 0.3s ease;
 }
 
 .texto-content p:hover {
-  color: 535353;
+  color: #333;
 }
 
 /* ============================
    SEÇÃO VISÃO / MISSÃO / VALORES
 ============================ */
 .accordion-button {
-  background-color: 535353;
+  background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
