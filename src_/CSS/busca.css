@@ -1,0 +1,17 @@
+.typeahead-item {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s ease;
+  color: #333;
+}
+
+.typeahead-item:hover,
+.typeahead-item:focus {
+  background: #f8f9fa;
+  outline: none;
+}
+
+.typeahead-item:last-child {
+  border-bottom: none;
+}

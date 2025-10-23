@@ -15,6 +15,7 @@
 
   <!-- link css -->
   <link rel="stylesheet" href="../CSS/cardapio.css">
+  <link rel="stylesheet" href="./src_/CSS/busca.css">
 
   <link rel="shortcut icon" href="." type="image/x-icon">
 
@@ -53,21 +54,26 @@
         </div>
 
         <!-- barra de pesquisa -->
-        <div class="icons d-none d-md-none d-lg-block" style="position: relative;">
+        <div class="icons d-none d-md-none d-lg-block" style="position: relative">
           <form class="form-inline my-2 my-lg-0">
-            <div style="position: relative;">
-              <input id="q" class="form-control" placeholder="ex.: salmão, hot roll"
-                style="padding-right: 4 2px; width: 220px;">
-              <span
-                style="position: absolute; top: 50%; right: 8px; transform: translateY(-50%); pointer-events: none;">
-                <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px;"></i>
-              </span>
+            <div style="position: relative">
+              <input id="inputBusca" class="form-control" placeholder="ex. salmão, hot roll" autocomplete="off"
+                style="padding-right: 42px; width: 220px">
+              <button id="btnBuscar" type="button"
+                style="position: absolute; top: 50%; right: 8px; transform: translateY(-50%); border: none; background: transparent; cursor: pointer">
+                <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px"></i>
+              </button>
+            </div>
+            <div id="listaSugestoes"
+              style="display: none; position: absolute; background: white; border: 1px solid #ddd; border-radius: 8px; margin-top: 5px; width: 220px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 1000;">
             </div>
           </form>
         </div>
+        <!-- fim barra de pesquisa -->
 
         <!-- icon carrinho -->
-        <div class="d-none d-md-none d-lg-block" style="position: relative; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modalCarrinho">
+        <div class="d-none d-md-none d-lg-block" style="position: relative; cursor: pointer;" data-bs-toggle="modal"
+          data-bs-target="#modalCarrinho">
           <i class="fa-solid fa-cart-shopping mx-4 fs-5" style="color: #eb1d27;"></i>
           <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
             style="display: none;">
@@ -117,10 +123,10 @@
       </div>
     </nav>
   </header>
-  
+
   <section class="banner-cardapio">
     <img src="../img_/banner.jpg" alt="Banner Cardápio Japonês" class="banner-img">
-      <div class="banner-texto">
+    <div class="banner-texto">
       <h1>Cardápio Miso & More</h1>
       <p>Descubra os sabores da culinária japonesa preparados com excelência.</p>
     </div>
@@ -284,6 +290,58 @@
 
   <!-- Seu JS (use o caminho correto e adicione defer para garantir que o DOM esteja pronto) -->
   <script defer src="../JS/cardapio.js"></script>
+
+  <!-- busca -->
+  <script src="./src_/JS/busca.js"></script>
+  <script src="./src_/JS/busca-cardapio.js"></script>
+  <script>
+    const U = window.CardapioUtils;
+    const data = Array.isArray(window.CARDAPIO) ? window.CARDAPIO : [];
+
+    function goToCardapio(q) {
+      const url = new URL('./src_/HTML/cardapio.html', location.href);
+      if (q) url.searchParams.set('q', q);
+      location.href = url.toString();
+    }
+
+    function bind() {
+      const input = document.getElementById('inputBusca');
+      const btn = document.getElementById('btnBuscar');
+      const box = document.getElementById('listaSugestoes');
+
+      if (!input || !btn || !box) return;
+
+      function updateSuggestions() {
+        const suggestions = U.makeSuggestions(data, input.value, 8);
+        box.innerHTML = '';
+        box.style.display = suggestions.length ? 'block' : 'none';
+        suggestions.forEach(text => {
+          const div = document.createElement('div');
+          div.className = 'typeahead-item';
+          div.tabIndex = 0;
+          div.setAttribute('role', 'option');
+          div.textContent = text;
+          div.addEventListener('click', () => goToCardapio(text));
+          div.addEventListener('keydown', (e) => { if (e.key === 'Enter') goToCardapio(text); });
+          box.appendChild(div);
+        });
+      }
+
+      input.addEventListener('input', updateSuggestions);
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); goToCardapio(input.value.trim()); }
+        if (e.key === 'Escape') { box.style.display = 'none'; }
+      });
+      btn.addEventListener('click', () => goToCardapio(input.value.trim()));
+
+      // Se vier com ?q=, já encaminha direto
+      const init = U.readQueryParam('q');
+      if (init) { goToCardapio(init); }
+    }
+
+    document.addEventListener('DOMContentLoaded', bind);
+  </script>
+
 
 </body>
 
