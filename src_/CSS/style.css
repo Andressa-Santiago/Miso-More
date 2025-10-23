@@ -87,37 +87,87 @@ nav a.active {
 
 /* CTA */
 .hero {
+  position: relative;
   display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 150px;
-      background: url('../img_/banner.jpg') no-repeat center center/cover;
-      clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-      background-attachment: fixed;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 160px 80px;
+  color: #fff;
+  background-image: url('../img_/banner.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); background-attachment: fixed;
+
+  /* Efeito parallax */
+  background-attachment: fixed;
+
+  /* Camada escura sutil sobre a imagem */
+  isolation: isolate;
 }
 
-.hero-text{
-  padding: 20px;
-  border-radius: 10px;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.20); /* escurece o fundo */
+  z-index: 0;
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
   max-width: 600px;
-  margin-left: 50px;
-  
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 40px 30px;
+  animation: fadeInUp 1s ease;
 }
 
 .hero-text h1 {
-  font-size: 3.1rem;
-  margin-bottom: 35px;
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 600;
+  margin-bottom: 25px;
   color: #fff;
-  text-align: left;
 }
-
 
 .hero-text p {
   font-size: 1.2rem;
+  color: #f1f1f1;
   margin-bottom: 30px;
-  color: #fff;
-  font-weight: bold-medium;
+  line-height: 1.6;
 }
+
+.order-now {
+  background-color: #e63946;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.order-now:hover {
+  background-color: #ff4c4c;
+  transform: translateY(-3px);
+}
+
+/* Efeito de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 button{
     background-color: #d62828;
@@ -458,4 +508,23 @@ button:hover, .order-now:hover {
 
 
 }
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll; /* Desativa o parallax em telas pequenas */
+    padding: 100px 20px;
+  }
+
+  .hero-text {
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
+
 
