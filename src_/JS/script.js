@@ -23,3 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })
 
+  var rellax = new Rellax('.rellax', {
+    speed: -3,     // velocidade negativa faz o movimento oposto
+    center: false, // centraliza ou não o movimento
+    round: true,   // arredonda valores para suavidade
+    vertical: true, // ativa o movimento vertical
+    horizontal: false // desativa movimento lateral
+});

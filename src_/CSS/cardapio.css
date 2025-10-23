@@ -10,7 +10,7 @@ body {
   color: #212121;
 }
 
-/* ================== HEADER ================== */
+/*  HEADER  */
 header {
   display: flex;
   justify-content: space-between;
@@ -56,7 +56,7 @@ nav a.active {
   transition: color 0.2s;
 }
 
-/* ====== BANNER ====== */
+/*  BANNER  */
 .banner-cardapio {
   position: relative;
   width: 100%;
@@ -81,6 +81,7 @@ nav a.active {
   text-align: center;
   font-family: "Josefin Sans", sans-serif;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  
 }
 
 .banner-texto h1 {
@@ -93,11 +94,6 @@ nav a.active {
   font-size: 1.2rem;
   font-weight: 300;
 }
-
-/* Responsivo */
-
-
-
 
 /*main*/
 .main-menu-container {
@@ -199,7 +195,7 @@ nav a.active {
 }
 
 
-/* ====== ESTILO TABELA DE RESULTADOS ====== */
+/* tabela */
 #tableWrap {
   background: #fff;
   border-radius: 8px;
@@ -273,7 +269,8 @@ tbody td.text-end {
   display: none !important;
 }
 
-/* ================== FOOTER ================== */
+
+/* footer */
 .footer {
   background: #1c1c1c;
   color: #f0f0f0;
@@ -359,7 +356,7 @@ tbody td.text-end {
   color: #aaa;
 }
 
-/* ================== RESPONSIVIDADE ================== */
+/* responsividade */
 @media (max-width: 992px) {
   .hero {
     padding: 80px 40px;

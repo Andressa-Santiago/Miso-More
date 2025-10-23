@@ -68,6 +68,12 @@
   color: #2b2b2b;
 }
 
+#faq img {
+  width: 300px;
+  height: 300px;
+  align-items: right;
+}
+
 
 
 
