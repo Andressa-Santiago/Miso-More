@@ -1,27 +1,27 @@
 // Dados do cardápio
 const dishes = [
   // --- A LA CARTE ---
-  { id:1, name:"Salmão (20 peças)", description:"Sushi, sashimi, uramaki e hot roll.", category:"A la carte", price:120, img:"../img_/salmao.jpg", services:["Presencial","Delivery"] },
-  { id:2, name:"Teppan de Salmão", description:"Grelhado com legumes e molho tarê.", category:"A la carte", price:58, img:"../img_/salmaogrelhado.jpg", services:["Presencial"] },
-  { id:3, name:"Yakisoba", description:"Massa oriental com frango, carne ou camarão.", category:"A la carte", price:39, img:"../img_/yakissoba.jpg", services:["Presencial","Delivery","Vegano"] },
+  { id:1, name:"Salmão (20 peças)", description:"Sushi, sashimi, uramaki e hot roll.", category:"A la carte", price:120, img:"img_/salmao.jpg", services:["Presencial","Delivery"] },
+  { id:2, name:"Teppan de Salmão", description:"Grelhado com legumes e molho tarê.", category:"A la carte", price:58, img:"img_/salmaogrelhado.jpg", services:["Presencial"] },
+  { id:3, name:"Yakisoba", description:"Massa oriental com frango, carne ou camarão.", category:"A la carte", price:39, img:"img_/yakissoba.jpg", services:["Presencial","Delivery","Vegano"] },
 
   // --- RODÍZIO ---
-  { id:4, name:"Rodízio Completo", description:"Sushis e sashimis à vontade.", category:"Rodízio", price:85, img:"../img_/sushivariados.jpg", services:["Presencial"] },
-  { id:5, name:"Temaki à vontade", description:"Salmão, atum, camarão empanado e Califórnia.", category:"Rodízio", price:48, img:"../img_/temaki2.jpg", services:["Presencial","Delivery"] },
-  { id:6, name:"Pratos Quentes", description:"Yakisoba, shimeji na manteiga e harumaki.", category:"Rodízio", price:60, img:"../img_/pratoquente.jpg", services:["Presencial"] },
+  { id:4, name:"Rodízio Completo", description:"Sushis e sashimis Avontade.", category:"Rodízio", price:85, img:"img_/sushivariados.jpg", services:["Presencial"] },
+  { id:5, name:"Temaki Avontade", description:"Salmão, atum, camarão empanado e Califórnia.", category:"Rodízio", price:48, img:"img_/temaki2.jpg", services:["Presencial","Delivery"] },
+  { id:6, name:"Pratos Quentes", description:"Yakisoba, shimeji na manteiga e harumaki.", category:"Rodízio", price:60, img:"img_/pratoquente.jpg", services:["Presencial"] },
 
   // --- MENU EXECUTIVO ---
-  { id:7, name:"Executivo Salmão Grelhado", description:"Acompanha arroz, missoshiro e salada sunomono.", category:"Executivo", price:42, img:"../img_/salmaogrelhado.jpg", services:["Presencial","Delivery"] },
-  { id:8, name:"Executivo Frango Teriyaki", description:"Com legumes salteados e gohan.", category:"Executivo", price:38, img:"../img_/frango.jpg", services:["Presencial","Delivery"] },
-  { id:9, name:"Executivo Yakissoba", description:"Versão individual com frango ou carne bovina.", category:"Executivo", price:35, img:"../img_/yakissoba.jpg", services:["Presencial","Delivery"] },
+  { id:7, name:"Executivo Salmão Grelhado", description:"Acompanha arroz, missoshiro e salada sunomono.", category:"Executivo", price:42, img:"img_/salmaogrelhado.jpg", services:["Presencial","Delivery"] },
+  { id:8, name:"Executivo Frango Teriyaki", description:"Com legumes salteados e gohan.", category:"Executivo", price:38, img:"img_/frango.jpg", services:["Presencial","Delivery"] },
+  { id:9, name:"Executivo Yakissoba", description:"Versão individual com frango ou carne bovina.", category:"Executivo", price:35, img:"img_/yakissoba.jpg", services:["Presencial","Delivery"] },
 
   // --- BEBIDAS ---
-  { id:10, name:"Saké Tradicional", description:"Quente ou gelado.", category:"Bebidas", price:25, img:"../img_/saque1.jpg", services:["Presencial","Delivery","Bebida"] },
-  { id:11, name:"Saquerinha", description:"Saké com frutas: morango, kiwi ou maracujá.", category:"Bebidas", price:28, img:"../img_/saque2.jpg", services:["Presencial","Delivery","Bebida"] },
-  { id:12, name:"Cerveja Japonesa", description:"Asahi ou Sapporo.", category:"Bebidas", price:22, img:"../img_/cerveja.jpg", services:["Presencial","Bebida"] },
+  { id:10, name:"Saké Tradicional", description:"Quente ou gelado.", category:"Bebidas", price:25, img:"img_/saque1.jpg", services:["Presencial","Delivery","Bebida"] },
+  { id:11, name:"Saquerinha", description:"Saké com frutas: morango, kiwi ou maracujá.", category:"Bebidas", price:28, img:"img_/saque2.jpg", services:["Presencial","Delivery","Bebida"] },
+  { id:12, name:"Cerveja Japonesa", description:"Asahi ou Sapporo.", category:"Bebidas", price:22, img:"img_/cerveja.jpg", services:["Presencial","Bebida"] },
 
   // --- SOBREMESA ---
-  { id:13, name:"Mochi de Chá Verde", description:"Sobremesa leve.", category:"Sobremesa", price:18, img:"../img_/mochi.jpg", services:["Presencial"] }
+  { id:13, name:"Mochi de Chá Verde", description:"Sobremesa leve.", category:"Sobremesa", price:18, img:"img_/mochi.jpg", services:["Presencial"] }
 ];
 
 // Sem isso, a busca não encontra os pratos e os cards ficam em branco

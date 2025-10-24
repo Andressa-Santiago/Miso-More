@@ -1,32 +1,31 @@
-// busca.js - Dados das comidas
 window.CARDAPIO = [
-  // À la carte
+  // Ala carte
   {
     id: 1,
     name: "Salmão",
-    category: "À la carte",
+    category: "A la carte",
     price: 120.90,
     description: "Sushi, sashimi, uramaki e hot roll",
     services: ["Presencial", "Delivery"],
-    img: "../img_/salmao.jpg"
+    img: "img_/salmao.jpg"
   },
   {
     id: 2,
     name: "Teppan de Salmão",
-    category: "À la carte",
+    category: "A la carte",
     price: 58.00,
     description: "Grelhado com legumes e molho tarê.",
     services: ["Presencial"],
-    img: "../img_/salmaogrelhado.jpg"
+    img: "img_/salmaogrelhado.jpg"
   },
   {
     id: 3,
     name: "Yakisoba",
-    category: "À la carte",
+    category: "A la carte",
     price: 39.00,
     description: "Massa oriental com frango, carne ou camarão.",
     services: ["Presencial", "Delivery"],
-    img: "../img_/yakissoba.jpg"
+    img: "img_/yakissoba.jpg"
   },
   // fim a la carte
 
@@ -36,18 +35,18 @@ window.CARDAPIO = [
     name: "Rodízio Completo",
     category: "Rodízio",
     price: 85.00,
-    description: "Sushis e sashimis à vontade.",
+    description: "Sushis e sashimis Avontade.",
     services: ["Presencial"],
-    img: "../img_/sushivariados.jpg"
+    img: "img_/sushivariados.jpg"
   },
   {
     id: 5,
-    name: "Temaki à vontade",
+    name: "Temaki Avontade",
     category: "Rodízio",
     price: 48.00,
     description: "Salmão, atum, camarão empanado e Califórnia.",
     services: ["Presencial", "Delivery"],
-    img: "../img_/temaki2.jpg"
+    img: "img_/temaki2.jpg"
   },
   {
     id: 6,
@@ -56,7 +55,7 @@ window.CARDAPIO = [
     price: 60.00,
     description: "Yakisoba, shimeji na manteiga e harumaki.",
     services: ["Presencial"],
-    img: "../img_/pratoquente.jpg"
+    img: "img_/pratoquente.jpg"
   },
   // fim rodízio
 
@@ -68,7 +67,7 @@ window.CARDAPIO = [
     price: 42.00,
     description: "Acompanha arroz, missoshiro e salada sunomono.",
     services: ["Presencial", "Delivery"],
-    img: "../img_/salmaogrelhado.jpg"
+    img: "img_/salmaogrelhado.jpg"
   },
   {
     id: 8,
@@ -77,7 +76,7 @@ window.CARDAPIO = [
     price: 38.00,
     description: "Com legumes salteados e gohan.",
     services: ["Presencial", "Delivery"],
-    img: "../img_/frango.jpg"
+    img: "img_/frango.jpg"
   },
   {
     id: 9,
@@ -86,7 +85,7 @@ window.CARDAPIO = [
     price: 35.00,
     description: "Versão individual com frango ou carne bovina.",
     services: ["Presencial", "Delivery"],
-    img: "../img_/yakissoba.jpg"
+    img: "img_/yakissoba.jpg"
   },
   // fim menu executivo
   
@@ -98,7 +97,7 @@ window.CARDAPIO = [
     price: 25.00,
     description: "Quente ou gelado.",
     services: ["Presencial", "Delivery"],
-    img: "../img_/saque1.jpg"
+    img: "img_/saque1.jpg"
   },
   {
     id: 11,
@@ -107,7 +106,7 @@ window.CARDAPIO = [
     price: 28.00,
     description: "Saké com frutas: morango, kiwi ou maracujá.",
     services: ["Presencial", "Delivery"],
-    img: "../img_/saque2.jpg"
+    img: "img_/saque2.jpg"
   },
   {
     id: 12,
@@ -116,7 +115,7 @@ window.CARDAPIO = [
     price: 22.00,
     description: "Asahi ou Sapporo.",
     services: ["Presencial"],
-    img: "../img_/cerveja.jpg"
+    img: "img_/cerveja.jpg"
   },
   // fim bebidas
 
@@ -128,7 +127,7 @@ window.CARDAPIO = [
     price: 18.00,
     description: "Sobremesa leve.",
     services: ["Presencial"],
-    img: "../img_/mochi.jpg"
+    img: "img_/mochi.jpg"
   }
   // fim sobremesas
 ];

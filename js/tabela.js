@@ -1,12 +1,12 @@
     const dishes = [
-      { id:1, name:"Salmão (20 peças)", description:"Sushi, sashimi, uramaki e hot roll.", category:"A la carte", price:120, img:"../img_/salmao.jpg", services:["Presencial","Delivery"] },
-      { id:2, name:"Teppan de Salmão", description:"Grelhado com legumes e molho tarê.", category:"A la carte", price:58, img:"../img_/salmaogrelhado.jpg", services:["Presencial"] },
-      { id:3, name:"Yakisoba", description:"Massa oriental com frango, carne ou camarão.", category:"A la carte", price:39, img:"../img_/yakissoba.jpg", services:["Presencial","Delivery","Vegano"] },
-      { id:4, name:"Rodízio Completo", description:"Sushis e sashimis à vontade.", category:"Rodízio", price:85, img:"../img_/sushivariados.jpg", services:["Presencial"] },
-      { id:5, name:"Temaki à vontade", description:"Vários sabores.", category:"Rodízio", price:48, img:"../img_/temaki2.jpg", services:["Presencial","Delivery"] },
-      { id:6, name:"Executivo Salmão", description:"10 peças (sushi, sashimi, hot roll).", category:"Executivo", price:45, img:"../img_/salmao.jpg", services:["Presencial","Delivery"] },
-      { id:7, name:"Chá Verde Importado", description:"Quente ou gelado.", category:"Bebidas", price:12, img:"../img_/bebidas.jpg", services:["Presencial","Delivery","Bebida"] },
-      { id:8, name:"Tempurá de Legumes", description:"Sobremesa leve.", category:"Sobremesa", price:18, img:"../img_/sobremesa.jpg", services:["Presencial"] }
+      { id:1, name:"Salmão (20 peças)", description:"Sushi, sashimi, uramaki e hot roll.", category:"A la carte", price:120, img:"img_/salmao.jpg", services:["Presencial","Delivery"] },
+      { id:2, name:"Teppan de Salmão", description:"Grelhado com legumes e molho tarê.", category:"A la carte", price:58, img:"img_/salmaogrelhado.jpg", services:["Presencial"] },
+      { id:3, name:"Yakisoba", description:"Massa oriental com frango, carne ou camarão.", category:"A la carte", price:39, img:"img_/yakissoba.jpg", services:["Presencial","Delivery","Vegano"] },
+      { id:4, name:"Rodízio Completo", description:"Sushis e sashimis Avontade.", category:"Rodízio", price:85, img:"img_/sushivariados.jpg", services:["Presencial"] },
+      { id:5, name:"Temaki Avontade", description:"Vários sabores.", category:"Rodízio", price:48, img:"img_/temaki2.jpg", services:["Presencial","Delivery"] },
+      { id:6, name:"Executivo Salmão", description:"10 peças (sushi, sashimi, hot roll).", category:"Executivo", price:45, img:"img_/salmao.jpg", services:["Presencial","Delivery"] },
+      { id:7, name:"Chá Verde Importado", description:"Quente ou gelado.", category:"Bebidas", price:12, img:"img_/bebidas.jpg", services:["Presencial","Delivery","Bebida"] },
+      { id:8, name:"Tempurá de Legumes", description:"Sobremesa leve.", category:"Sobremesa", price:18, img:"img_/sobremesa.jpg", services:["Presencial"] }
     ];
 
     // Estado de ordenação e paginação

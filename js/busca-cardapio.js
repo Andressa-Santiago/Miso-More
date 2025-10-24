@@ -1,6 +1,4 @@
 // IIFE (função auto-executável) para evitar poluir o escopo global
-(function(){
-
     // Função que normaliza strings: remove acentos e converte para minúsculas
     // Exemplo: "Café" vira "cafe"
     function normalize(str){
@@ -25,7 +23,7 @@
         const img = item.img || ''; // URL da imagem
         const id = item.id || 0; // ID único do item
         return { id, name, category, price, description, services, img };
-    }
+    };
 
     // Calcula uma pontuação de relevância para um item baseado nas palavras buscadas
     // Quanto maior a pontuação, mais relevante é o item
@@ -130,5 +128,3 @@
 
     // Exporta as funções para uso global através do objeto CardapioUtils
     window.CardapioUtils = { normalize, getFields, filterData, makeSuggestions, readQueryParam };
-
-})();
