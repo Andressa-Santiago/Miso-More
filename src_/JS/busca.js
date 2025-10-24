@@ -28,7 +28,8 @@ window.CARDAPIO = [
     services: ["Presencial", "Delivery"],
     img: "../img_/yakissoba.jpg"
   },
-  
+  // fim a la carte
+
   // Rodízio
   {
     id: 4,
@@ -57,7 +58,8 @@ window.CARDAPIO = [
     services: ["Presencial"],
     img: "../img_/pratoquente.jpg"
   },
-  
+  // fim rodízio
+
   // Menu Executivo
   {
     id: 7,
@@ -86,6 +88,7 @@ window.CARDAPIO = [
     services: ["Presencial", "Delivery"],
     img: "../img_/yakissoba.jpg"
   },
+  // fim menu executivo
   
   // Bebidas
   {
@@ -115,7 +118,8 @@ window.CARDAPIO = [
     services: ["Presencial"],
     img: "../img_/cerveja.jpg"
   },
-  
+  // fim bebidas
+
   // Sobremesas
   {
     id: 13,
@@ -126,4 +130,5 @@ window.CARDAPIO = [
     services: ["Presencial"],
     img: "../img_/mochi.jpg"
   }
+  // fim sobremesas
 ];
