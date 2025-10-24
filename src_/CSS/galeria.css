@@ -51,6 +51,17 @@ transition: transform 0.3s ease;
     opacity: 1;
 }
 
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* fim Galeria */
 
 /* FOOTER */
