@@ -59,8 +59,8 @@
         <div class="icons d-none d-md-none d-lg-block" style="position: relative">
           <form class="form-inline my-2 my-lg-0">
             <div style="position: relative">
-              <input id="inputBusca" class="form-control" type="search" placeholder="Pesquisar..."
-                autocomplete="off" style="width: 220px">
+              <input id="inputBusca" class="form-control" type="search" placeholder="Pesquisar..." autocomplete="off"
+                style="width: 220px">
               <button id="btnBuscar" type="button"
                 style="position: absolute; top: 50%; right: 1px; transform: translateY(-50%); border: none; background: transparent; cursor: pointer">
                 <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px"></i>
@@ -323,53 +323,92 @@
   <script src="./src_/JS/busca.js"></script>
   <script src="./src_/JS/busca-cardapio.js"></script>
   <script>
+    // Importa as funções úteis do arquivo busca-cardapio.js
     const U = window.CardapioUtils;
+
+    // Carrega os dados do cardápio (espera que exista uma variável global CARDAPIO)
     const data = Array.isArray(window.CARDAPIO) ? window.CARDAPIO : [];
 
+    // Função que redireciona o usuário para a página do cardápio
+    // Se houver uma busca (q), adiciona como parâmetro na URL
     function goToCardapio(q) {
       const url = new URL('./src_/HTML/cardapio.html', location.href);
-      if (q) url.searchParams.set('q', q);
-      location.href = url.toString();
+      if (q) url.searchParams.set('q', q); // Adiciona ?q=pizza (por exemplo)
+      location.href = url.toString(); // Redireciona para a nova página
     }
 
+    // Função principal que conecta os elementos HTML com as funcionalidades
     function bind() {
-      const input = document.getElementById('inputBusca');
-      const btn = document.getElementById('btnBuscar');
-      const box = document.getElementById('listaSugestoes');
+      // Busca os elementos no DOM
+      const input = document.getElementById('inputBusca'); // Campo de texto
+      const btn = document.getElementById('btnBuscar'); // Botão de buscar
+      const box = document.getElementById('listaSugestoes'); // Caixa de sugestões
 
+      // Se algum elemento não existir, para a execução
       if (!input || !btn || !box) return;
 
+      // Função que atualiza a lista de sugestões enquanto o usuário digita
       function updateSuggestions() {
+        // Chama a função que gera até 8 sugestões baseadas no que foi digitado
         const suggestions = U.makeSuggestions(data, input.value, 8);
-        box.innerHTML = '';
+
+        box.innerHTML = ''; // Limpa a caixa de sugestões
+
+        // Mostra ou esconde a caixa dependendo se há sugestões
         box.style.display = suggestions.length ? 'block' : 'none';
+
+        // Cria um elemento para cada sugestão
         suggestions.forEach(text => {
           const div = document.createElement('div');
-          div.className = 'typeahead-item';
-          div.tabIndex = 0;
-          div.setAttribute('role', 'option');
-          div.textContent = text;
+          div.className = 'typeahead-item'; // Classe CSS para estilização
+          div.tabIndex = 0; // Permite navegação por teclado
+          div.setAttribute('role', 'option'); // Acessibilidade
+          div.textContent = text; // Texto da sugestão
+
+          // Ao clicar na sugestão, redireciona com ela preenchida
           div.addEventListener('click', () => goToCardapio(text));
-          div.addEventListener('keydown', (e) => { if (e.key === 'Enter') goToCardapio(text); });
-          box.appendChild(div);
+
+          // Permite pressionar Enter na sugestão selecionada
+          div.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') goToCardapio(text);
+          });
+
+          box.appendChild(div); // Adiciona a sugestão na caixa
         });
       }
 
+      // Atualiza sugestões sempre que o usuário digitar algo
       input.addEventListener('input', updateSuggestions);
+
+      // Eventos do teclado no campo de busca
       input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') { e.preventDefault(); goToCardapio(input.value.trim()); }
-        if (e.key === 'Escape') { box.style.display = 'none'; }
+        // Se pressionar Enter, busca o que está digitado
+        if (e.key === 'Enter') {
+          e.preventDefault(); // Evita comportamento padrão do formulário
+          goToCardapio(input.value.trim());
+        }
+        // Se pressionar Esc, esconde a caixa de sugestões
+        if (e.key === 'Escape') {
+          box.style.display = 'none';
+        }
       });
+
+      // Ao clicar no botão de buscar, redireciona com o texto digitado
       btn.addEventListener('click', () => goToCardapio(input.value.trim()));
 
-      // Se vier com ?q=, já encaminha direto
+      // Se a URL já vier com parâmetro ?q=alguma_coisa, redireciona automaticamente
+      // Útil para links diretos ou compartilhamento
       const init = U.readQueryParam('q');
-      if (init) { goToCardapio(init); }
+      if (init) {
+        goToCardapio(init);
+      }
     }
 
+    // Aguarda o carregamento completo da página antes de executar
+    // Garante que todos os elementos HTML estejam disponíveis
     document.addEventListener('DOMContentLoaded', bind);
   </script>
-
+  <!-- fim do script -->
 
 </body>
 <!-- fim do body -->

@@ -1,6 +1,4 @@
-// ========================
-// 1. Dados dos pratos
-// ========================
+// Dados do cardápio
 const dishes = [
   // --- A LA CARTE ---
   { id:1, name:"Salmão (20 peças)", description:"Sushi, sashimi, uramaki e hot roll.", category:"A la carte", price:120, img:"../img_/salmao.jpg", services:["Presencial","Delivery"] },
@@ -26,10 +24,11 @@ const dishes = [
   { id:13, name:"Mochi de Chá Verde", description:"Sobremesa leve.", category:"Sobremesa", price:18, img:"../img_/mochi.jpg", services:["Presencial"] }
 ];
 
+// Sem isso, a busca não encontra os pratos e os cards ficam em branco
+window.CARDAPIO = dishes;
 
-// ========================
-// 2. SISTEMA DE CARRINHO
-// ========================
+
+// carrinho de compras
 let cart = [];
 
 // Carregar carrinho do localStorage
@@ -50,9 +49,8 @@ function saveCart() {
 function addToCart(productId) {
   const product = dishes.find(d => d.id === productId);
   if (!product) return;
-  
+
   const existingItem = cart.find(item => item.id === productId);
-  
   if (existingItem) {
     existingItem.quantity++;
   } else {
@@ -64,7 +62,7 @@ function addToCart(productId) {
       quantity: 1
     });
   }
-  
+
   saveCart();
   showNotification('Item adicionado ao carrinho!');
 }
@@ -73,9 +71,8 @@ function addToCart(productId) {
 function updateCartBadge() {
   const badge = document.getElementById('cartBadge');
   if (!badge) return;
-  
+
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  
   if (totalItems > 0) {
     badge.textContent = totalItems;
     badge.style.display = 'inline-block';
@@ -88,50 +85,52 @@ function updateCartBadge() {
 function showCartModal() {
   const cartBody = document.getElementById('cartBody');
   if (!cartBody) return;
-  
+
   if (cart.length === 0) {
-    cartBody.innerHTML = '<p class="text-center text-muted">Seu carrinho está vazio.</p>';
+    cartBody.innerHTML = '<p class="text-center p-3">Seu carrinho está vazio.</p>';
     return;
   }
-  
+
   let html = '';
   let total = 0;
-  
+
   cart.forEach((item, index) => {
     const subtotal = item.price * item.quantity;
     total += subtotal;
-    
+
     html += `
-      <div class="d-flex align-items-center p-3 mb-3" style="background-color: #ffc0cb; border-radius: 15px;">
-        <img src="${item.image}" alt="${item.name}" class="rounded" style="width: 100px; height: 80px; object-fit: cover;">
-        <div class="ms-3 flex-grow-1">
-          <p class="mb-1 fw-bold">${item.name}</p>
-          <p class="mb-0 fw-bold" style="color: #333;">R$ ${item.price.toFixed(2)}</p>
+      <div class="cart-item d-flex align-items-center mb-3 pb-3 border-bottom">
+        <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+        <div class="flex-grow-1 ms-3">
+          <h6 class="mb-1">${item.name}</h6>
+          <small class="text-muted">R$ ${item.price.toFixed(2)}</small>
         </div>
-        <div class="d-flex align-items-center">
-          <button class="btn btn-sm btn-light px-2" onclick="updateQuantity(${index}, -1)">-</button>
-          <span class="mx-2 fw-bold quantity">${item.quantity}</span>
-          <button class="btn btn-sm btn-light px-2" onclick="updateQuantity(${index}, 1)">+</button>
+        <div class="d-flex align-items-center gap-2">
+          <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity(${index}, -1)">-</button>
+          <span class="mx-2">${item.quantity}</span>
+          <button class="btn btn-sm btn-outline-secondary" onclick="changeQuantity(${index}, 1)">+</button>
           <button class="btn btn-sm btn-danger ms-2" onclick="removeFromCart(${index})">
-            <i class="fa-solid fa-trash"></i>
+            <i class="fas fa-trash"></i>
           </button>
         </div>
       </div>
     `;
   });
-  
+
   html += `
-    <div class="mt-4 text-end">
-      <h5 class="fw-bold" style="color: #eb1d27;">Total: <span id="total">R$ ${total.toFixed(2)}</span></h5>
+    <div class="cart-total pt-3 border-top">
+      <h5 class="text-end">Total: R$ ${total.toFixed(2)}</h5>
     </div>
   `;
-  
+
   cartBody.innerHTML = html;
 }
 
-// Atualizar quantidade
-function updateQuantity(index, change) {
-  cart[index].quantity += change;
+// Alterar quantidade
+function changeQuantity(index, delta) {
+  if (index < 0 || index >= cart.length) return;
+  
+  cart[index].quantity += delta;
   
   if (cart[index].quantity <= 0) {
     cart.splice(index, 1);
@@ -143,217 +142,148 @@ function updateQuantity(index, change) {
 
 // Remover item do carrinho
 function removeFromCart(index) {
+  if (index < 0 || index >= cart.length) return;
   cart.splice(index, 1);
   saveCart();
   showCartModal();
+  showNotification('Item removido do carrinho');
 }
 
-// Notificação de item adicionado
-function showNotification(message) {
-  const notification = document.createElement('div');
-  notification.className = 'alert alert-success position-fixed top-0 end-0 m-3';
-  notification.style.zIndex = '9999';
-  notification.innerHTML = `<i class="fa-solid fa-check-circle me-2"></i>${message}`;
+// Finalizar compra
+function checkout() {
+  if (cart.length === 0) {
+    alert('Seu carrinho está vazio!');
+    return;
+  }
   
-  document.body.appendChild(notification);
+  alert('Redirecionando para o pagamento...');
+  // Aqui você pode adicionar integração com sistema de pagamento
+}
+
+// Mostrar notificação
+function showNotification(message) {
+  const notification = document.getElementById('notification');
+  if (!notification) return;
+  
+  notification.textContent = message;
+  notification.classList.add('show');
   
   setTimeout(() => {
-    notification.remove();
-  }, 2000);
+    notification.classList.remove('show');
+  }, 3000);
 }
 
-// ========================
-// 3. Seletores úteis
-// ========================
-const $ = s => document.querySelector(s);
-const $$ = s => [...document.querySelectorAll(s)];
 
-const el = {
-  q: $('#q'),
-  min: $('#min'),
-  max: $('#max'),
-  sort: $('#sort'),
-  gens: $$('.gen'),
-  svcs: $$('.svc'),
-  reset: $('#reset'),
-  form: $('#formFiltros'),
-  cont: $('#contagem'),
-  cards: $('#cards'),
-  tbody: $('#tbody'),
-  vCards: $('#v-cards'),
-  vTable: $('#v-table'),
-  tableWrap: $('#tableWrap')
-};
+// Filtrar pratos por busca, categoria e ordenação
+function filtrar() {
+  const searchInput = document.getElementById('inputBusca');
+  const categoryFilter = document.getElementById('filtroCategoria');
+  const sortOrder = document.getElementById('ordem');
 
-let st = {
-  q:'',
-  min:null,
-  max:null,
-  gens:new Set(['A la carte','Rodízio','Executivo','Bebidas','Sobremesa']),
-  svcs:new Set(),
-  sort:'relevance',
-  view:'cards'
-};
+  const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+  const selectedCategory = categoryFilter ? categoryFilter.value : '';
+  const orderBy = sortOrder ? sortOrder.value : 'relevance';
 
-// ========================
-// 4. Funções de filtro
-// ========================
-const incluiTodos = (arr,set)=>[...set].every(v=>arr.includes(v));
-
-function lerFiltros(){
-  st.q = el.q.value.trim().toLowerCase();
-  st.min = el.min.value ? +el.min.value : null;
-  st.max = el.max.value ? +el.max.value : null;
-  st.gens = new Set(el.gens.filter(c=>c.checked).map(c=>c.value));
-  st.svcs = new Set(el.svcs.filter(c=>c.checked).map(c=>c.value));
-  st.sort = el.sort.value;
-}
-
-function filtrar(){
-  lerFiltros();
-
-  let out = dishes.filter(l=>{
-    if(st.q && !(l.name.toLowerCase().includes(st.q) || l.description.toLowerCase().includes(st.q) || l.category.toLowerCase().includes(st.q))) return false;
-    if(!st.gens.has(l.category)) return false;
-    if(st.svcs.size && !incluiTodos(l.services, st.svcs)) return false;
-    if(st.min!=null && l.price < st.min) return false;
-    if(st.max!=null && l.price > st.max) return false;
-    return true;
+  // Filtra por busca e categoria
+  let filtered = dishes.filter(dish => {
+    const matchesSearch = dish.name.toLowerCase().includes(searchTerm) ||
+                         dish.description.toLowerCase().includes(searchTerm) ||
+                         dish.category.toLowerCase().includes(searchTerm);
+    
+    const matchesCategory = !selectedCategory || dish.category === selectedCategory;
+    
+    return matchesSearch && matchesCategory;
   });
 
-  switch(st.sort){
-    case 'price-asc': out.sort((a,b)=>a.price-b.price); break;
-    case 'price-desc': out.sort((a,b)=>b.price-a.price); break;
-    case 'title-asc': out.sort((a,b)=>a.name.localeCompare(b.name)); break;
+  // Ordena os resultados
+  if (orderBy === 'price-asc') {
+    filtered.sort((a, b) => a.price - b.price);
+  } else if (orderBy === 'price-desc') {
+    filtered.sort((a, b) => b.price - a.price);
+  } else if (orderBy === 'name-asc') {
+    filtered.sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  render(out);
+  renderCards(filtered);
+  renderTable(filtered);
+  updateResultCount(filtered.length);
 }
 
-// ========================
-// 5. Renderização dos cards
-// ========================
-function render(lista){
-  // Cards
-  el.cards.innerHTML = lista.map(l=>`
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="card h-100">
-        <img class="card-img-top" src="${l.img}" alt="${l.name}" loading="lazy" decoding="async">
+// Renderizar cards
+function renderCards(dishList) {
+  const container = document.getElementById('dishCards');
+  if (!container) return;
+
+  if (dishList.length === 0) {
+    container.innerHTML = '<p class="text-center col-12">Nenhum prato encontrado.</p>';
+    return;
+  }
+
+  container.innerHTML = dishList.map(dish => `
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card dish-card h-100">
+        <img src="${dish.img}" class="card-img-top" alt="${dish.name}">
         <div class="card-body d-flex flex-column">
-          <h6 class="mb-1">${l.name}</h6>
-          <small class="text-muted">${l.category} — R$ ${l.price}</small>
-          <p class="card-text">${l.description}</p>
-          <div class="mt-auto d-flex justify-content-between align-items-center pt-2">
-            <span class="badge text-bg-light">R$ ${l.price}</span>
-            <div class="d-flex gap-1">
-              ${l.services.map(s=>`<span class="badge text-bg-secondary">${s}</span>`).join('')}
-            </div>
+          <h5 class="card-title">${dish.name}</h5>
+          <p class="card-text text-muted small">${dish.description}</p>
+          <p class="card-text"><strong>Categoria:</strong> ${dish.category}</p>
+          <p class="card-text"><strong>Serviços:</strong> ${dish.services.join(', ')}</p>
+          <div class="mt-auto">
+            <p class="price mb-2">R$ ${dish.price.toFixed(2)}</p>
+            <button class="btn btn-primary w-100" onclick="addToCart(${dish.id})">
+              <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+            </button>
           </div>
-          <button class="btn btn-primary btn-sm mt-3 w-100" style="background-color: #eb1d27; border-color: #eb1d27;" onclick="addToCart(${l.id})">
-            <i class="fa-solid fa-cart-plus me-2"></i>Adicionar ao Carrinho
-          </button>
         </div>
       </div>
     </div>
   `).join('');
+}
 
-  // Tabela
-  el.tbody.innerHTML = lista.map(l=>`
+// Renderizar tabela
+function renderTable(dishList) {
+  const tbody = document.querySelector('#dishTable tbody');
+  if (!tbody) return;
+
+  if (dishList.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="5" class="text-center">Nenhum prato encontrado.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = dishList.map(dish => `
     <tr>
-      <td data-label="Prato">${l.name}</td>
-      <td data-label="Categoria">${l.category}</td>
-      <td data-label="Serviços">${l.description}</td>
-      <td data-label="Preço" class="text-end">R$ ${l.price}</td>
-      <td data-label="Opções">${l.services.map(s=>`<span class="badge text-bg-secondary me-1">${s}</span>`).join('')}</td>
+      <td>${dish.name}</td>
+      <td>${dish.category}</td>
+      <td>${dish.services.join(', ')}</td>
+      <td>R$ ${dish.price.toFixed(2)}</td>
+      <td>
+        <button class="btn btn-sm btn-primary" onclick="addToCart(${dish.id})">
+          <i class="fas fa-cart-plus"></i>
+        </button>
+      </td>
     </tr>
   `).join('');
-
-  el.cont.textContent = String(lista.length);
 }
 
-// ========================
-// 6. Controle da view
-// ========================
-function setView(v){
-  st.view = v;
-  el.tableWrap.classList.toggle('d-none', v==='cards');
-  el.cards.classList.toggle('d-none', v==='table');
+// Atualizar contador de resultados
+function updateResultCount(count) {
+  const counter = document.getElementById('resultCount');
+  if (counter) {
+    counter.textContent = count;
+  }
 }
 
-el.vCards.addEventListener('change', ()=>setView('cards'));
-el.vTable.addEventListener('change', ()=>setView('table'));
-
-// Filtros
-el.form.addEventListener('submit', e=>{
-  e.preventDefault();
-  filtrar();
-  const oc = bootstrap.Offcanvas.getInstance(document.getElementById('filtrosOff'));
-  if(oc) oc.hide();
-});
-
-[el.q, el.min, el.max, el.sort, ...el.gens, ...el.svcs].forEach(c=>{
-  c.addEventListener('input', filtrar);
-  c.addEventListener('change', filtrar);
-});
-
-el.reset.addEventListener('click', ()=>{
-  el.q.value=''; el.min.value=''; el.max.value='';
-  el.sort.value='relevance';
-  el.gens.forEach(c=>c.checked=true);
-  el.svcs.forEach(c=>c.checked=false);
-  filtrar();
-});
-
-// ========================
-// 7. INICIALIZAÇÃO
-// ========================
-document.addEventListener('DOMContentLoaded', function() {
-  // Carregar carrinho salvo
+// Inicialização ao carregar a página
+document.addEventListener('DOMContentLoaded', () => {
   loadCart();
+  filtrar(); // Renderiza todos os pratos inicialmente
   
-  // Inicializar visualização e filtros
-  setView('cards');
-  filtrar();
+  // Adiciona eventos aos filtros
+  const searchInput = document.getElementById('inputBusca');
+  const categoryFilter = document.getElementById('filtroCategoria');
+  const sortOrder = document.getElementById('ordem');
   
-  // Configurar modal do carrinho
-  const modalCarrinho = document.getElementById('modalCarrinho');
-  if (modalCarrinho) {
-    modalCarrinho.addEventListener('show.bs.modal', showCartModal);
-  }
-  
-  // Botão finalizar compra
-  const btnFinalizar = document.getElementById('btnFinalizarCompra');
-  if (btnFinalizar) {
-    btnFinalizar.addEventListener('click', function() {
-      if (cart.length === 0) {
-        alert('Seu carrinho está vazio!');
-        return;
-      }
-      
-      // Fechar modal do carrinho
-      const modalCarrinhoInstance = bootstrap.Modal.getInstance(modalCarrinho);
-      modalCarrinhoInstance.hide();
-      
-      // Aguardar fechamento e abrir modal de sucesso
-      setTimeout(function() {
-        const modalSucesso = new bootstrap.Modal(document.getElementById('modalSucesso'));
-        modalSucesso.show();
-        
-        // Limpar carrinho após fechar modal de sucesso
-        document.getElementById('modalSucesso').addEventListener('hidden.bs.modal', function() {
-          cart = [];
-          saveCart();
-        }, { once: true });
-      }, 300);
-    });
-  }
+  if (searchInput) searchInput.addEventListener('input', filtrar);
+  if (categoryFilter) categoryFilter.addEventListener('change', filtrar);
+  if (sortOrder) sortOrder.addEventListener('change', filtrar);
 });
-
-// Inicializa (fallback caso DOMContentLoaded já tenha passado)
-if (document.readyState === 'loading') {
-  // Aguarda DOMContentLoaded
-} else {
-  // DOM já carregado, inicializar diretamente
-  setView('cards');
-  filtrar();
-}

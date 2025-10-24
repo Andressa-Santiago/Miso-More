@@ -294,53 +294,6 @@
   <!-- busca -->
   <script src="./src_/JS/busca.js"></script>
   <script src="./src_/JS/busca-cardapio.js"></script>
-  <script>
-    const U = window.CardapioUtils;
-    const data = Array.isArray(window.CARDAPIO) ? window.CARDAPIO : [];
-
-    function goToCardapio(q) {
-      const url = new URL('./src_/HTML/cardapio.html', location.href);
-      if (q) url.searchParams.set('q', q);
-      location.href = url.toString();
-    }
-
-    function bind() {
-      const input = document.getElementById('inputBusca');
-      const btn = document.getElementById('btnBuscar');
-      const box = document.getElementById('listaSugestoes');
-
-      if (!input || !btn || !box) return;
-
-      function updateSuggestions() {
-        const suggestions = U.makeSuggestions(data, input.value, 8);
-        box.innerHTML = '';
-        box.style.display = suggestions.length ? 'block' : 'none';
-        suggestions.forEach(text => {
-          const div = document.createElement('div');
-          div.className = 'typeahead-item';
-          div.tabIndex = 0;
-          div.setAttribute('role', 'option');
-          div.textContent = text;
-          div.addEventListener('click', () => goToCardapio(text));
-          div.addEventListener('keydown', (e) => { if (e.key === 'Enter') goToCardapio(text); });
-          box.appendChild(div);
-        });
-      }
-
-      input.addEventListener('input', updateSuggestions);
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') { e.preventDefault(); goToCardapio(input.value.trim()); }
-        if (e.key === 'Escape') { box.style.display = 'none'; }
-      });
-      btn.addEventListener('click', () => goToCardapio(input.value.trim()));
-
-      // Se vier com ?q=, já encaminha direto
-      const init = U.readQueryParam('q');
-      if (init) { goToCardapio(init); }
-    }
-
-    document.addEventListener('DOMContentLoaded', bind);
-  </script>
 
 
 </body>
