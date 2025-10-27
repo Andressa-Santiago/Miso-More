@@ -159,8 +159,8 @@ nav a.active {
 }
 
 .btn-primary{
-  background-color: #e63946;
-  border: none;
+  background-color: #e63946 !important;
+  border: none !important;
 }
 /* Cards */
 
