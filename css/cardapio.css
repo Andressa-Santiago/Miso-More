@@ -479,5 +479,30 @@ tbody td.text-end {
   }
 }
 
+/* Estiliza o modal do carrinho para ficar como a primeira imagem */
+#modalCarrinho .modal-content {
+  border-radius: 20px;
+  box-shadow: 0 0 20px e63946(150, 0, 255, 0.3); /* Borda roxa suave */
+  border: 2px solid #e63946; /* Cor roxa */
+}
+
+#modalCarrinho .modal-header {
+  background-color: transparent !important;
+  border-bottom: none;
+}
+
+#modalCarrinho .modal-title {
+  color: #e63946; /* Vermelho vibrante como na primeira imagem */
+  font-weight: 700;
+}
+
+#modalCarrinho .modal-body {
+  padding: 20px;
+}
+
+#modalCarrinho .modal-footer {
+  justify-content: center;
+  gap: 10px;
+}
 
 
