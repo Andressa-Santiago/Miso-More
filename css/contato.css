@@ -42,11 +42,17 @@
 /* fim do contato */
 
 /* FAQ  */
+#faq .accordion {
+ margin: 30px 0;
+padding: 60px 20px;
+  
+}
 
 #faq .accordion-button {
   background-color: #fff;
   border-radius: 10px;
   transition: all 0.3s ease;
+
 }
 
 #faq .accordion-button:not(.collapsed) {
@@ -65,8 +71,17 @@
 }
 
 #faq h2 {
-  color: #2b2b2b;
+  color: #d11c36;
 }
+
+#faq img {
+  max-width: 500px;
+  margin-right: 90px; /* aumenta o espaço entre a imagem e o accordion */
+}
+
+
+
+
 
 /* ===== EFEITO FADE-UP ===== */
 
