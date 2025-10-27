@@ -162,8 +162,9 @@ nav a.active {
   background-color: #e63946 !important;
   border: none !important;
 }
-/* Cards */
 
+
+/* Cards */
 .card {
     margin-bottom: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
@@ -207,6 +208,18 @@ nav a.active {
     min-height: 14px !important; 
 }
 
+
+/* Sobrescreve o botão outline-primary para ficar vermelho no mobile */
+.btn-outline-primary {
+  background-color: #e63946 !important;
+  color: white !important;
+  border: none !important;
+  font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+  background-color: #d11c36 !important;
+}
 
 /* tabela */
 #tableWrap {
