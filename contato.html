@@ -12,6 +12,7 @@
     <!-- link css-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/contato.css">
+    <link rel="stylesheet" href="css/busca.css">
 
 
     <!-- links -->
@@ -46,16 +47,18 @@
                 </div>
 
                 <!-- barra de pesquisa -->
-                <div class="icons d-none d-md-none d-lg-block" style="position: relative;">
-                    <form class="form-inline md-2">
-                        <div style="position: relative;">
-                            <input class="form-control" type="search" placeholder="Pesquisar" aria-label="Pesquisar"
-                                style="padding-right: 32px; width: 220px;">
-                            <span
-                                style="position: absolute; top: 50%; right: 8px; transform: translateY(-50%); pointer-events: none;">
-                                <!-- icon pesquisa -->
-                                <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px;"></i>
-                            </span>
+                <div class="icons d-none d-md-none d-lg-block" style="position: relative">
+                    <form class="form-inline my-2 my-lg-0">
+                        <div style="position: relative">
+                            <input id="inputBusca" class="form-control" type="search" placeholder="Pesquisar..."
+                                autocomplete="off" style="width: 220px">
+                            <button id="btnBuscar" type="button"
+                                style="position: absolute; top: 50%; right: 1px; transform: translateY(-50%); border: none; background: transparent; cursor: pointer">
+                                <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px"></i>
+                            </button>
+                        </div>
+                        <div id="listaSugestoes"
+                            style="display: none; position: absolute; background: white; border: 1px solid #ddd; border-radius: 8px; margin-top: 5px; width: 220px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 1000;">
                         </div>
                     </form>
                 </div>
@@ -143,7 +146,8 @@
                 <div class="row gap-5">
                     <!-- informação -->
                     <div id="contact-info" class="col-12 col-md-5">
-                        <div class="d-flex gap-2 border border-1 p-2 rounded border-shadow" style="margin-bottom: 30px;">
+                        <div class="d-flex gap-2 border border-1 p-2 rounded border-shadow"
+                            style="margin-bottom: 30px;">
                             <!-- p = padding, px = padding no eixo x, py = padding eixo y -->
                             <div
                                 class="contact-icon px-3 py-1 rounded d-flex justify-content-center align-items-center">
@@ -156,7 +160,8 @@
                         </div>
 
                         <!-- whats -->
-                        <div class="d-flex gap-2 border border-1 p-2 rounded border-shadow" style="margin-bottom: 30px;">
+                        <div class="d-flex gap-2 border border-1 p-2 rounded border-shadow"
+                            style="margin-bottom: 30px;">
                             <!-- p = padding, px = padding no eixo x, py = padding eixo y -->
                             <div
                                 class="contact-icon px-3 py-1 rounded d-flex justify-content-center align-items-center">
@@ -169,7 +174,8 @@
                         </div>
 
                         <!-- email -->
-                        <div class="d-flex gap-2 border border-1 p-2 rounded border-shadow" style="margin-bottom: 30px;">
+                        <div class="d-flex gap-2 border border-1 p-2 rounded border-shadow"
+                            style="margin-bottom: 30px;">
                             <!-- p = padding, px = padding no eixo x, py = padding eixo y -->
                             <div
                                 class="contact-icon px-3 py-1 rounded d-flex justify-content-center align-items-center">
@@ -266,71 +272,73 @@
                 </div>
 
                 <div class="row align-items-center">
-                <!-- Imagem -->
-                            <div class="col-md-5 text-center mb-4 mb-md-0">
-                                <img src="img_/faq.png" alt="FAQ" class="img-fluid" style="max-width: 400px;">
-                            </div>
+                    <!-- Imagem -->
+                    <div class="col-md-5 text-center mb-4 mb-md-0">
+                        <img src="img_/faq.png" alt="FAQ" class="img-fluid" style="max-width: 400px;">
+                    </div>
 
-                            <!-- Accordion -->
-                            <div class="col-md-7">
-                                <div class="accordion accordion-flush" id="accordionFlushExample">
-          <!-- Pergunta 1 -->
-                                    <div class="accordion-item border rounded-3 mb-3 shadow-sm">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed fw-semibold" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
-                                            aria-expanded="false" aria-controls="flush-collapseOne">
-                                            Vocês fazem entregas fora de Guarulhos?
-                                            </button>
-                                        </h2>
-                                        <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                        data-bs-parent="#accordionFlushExample">
-                                            <div class="accordion-body">
-                                            No momento, nossas entregas são realizadas apenas na região de Guarulhos (SP).
-                                        </div>
+                    <!-- Accordion -->
+                    <div class="col-md-7">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <!-- Pergunta 1 -->
+                            <div class="accordion-item border rounded-3 mb-3 shadow-sm">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-semibold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                        aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Vocês fazem entregas fora de Guarulhos?
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                        No momento, nossas entregas são realizadas apenas na região de Guarulhos (SP).
                                     </div>
                                 </div>
+                            </div>
 
-                                <!-- Pergunta 2 -->
-                                <div class="accordion-item border rounded-3 mb-3 shadow-sm">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed fw-semibold" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
-                                                aria-expanded="false" aria-controls="flush-collapseTwo">
-                                                Quais são as formas de pagamento aceitas?
-                                        </button>
-                                    </h2>
+                            <!-- Pergunta 2 -->
+                            <div class="accordion-item border rounded-3 mb-3 shadow-sm">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-semibold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+                                        aria-expanded="false" aria-controls="flush-collapseTwo">
+                                        Quais são as formas de pagamento aceitas?
+                                    </button>
+                                </h2>
                                 <div id="flush-collapseTwo" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
                                     <div class="accordion-body">
-                                    Aceitamos cartões de crédito e débito, Pix e dinheiro. Pagamentos via app também são possíveis.
+                                        Aceitamos cartões de crédito e débito, Pix e dinheiro. Pagamentos via app também
+                                        são possíveis.
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Pergunta 3 -->
-                        <div class="accordion-item border rounded-3 shadow-sm">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed fw-semibold" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
-                                aria-expanded="false" aria-controls="flush-collapseThree">
-                                    Como faço um pedido?
-                                </button>
-                            </h2>
-                                    <div id="flush-collapseThree" class="accordion-collapse collapse"
+                            <!-- Pergunta 3 -->
+                            <div class="accordion-item border rounded-3 shadow-sm">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed fw-semibold" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+                                        aria-expanded="false" aria-controls="flush-collapseThree">
+                                        Como faço um pedido?
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseThree" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionFlushExample">
-                                        <div class="accordion-body">
-                                        Basta acessar nosso cardápio online, escolher seus pratos favoritos e clicar em “Finalizar Pedido”.
-                                        </div>
+                                    <div class="accordion-body">
+                                        Basta acessar nosso cardápio online, escolher seus pratos favoritos e clicar em
+                                        “Finalizar Pedido”.
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-        <!-- fim contato -->
+                    <!-- fim contato -->
 
-        <!-- faq -->
+                    <!-- faq -->
 
-        <!-- fim faq -->
+                    <!-- fim faq -->
     </main>
     <!-- fim main -->
 
@@ -457,8 +465,99 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    
+
     <script src="js/contato.js"></script>
+
+      <!-- busca -->
+  <script src="js/busca.js"></script>
+  <script src="js/busca-cardapio.js"></script>
+  <script>
+    // Importa as funções úteis do arquivo busca-cardapio.js
+    const U = window.CardapioUtils;
+
+    // Carrega os dados do cardápio (espera que exista uma variável global CARDAPIO)
+    const data = Array.isArray(window.CARDAPIO) ? window.CARDAPIO : [];
+
+    // Função que redireciona o usuário para a página do cardápio
+    // Se houver uma busca (q), adiciona como parâmetro na URL
+    function goToCardapio(q) {
+      const url = new URL('cardapio.html', location.href);
+      if (q) url.searchParams.set('q', q); // Adiciona ?q=pizza (por exemplo)
+      location.href = url.toString(); // Redireciona para a nova página
+    }
+
+    // Função principal que conecta os elementos HTML com as funcionalidades
+    function bind() {
+      // Busca os elementos no DOM
+      const input = document.getElementById('inputBusca'); // Campo de texto
+      const btn = document.getElementById('btnBuscar'); // Botão de buscar
+      const box = document.getElementById('listaSugestoes'); // Caixa de sugestões
+
+      // Se algum elemento não existir, para a execução
+      if (!input || !btn || !box) return;
+
+      // Função que atualiza a lista de sugestões enquanto o usuário digita
+      function updateSuggestions() {
+        // Chama a função que gera até 8 sugestões baseadas no que foi digitado
+        const suggestions = U.makeSuggestions(data, input.value, 8);
+
+        box.innerHTML = ''; // Limpa a caixa de sugestões
+
+        // Mostra ou esconde a caixa dependendo se há sugestões
+        box.style.display = suggestions.length ? 'block' : 'none';
+
+        // Cria um elemento para cada sugestão
+        suggestions.forEach(text => {
+          const div = document.createElement('div');
+          div.className = 'typeahead-item'; // Classe CSS para estilização
+          div.tabIndex = 0; // Permite navegação por teclado
+          div.setAttribute('role', 'option'); // Acessibilidade
+          div.textContent = text; // Texto da sugestão
+
+          // Ao clicar na sugestão, redireciona com ela preenchida
+          div.addEventListener('click', () => goToCardapio(text));
+
+          // Permite pressionar Enter na sugestão selecionada
+          div.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') goToCardapio(text);
+          });
+
+          box.appendChild(div); // Adiciona a sugestão na caixa
+        });
+      }
+
+      // Atualiza sugestões sempre que o usuário digitar algo
+      input.addEventListener('input', updateSuggestions);
+
+      // Eventos do teclado no campo de busca
+      input.addEventListener('keydown', (e) => {
+        // Se pressionar Enter, busca o que está digitado
+        if (e.key === 'Enter') {
+          e.preventDefault(); // Evita comportamento padrão do formulário
+          goToCardapio(input.value.trim());
+        }
+        // Se pressionar Esc, esconde a caixa de sugestões
+        if (e.key === 'Escape') {
+          box.style.display = 'none';
+        }
+      });
+
+      // Ao clicar no botão de buscar, redireciona com o texto digitado
+      btn.addEventListener('click', () => goToCardapio(input.value.trim()));
+
+      // Se a URL já vier com parâmetro ?q=alguma_coisa, redireciona automaticamente
+      // Útil para links diretos ou compartilhamento
+      const init = U.readQueryParam('q');
+      if (init) {
+        goToCardapio(init);
+      }
+    }
+
+    // Aguarda o carregamento completo da página antes de executar
+    // Garante que todos os elementos HTML estejam disponíveis
+    document.addEventListener('DOMContentLoaded', bind);
+  </script>
+  <!-- fim do script -->
 
 </body>
 

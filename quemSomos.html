@@ -10,17 +10,17 @@
     <link rel="icon" type="image/x-icon" href="img_/hashi.png">
 
     <!-- linsk css -->
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/quemSomos.css">
+    <link rel="stylesheet" href="css/busca.css">
 
     <!-- links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link
-    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -51,23 +51,26 @@
 
 
                 <!-- barra de pesquisa -->
-                <div class="icons d-none d-md-none d-lg-block" style="position: relative;">
+                <div class="icons d-none d-md-none d-lg-block" style="position: relative">
                     <form class="form-inline my-2 my-lg-0">
-                        <div style="position: relative;">
-                            <input class="form-control" type="search" placeholder="Pesquisar" aria-label="Pesquisar"
-                                style="padding-right: 32px; width: 220px;">
-                            <span
-                                style="position: absolute; top: 50%; right: 8px; transform: translateY(-50%); pointer-events: none;">
-                                <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px;"></i>
-                            </span>
+                        <div style="position: relative">
+                            <input id="inputBusca" class="form-control" type="search" placeholder="Pesquisar..."
+                                autocomplete="off" style="width: 220px">
+                            <button id="btnBuscar" type="button"
+                                style="position: absolute; top: 50%; right: 1px; transform: translateY(-50%); border: none; background: transparent; cursor: pointer">
+                                <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px"></i>
+                            </button>
+                        </div>
+                        <div id="listaSugestoes"
+                            style="display: none; position: absolute; background: white; border: 1px solid #ddd; border-radius: 8px; margin-top: 5px; width: 220px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 1000;">
                         </div>
                     </form>
                 </div>
                 <!-- fim barra de pesquisa -->
 
                 <!-- icon carrinho -->
-                <div class="d-none d-md-none d-lg-block" style="position: relative; cursor: pointer;" data-bs-toggle="modal"
-                    data-bs-target="#modalCarrinho">
+                <div class="d-none d-md-none d-lg-block" style="position: relative; cursor: pointer;"
+                    data-bs-toggle="modal" data-bs-target="#modalCarrinho">
                     <i class="fa-solid fa-cart-shopping mx-4 fs-5" style="color: #eb1d27;"></i>
                     <span id="cartBadge"
                         class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
@@ -182,7 +185,7 @@
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                         <p class="text-#5E5E5E text-center m-0 fs-3">
-                                           <strong>Visão</strong>
+                                            <strong>Visão</strong>
                                         </p>
                                     </button>
                                 </h2>
@@ -206,7 +209,7 @@
                                         data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
                                         aria-controls="collapseTwo">
                                         <p class="text-#5E5E5E text-center m-0 fs-3">
-                                           <strong>Missão</strong>
+                                            <strong>Missão</strong>
                                         </p>
                                     </button>
                                 </h2>
@@ -231,7 +234,7 @@
                                         data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
                                         aria-controls="collapseThree">
                                         <p class="text-#5E5E5E text-center m-0 fs-3">
-                                           <strong>Valores</strong>
+                                            <strong>Valores</strong>
                                         </p>
                                     </button>
                                 </h2>
@@ -332,6 +335,97 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+
+     <!-- busca -->
+  <script src="js/busca.js"></script>
+  <script src="js/busca-cardapio.js"></script>
+  <script>
+    // Importa as funções úteis do arquivo busca-cardapio.js
+    const U = window.CardapioUtils;
+
+    // Carrega os dados do cardápio (espera que exista uma variável global CARDAPIO)
+    const data = Array.isArray(window.CARDAPIO) ? window.CARDAPIO : [];
+
+    // Função que redireciona o usuário para a página do cardápio
+    // Se houver uma busca (q), adiciona como parâmetro na URL
+    function goToCardapio(q) {
+      const url = new URL('cardapio.html', location.href);
+      if (q) url.searchParams.set('q', q); // Adiciona ?q=pizza (por exemplo)
+      location.href = url.toString(); // Redireciona para a nova página
+    }
+
+    // Função principal que conecta os elementos HTML com as funcionalidades
+    function bind() {
+      // Busca os elementos no DOM
+      const input = document.getElementById('inputBusca'); // Campo de texto
+      const btn = document.getElementById('btnBuscar'); // Botão de buscar
+      const box = document.getElementById('listaSugestoes'); // Caixa de sugestões
+
+      // Se algum elemento não existir, para a execução
+      if (!input || !btn || !box) return;
+
+      // Função que atualiza a lista de sugestões enquanto o usuário digita
+      function updateSuggestions() {
+        // Chama a função que gera até 8 sugestões baseadas no que foi digitado
+        const suggestions = U.makeSuggestions(data, input.value, 8);
+
+        box.innerHTML = ''; // Limpa a caixa de sugestões
+
+        // Mostra ou esconde a caixa dependendo se há sugestões
+        box.style.display = suggestions.length ? 'block' : 'none';
+
+        // Cria um elemento para cada sugestão
+        suggestions.forEach(text => {
+          const div = document.createElement('div');
+          div.className = 'typeahead-item'; // Classe CSS para estilização
+          div.tabIndex = 0; // Permite navegação por teclado
+          div.setAttribute('role', 'option'); // Acessibilidade
+          div.textContent = text; // Texto da sugestão
+
+          // Ao clicar na sugestão, redireciona com ela preenchida
+          div.addEventListener('click', () => goToCardapio(text));
+
+          // Permite pressionar Enter na sugestão selecionada
+          div.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') goToCardapio(text);
+          });
+
+          box.appendChild(div); // Adiciona a sugestão na caixa
+        });
+      }
+
+      // Atualiza sugestões sempre que o usuário digitar algo
+      input.addEventListener('input', updateSuggestions);
+
+      // Eventos do teclado no campo de busca
+      input.addEventListener('keydown', (e) => {
+        // Se pressionar Enter, busca o que está digitado
+        if (e.key === 'Enter') {
+          e.preventDefault(); // Evita comportamento padrão do formulário
+          goToCardapio(input.value.trim());
+        }
+        // Se pressionar Esc, esconde a caixa de sugestões
+        if (e.key === 'Escape') {
+          box.style.display = 'none';
+        }
+      });
+
+      // Ao clicar no botão de buscar, redireciona com o texto digitado
+      btn.addEventListener('click', () => goToCardapio(input.value.trim()));
+
+      // Se a URL já vier com parâmetro ?q=alguma_coisa, redireciona automaticamente
+      // Útil para links diretos ou compartilhamento
+      const init = U.readQueryParam('q');
+      if (init) {
+        goToCardapio(init);
+      }
+    }
+
+    // Aguarda o carregamento completo da página antes de executar
+    // Garante que todos os elementos HTML estejam disponíveis
+    document.addEventListener('DOMContentLoaded', bind);
+  </script>
+  <!-- fim do script -->
 </body>
 
 </html>

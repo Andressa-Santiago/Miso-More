@@ -95,6 +95,8 @@ nav a.active {
   font-weight: 300;
 }
 
+
+
 /*main*/
 .main-menu-container {
   padding: 30px 50px; 
@@ -147,8 +149,19 @@ nav a.active {
 
 .filter-actions .btn-primary {
     margin-left: auto;
+    background-color: #e63946;
+    border: none;
 }
 
+.form-check-input:checked{
+    background-color: #e63946;
+    border-color: #e63946;
+}
+
+.btn-primary{
+  background-color: #e63946;
+  border: none;
+}
 /* Cards */
 
 .card {

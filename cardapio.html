@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
+ 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cardápio</title>
-
+ 
   <!-- Logo -->
   <link rel="shortcut icon" href="img_/hashi.png" type="image/x-icon">
-
+ 
   <!-- BOOTSTRAP CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
+ 
   <!-- link css -->
   <link rel="stylesheet" href="css/cardapio.css">
   <link rel="stylesheet" href="css/busca.css">
-
+ 
   <link rel="shortcut icon" href="." type="image/x-icon">
-
+ 
   <!-- FONT AWESOME -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+ 
   <!-- GOOGLE FONTS -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap%22
     rel="stylesheet">
 </head>
-
+ 
 <body>
-
+ 
   <!-- menu -->
   <header>
     <nav class="navbar navbar-expand-lg w-100">
@@ -37,11 +37,11 @@
         <div class="logo" id="topo">
           <img src="img_/logoMiso.png" alt="Miso & More Logo" loading="lazy" decoding="async">
         </div>
-
+ 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
         </button>
-
+ 
         <div class="collapse navbar-collapse justify-content-center text-center p-1" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item"><a href="index.html" class="nav-link text-white">Home</a></li>
@@ -52,7 +52,7 @@
             <li class="nav-item"><a href="galeria.html" class="nav-link text-white">Galeria</a></li>
           </ul>
         </div>
-
+ 
         <!-- barra de pesquisa -->
         <div class="icons d-none d-md-none d-lg-block" style="position: relative">
           <form class="form-inline my-2 my-lg-0">
@@ -70,7 +70,7 @@
           </form>
         </div>
         <!-- fim barra de pesquisa -->
-
+ 
         <!-- icon carrinho -->
         <div class="d-none d-md-none d-lg-block" style="position: relative; cursor: pointer;" data-bs-toggle="modal"
           data-bs-target="#modalCarrinho">
@@ -79,10 +79,10 @@
             style="display: none;">
             0
           </span>
-
-          <!-- Modal Carrinho -->
+        </div>
+        <!-- Modal Carrinho -->
           <div class="modal fade" id="modalCarrinho" tabindex="-1" aria-labelledby="modalCarrinhoLabel"
-            aria-hidden="true">
+            aria-hidden="true" data-bs-backdrop="static">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
@@ -90,7 +90,7 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="cartBody">
-                  <p class="text-center text-muted">Seu carrinho está vazio.</p>
+                 
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar Comprando</button>
@@ -100,7 +100,7 @@
               </div>
             </div>
           </div>
-
+ 
           <!-- Modal de Sucesso -->
           <div class="modal fade" id="modalSucesso" tabindex="-1" aria-labelledby="modalSucessoLabel" aria-hidden="true"
             data-bs-backdrop="static">
@@ -118,12 +118,11 @@
               </div>
             </div>
           </div>
-        </div>
         <!-- fim modal -->
       </div>
     </nav>
   </header>
-
+ 
   <section class="banner-cardapio">
     <img src="img_/banner.jpg" alt="Banner Cardápio Japonês" class="banner-img" loading="lazy" decoding="async">
       <div class="banner-texto">
@@ -131,26 +130,26 @@
       <p>Descubra os sabores da culinária japonesa preparados com excelência.</p>
     </div>
   </section>
-
+ 
   <main class="main-menu-container">
-
+ 
     <aside class="filter-sidebar">
       <button class="btn btn-outline-primary d-lg-none w-100 mb-2" data-bs-toggle="offcanvas"
         data-bs-target="#filtrosOff">Filtros</button>
-
+ 
       <div class="offcanvas-lg offcanvas-start" id="filtrosOff" tabindex="-1">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title">Filtros do Cardápio</h5>
           <button class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
-
+ 
         <div class="offcanvas-body">
           <form id="formFiltros" class="d-flex flex-column">
-
+ 
             <div class="mb-3">
               <h2>Filtros</h>
             </div>
-
+ 
             <fieldset class="mb-3">
               <legend class="fs-6">Categorias</legend>
               <div class="form-check"><input class="form-check-input gen" type="checkbox" value="A la carte"
@@ -164,7 +163,7 @@
               <div class="form-check"><input class="form-check-input gen" type="checkbox" value="Sobremesa" id="c-sob"
                   checked><label class="form-check-label" for="c-sob">Sobremesa</label></div>
             </fieldset>
-
+ 
             <fieldset class="mb-3">
               <legend class="fs-6">Serviços (AND)</legend>
               <div class="form-check"><input class="form-check-input svc" type="checkbox" value="Presencial"
@@ -174,7 +173,7 @@
               <div class="form-check"><input class="form-check-input svc" type="checkbox" value="Vegano" id="s4"><label
                   class="form-check-label" for="s4">Vegano</label></div>
             </fieldset>
-
+ 
             <fieldset class="mb-3">
               <legend class="fs-6">Preço (R$)</legend>
               <div class="row g-2 price-inputs">
@@ -182,7 +181,7 @@
                 <div class="col"><input id="max" type="number" class="form-control" placeholder="Máx. ex.: 150"></div>
               </div>
             </fieldset>
-
+ 
             <div class="mb-3">
               <label class="form-label">Ordenar</label>
               <select id="sort" class="form-select">
@@ -192,34 +191,34 @@
                 <option value="title-asc">Nome: A → Z</option>
               </select>
             </div>
-
+ 
             <div class="d-flex gap-2 mt-2 filter-actions">
               <button id="reset" class="btn btn-secondary" type="button">Limpar</button>
               <button class="btn btn-primary ms-auto" type="submit">Aplicar</button>
             </div>
-
+ 
           </form>
         </div>
       </div>
     </aside>
-
+ 
     <!-- sessão do card -->
     <section class="results-area">
-
+ 
       <div class="d-flex justify-content-between align-items-center mb-2">
         <span class="small text-muted">Resultados: <strong id="contagem">0</strong></span>
-
+ 
         <div class="btn-group btn-group-sm" role="group" aria-label="Alternar visualização">
           <input type="radio" class="btn-check" name="view" id="v-cards" checked>
           <label class="btn btn-outline-light" for="v-cards"><i class="fa-solid fa-border-all"></i> Cards</label>
-
+ 
           <input type="radio" class="btn-check" name="view" id="v-table">
           <label class="btn btn-outline-light" for="v-table"><i class="fa-solid fa-list"></i> Tabela</label>
         </div>
       </div>
-
+ 
       <div id="cards" class="row g-4"></div>
-
+ 
       <div id="tableWrap" class="table-responsive d-none mt-3">
         <table class="table table-borderless align-middle">
           <thead>
@@ -233,10 +232,10 @@
           <tbody id="tbody"></tbody>
         </table>
       </div>
-
+ 
     </section>
   </main>
-
+ 
   <!-- footer -->
   <footer class="footer">
     <div class="footer-container">
@@ -251,7 +250,7 @@
           <a href="#"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
-
+ 
       <div class="footer-col">
         <h3>Links Rápidos:</h3>
         <ul>
@@ -261,15 +260,15 @@
           <li><a href="contato.html">Contato</a></li>
         </ul>
       </div>
-
-
+ 
+ 
       <div class="footer-col">
         <h3>Contato</h3>
         <p><i class="fa-solid fa-location-dot"></i> Rua dos Sakuras, 123<br>Liberdade, São Paulo - SP</p>
         <p><i class="fa-solid fa-phone"></i> (11) 9999-9999</p>
         <p><i class="fa-solid fa-envelope"></i> contato@misoandmore.com.br</p>
       </div>
-
+ 
       <div class="footer-col">
         <h3><i class="fa-solid fa-clock"></i> Horário de Funcionamento</h3>
         <p>Seg - Qui: 11:00 - 23:00</p>
@@ -277,24 +276,24 @@
         <p>Domingo: 12:00 - 22:00</p>
       </div>
     </div>
-
+ 
     <div class="footer-bottom">
       <p>© 2024 Miso & More. Todos os direitos reservados.<br>Desenvolvido com ❤️ para amantes da culinária japonesa</p>
     </div>
   </footer>
-
-
+ 
+ 
   <!-- Bootstrap JS (uma versão só) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
-
+ 
   <!-- Seu JS (use o caminho correto e adicione defer para garantir que o DOM esteja pronto) -->
   <script defer src="js/cardapio.js"></script>
-
+ 
   <script src="js/busca.js"></script>
   <script src="js/busca-cardapio.js"></script>
-
+ 
 </body>
-
+ 
 </html>
