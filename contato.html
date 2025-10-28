@@ -40,34 +40,34 @@
                         <li class="nav-item"><a href="index.html" class="nav-link text-white">Home</a></li>
                         <li class="nav-item"><a href="cardapio.html" class="nav-link text-white">Cardápio</a></li>
                         <li class="nav-item"><a href="quemSomos.html" class="nav-link text-white">Quem somos</a></li>
-                        <li class="nav-item"><a href="contato.html" class="nav-link text-white"
-                                aria-current="page">Contato</a></li>
+                        <li class="nav-item"><a href="contato.html" class="nav-link text-white" aria-current="page">Contato</a></li>
                         <li class="nav-item"><a href="galeria.html" class="nav-link text-white">Galeria</a></li>
                     </ul>
                 </div>
 
+
                 <!-- barra de pesquisa -->
                 <div class="icons d-none d-md-none d-lg-block" style="position: relative">
-                    <form class="form-inline">
-                        <div style="position: relative">
+                    <form class="form-inline my-2 my-lg-0">
+                        <div style="position: relative; top: 6px;">
                             <input id="inputBusca" class="form-control" type="search" placeholder="Pesquisar..."
-                                autocomplete="off" style="width: 220px">
+                                autocomplete="off" style="width: 220px;">
                             <button id="btnBuscar" type="button"
-                                style="position: absolute; top: 50%; right: 1px; transform: translateY(-50%); border: none; background: transparent; cursor: pointer">
-                                <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px"></i>
+                                style="position: absolute; top: 50%; right:-17px; transform: translateY(-50%); border: none; background: transparent; cursor: pointer">
+                                <i class="fa-solid fa-magnifying-glass" style="color: #e63946; font-size: 22px;"></i>
                             </button>
                         </div>
                         <div id="listaSugestoes"
-                            style="display: none; position: absolute; background: white; border: 1px solid #ddd; border-radius: 8px; margin-top: 5px; width: 220px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 1000;">
+                            style="display: none; position: absolute; background: white; border: 1px solid #ddd; border-radius: 8px; margin-top: 5px; width: 220px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 1000; top: 100%;">
                         </div>
                     </form>
                 </div>
                 <!-- fim barra de pesquisa -->
 
                 <!-- icon carrinho -->
-                <div class="d-none d-md-none d-lg-block" style="position: relative; cursor: pointer;"
+                <div class="ms-auto" style="position: relative; cursor: pointer;"
                     data-bs-toggle="modal" data-bs-target="#modalCarrinho">
-                    <i class="fa-solid fa-cart-shopping mt-3 mx-3 fs-5" style="color: #eb1d27;"></i>
+                    <i class="fa-solid fa-cart-shopping fs-5 " style="color: #eb1d27;margin: 3px; margin-right: 25px;"></i>
                     <span id="cartBadge"
                         class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                         style="display: none;">
@@ -121,7 +121,8 @@
                 </div>
                 <!-- fim modal -->
             </div>
-        </nav>
+
+
     </header>
     <!-- fim menu -->
 
