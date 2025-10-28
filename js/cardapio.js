@@ -303,18 +303,28 @@ function clearCart() {
   saveCart(); // Isso já atualiza o localStorage e o badge
 }
 
+//btn finalizar compra
 document.getElementById('btnFinalizarCompra')?.addEventListener('click', () => {
   // Opcional: limpa o carrinho após "compra"
   clearCart();
 
   // Fecha o modal do carrinho
-  const cartModal = bootstrap.Modal.getInstance(document.getElementById('modalCarrinho'));
-  if (cartModal) cartModal.hide();
+  const modalPagamento = bootstrap.Modal.getInstance(document.getElementById('modalPagamento'));
+  if (modalPagamento) modalPagamento.hide();
 
   // Abre o modal de sucesso
   const successModal = new bootstrap.Modal(document.getElementById('modalSucesso'));
   successModal.show();
 });
+
+document.getElementById('btnPagamento').addEventListener('click', () => {
+  const cartModal = bootstrap.Modal.getInstance(document.getElementById('modalCarrinho'));
+  if (cartModal) cartModal.hide();
+
+  const modalPagamento = new bootstrap.Modal(document.getElementById('modalPagamento'));
+  modalPagamento.show();
+})
+
 
 // =============== EXPOSIÇÃO GLOBAL ===============
 window.addToCart = addToCart;
