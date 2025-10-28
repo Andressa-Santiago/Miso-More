@@ -89,7 +89,7 @@ function showCartModal() {
     const subtotal = item.price * item.quantity;
     total += subtotal;
     html += `
-      <div class="cart-item d-flex align-items-center mb-3 pb-3 border-bottom">
+      <div class="cart-item d-flex align-items-center mb-3 pb-3 border-bottom" style="background: #ffe6e6; border-radius: 15px; padding: 12px;">
         <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
         <div class="flex-grow-1 ms-3">
           <h6 class="mb-1">${item.name}</h6>
@@ -297,7 +297,25 @@ document.addEventListener('DOMContentLoaded', () => {
  
   filtrar(queryFromUrl || '');
 });
- 
+
+function clearCart() {
+  cart = [];
+  saveCart(); // Isso já atualiza o localStorage e o badge
+}
+
+document.getElementById('btnFinalizarCompra')?.addEventListener('click', () => {
+  // Opcional: limpa o carrinho após "compra"
+  clearCart();
+
+  // Fecha o modal do carrinho
+  const cartModal = bootstrap.Modal.getInstance(document.getElementById('modalCarrinho'));
+  if (cartModal) cartModal.hide();
+
+  // Abre o modal de sucesso
+  const successModal = new bootstrap.Modal(document.getElementById('modalSucesso'));
+  successModal.show();
+});
+
 // =============== EXPOSIÇÃO GLOBAL ===============
 window.addToCart = addToCart;
 window.changeQuantity = changeQuantity;
