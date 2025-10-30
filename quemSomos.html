@@ -33,10 +33,22 @@
                     <img src="img_/logoMiso.png" alt="Miso & More Logo" loading="lazy" decoding="async">
                 </div>
 
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav">
-                    <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
-                </button>
+                <div class="d-flex align-items-center">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <i class="fa-solid fa-bars" style="color: #ffffff;"></i>
+                    </button>
+
+                    <!-- icon carrinho do mobile-->
+                    <div class="d-block d-md-block d-lg-none" style="position: relative; cursor: pointer;"
+                        data-bs-toggle="modal" data-bs-target="#modalCarrinho">
+                        <i class="fa-solid fa-cart-shopping mx-3 fs-6" style="color: #eb1d27;"></i>
+                        <span id="mobileCartBadge"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            style="display: none;">
+                            0
+                        </span>
+                    </div>
+                </div>
 
                 <div class="collapse navbar-collapse justify-content-center text-center p-1" id="navbarNav">
                     <ul class="navbar-nav">
@@ -151,21 +163,26 @@
                         <div class="texto-content">
                             <h2>Sobre Nós</h2>
                             <p>
-                                Bem-vindo ao Miso & More, seu novo destino para uma experiência autêntica e deliciosa da culinária japonesa.
-                                Somos um restaurante recém-inaugurado, que nasceu do amor pela gastronomia japonesa tradicional e da vontade
+                                Bem-vindo ao Miso & More, seu novo destino para uma experiência autêntica e deliciosa da
+                                culinária japonesa.
+                                Somos um restaurante recém-inaugurado, que nasceu do amor pela gastronomia japonesa
+                                tradicional e da vontade
                                 de trazer sabores frescos e personalizados até a sua casa.
                             </p>
                             <p>
-                            Por meio do nosso delivery, queremos proporcionar não apenas refeições, mas momentos de prazer e conexão com a
-                            cultura japonesa. Nossa plataforma foi cuidadosamente projetada para que você possa explorar um cardápio
-                            visualmente atraente e personalizável, com um processo de pedido simplificado e intuitivo, facilitando a sua
-                            escolha e reduzindo qualquer esforço durante a finalização da compra.
+                                Por meio do nosso delivery, queremos proporcionar não apenas refeições, mas momentos de
+                                prazer e conexão com a
+                                cultura japonesa. Nossa plataforma foi cuidadosamente projetada para que você possa
+                                explorar um cardápio
+                                visualmente atraente e personalizável, com um processo de pedido simplificado e
+                                intuitivo, facilitando a sua
+                                escolha e reduzindo qualquer esforço durante a finalização da compra.
                             </p>
                         </div>
                     </div>
-            </div>
+                </div>
         </section>
-            <!-- seção de missão e valores -->
+        <!-- seção de missão e valores -->
         <section id="missaoValores" class="my-4">
             <!-- container -->
             <div class="container" style="max-width: 900px;">
@@ -183,7 +200,7 @@
                                             <strong>Visão</strong>
 
                                         <p class="text-#f6f6f6 text-center m-0 fs-3">
-                                           <strong>Visão</strong>
+                                            <strong>Visão</strong>
 
                                         </p>
                                     </button>
@@ -238,7 +255,7 @@
 
                                         <p class="text-#f6f6f6
                                          text-center m-0 fs-3">
-                                           <strong>Valores</strong>
+                                            <strong>Valores</strong>
 
                                         </p>
                                     </button>
@@ -342,96 +359,96 @@
         crossorigin="anonymous"></script>
     <script src="js/cardapio.js"></script>
 
-     <!-- busca -->
-  <script src="js/busca.js"></script>
-  <script src="js/busca-cardapio.js"></script>
-  <script>
-    // Importa as funções úteis do arquivo busca-cardapio.js
-    const U = window.CardapioUtils;
+    <!-- busca -->
+    <script src="js/busca.js"></script>
+    <script src="js/busca-cardapio.js"></script>
+    <script>
+        // Importa as funções úteis do arquivo busca-cardapio.js
+        const U = window.CardapioUtils;
 
-    // Carrega os dados do cardápio (espera que exista uma variável global CARDAPIO)
-    const data = Array.isArray(window.CARDAPIO) ? window.CARDAPIO : [];
+        // Carrega os dados do cardápio (espera que exista uma variável global CARDAPIO)
+        const data = Array.isArray(window.CARDAPIO) ? window.CARDAPIO : [];
 
-    // Função que redireciona o usuário para a página do cardápio
-    // Se houver uma busca (q), adiciona como parâmetro na URL
-    function goToCardapio(q) {
-      const url = new URL('cardapio.html', location.href);
-      if (q) url.searchParams.set('q', q); // Adiciona ?q=pizza (por exemplo)
-      location.href = url.toString(); // Redireciona para a nova página
-    }
-
-    // Função principal que conecta os elementos HTML com as funcionalidades
-    function bind() {
-      // Busca os elementos no DOM
-      const input = document.getElementById('inputBusca'); // Campo de texto
-      const btn = document.getElementById('btnBuscar'); // Botão de buscar
-      const box = document.getElementById('listaSugestoes'); // Caixa de sugestões
-
-      // Se algum elemento não existir, para a execução
-      if (!input || !btn || !box) return;
-
-      // Função que atualiza a lista de sugestões enquanto o usuário digita
-      function updateSuggestions() {
-        // Chama a função que gera até 8 sugestões baseadas no que foi digitado
-        const suggestions = U.makeSuggestions(data, input.value, 8);
-
-        box.innerHTML = ''; // Limpa a caixa de sugestões
-
-        // Mostra ou esconde a caixa dependendo se há sugestões
-        box.style.display = suggestions.length ? 'block' : 'none';
-
-        // Cria um elemento para cada sugestão
-        suggestions.forEach(text => {
-          const div = document.createElement('div');
-          div.className = 'typeahead-item'; // Classe CSS para estilização
-          div.tabIndex = 0; // Permite navegação por teclado
-          div.setAttribute('role', 'option'); // Acessibilidade
-          div.textContent = text; // Texto da sugestão
-
-          // Ao clicar na sugestão, redireciona com ela preenchida
-          div.addEventListener('click', () => goToCardapio(text));
-
-          // Permite pressionar Enter na sugestão selecionada
-          div.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') goToCardapio(text);
-          });
-
-          box.appendChild(div); // Adiciona a sugestão na caixa
-        });
-      }
-
-      // Atualiza sugestões sempre que o usuário digitar algo
-      input.addEventListener('input', updateSuggestions);
-
-      // Eventos do teclado no campo de busca
-      input.addEventListener('keydown', (e) => {
-        // Se pressionar Enter, busca o que está digitado
-        if (e.key === 'Enter') {
-          e.preventDefault(); // Evita comportamento padrão do formulário
-          goToCardapio(input.value.trim());
+        // Função que redireciona o usuário para a página do cardápio
+        // Se houver uma busca (q), adiciona como parâmetro na URL
+        function goToCardapio(q) {
+            const url = new URL('cardapio.html', location.href);
+            if (q) url.searchParams.set('q', q); // Adiciona ?q=pizza (por exemplo)
+            location.href = url.toString(); // Redireciona para a nova página
         }
-        // Se pressionar Esc, esconde a caixa de sugestões
-        if (e.key === 'Escape') {
-          box.style.display = 'none';
+
+        // Função principal que conecta os elementos HTML com as funcionalidades
+        function bind() {
+            // Busca os elementos no DOM
+            const input = document.getElementById('inputBusca'); // Campo de texto
+            const btn = document.getElementById('btnBuscar'); // Botão de buscar
+            const box = document.getElementById('listaSugestoes'); // Caixa de sugestões
+
+            // Se algum elemento não existir, para a execução
+            if (!input || !btn || !box) return;
+
+            // Função que atualiza a lista de sugestões enquanto o usuário digita
+            function updateSuggestions() {
+                // Chama a função que gera até 8 sugestões baseadas no que foi digitado
+                const suggestions = U.makeSuggestions(data, input.value, 8);
+
+                box.innerHTML = ''; // Limpa a caixa de sugestões
+
+                // Mostra ou esconde a caixa dependendo se há sugestões
+                box.style.display = suggestions.length ? 'block' : 'none';
+
+                // Cria um elemento para cada sugestão
+                suggestions.forEach(text => {
+                    const div = document.createElement('div');
+                    div.className = 'typeahead-item'; // Classe CSS para estilização
+                    div.tabIndex = 0; // Permite navegação por teclado
+                    div.setAttribute('role', 'option'); // Acessibilidade
+                    div.textContent = text; // Texto da sugestão
+
+                    // Ao clicar na sugestão, redireciona com ela preenchida
+                    div.addEventListener('click', () => goToCardapio(text));
+
+                    // Permite pressionar Enter na sugestão selecionada
+                    div.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') goToCardapio(text);
+                    });
+
+                    box.appendChild(div); // Adiciona a sugestão na caixa
+                });
+            }
+
+            // Atualiza sugestões sempre que o usuário digitar algo
+            input.addEventListener('input', updateSuggestions);
+
+            // Eventos do teclado no campo de busca
+            input.addEventListener('keydown', (e) => {
+                // Se pressionar Enter, busca o que está digitado
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // Evita comportamento padrão do formulário
+                    goToCardapio(input.value.trim());
+                }
+                // Se pressionar Esc, esconde a caixa de sugestões
+                if (e.key === 'Escape') {
+                    box.style.display = 'none';
+                }
+            });
+
+            // Ao clicar no botão de buscar, redireciona com o texto digitado
+            btn.addEventListener('click', () => goToCardapio(input.value.trim()));
+
+            // Se a URL já vier com parâmetro ?q=alguma_coisa, redireciona automaticamente
+            // Útil para links diretos ou compartilhamento
+            const init = U.readQueryParam('q');
+            if (init) {
+                goToCardapio(init);
+            }
         }
-      });
 
-      // Ao clicar no botão de buscar, redireciona com o texto digitado
-      btn.addEventListener('click', () => goToCardapio(input.value.trim()));
-
-      // Se a URL já vier com parâmetro ?q=alguma_coisa, redireciona automaticamente
-      // Útil para links diretos ou compartilhamento
-      const init = U.readQueryParam('q');
-      if (init) {
-        goToCardapio(init);
-      }
-    }
-
-    // Aguarda o carregamento completo da página antes de executar
-    // Garante que todos os elementos HTML estejam disponíveis
-    document.addEventListener('DOMContentLoaded', bind);
-  </script>
-  <!-- fim do script -->
+        // Aguarda o carregamento completo da página antes de executar
+        // Garante que todos os elementos HTML estejam disponíveis
+        document.addEventListener('DOMContentLoaded', bind);
+    </script>
+    <!-- fim do script -->
 </body>
 
 </html>

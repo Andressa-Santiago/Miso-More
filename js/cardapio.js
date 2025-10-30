@@ -70,11 +70,23 @@ function addToCart(productId) {
 }
  
 function updateCartBadge() {
+  // badge do desktop
   const badge = document.getElementById('cartBadge');
-  if (!badge) return;
+ 
+  //adição do badge do mobile
+  const mobileBadge = document.getElementById('mobileCartBadge');
+  if (!badge || !mobileBadge) return; // verifica se os elementos existem
+ 
+  //aqui ele faz a contagem dos itens do carrinho
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+ 
+  //com os itens do carrinhos contados, ele atribui para o conteudo html seu valor
   badge.textContent = totalItems;
+  mobileBadge.textContent = totalItems;
+ 
+  // se o total de itens do carrinho for maior que zero, faz o badge aparecer, caso ao contrario faz ele sumir
   badge.style.display = totalItems > 0 ? 'inline-block' : 'none';
+  mobileBadge.style.display = totalItems > 0 ? 'inline-block' : 'none';
 }
  
 function showCartModal() {

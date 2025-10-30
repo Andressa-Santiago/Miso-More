@@ -411,18 +411,6 @@ tbody td.text-end {
   }
 } /* ← fecha aqui corretamente */
 
-@media (max-width: 900px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 16px;
-    min-height: auto;
-  }
-
-  .logo img {
-    height: 60px;
-  }
-
   nav ul {
     gap: 18px;
   }
@@ -430,7 +418,6 @@ tbody td.text-end {
   .icons {
     margin-top: 8px;
   }
-}
 
 /* Responsivo */
 @media (max-width: 768px) {
