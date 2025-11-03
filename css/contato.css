@@ -10,7 +10,8 @@
 
 /* banner */
 .contato {
-  background: url('../img_/imgFundo.png') no-repeat center center/cover;
+  background: linear-gradient(rgba(0,0,0,0.1)), url('../img_/imgFundo.png') no-repeat center center/cover;
+  background-attachment: fixed; /* Efeito parallax */
   height: 300px;
   display: flex;
   align-items: center;
@@ -19,6 +20,7 @@
   text-align: center;
   margin-bottom: 40px;
 }
+
 
 .banner-content {
   max-width: 700px;
